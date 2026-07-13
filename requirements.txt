@@ -1,0 +1,6 @@
+pyaes
+colorlog
+openpyxl
+requests
+
+pyinstaller

@@ -1,0 +1,5586 @@
+# pydisasm version 6.3.0
+# CPython Python bytecode 3.13.0 (3571)
+#   Disassembled from CPython Python 3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]
+# Timestamp in code: 0 (1970-01-01 08:00:00)
+# Source code size mod 2**32: 0 bytes
+# Method Name:       <module>
+# Filename:          Ewt.py
+# Argument count:    0
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  0
+# Stack size:        11
+# Flags:             0x00000000 (0x0)
+# First Line:        1
+# Constants:
+#    0: 0
+#    1: None
+#    2: ('colored',)
+#    3: ('datetime', 'timedelta')
+#    4: <Code311 code object get_current_file_path at 0x1e439cd23c0, file Ewt.py>, line 22
+#    5: <Code311 code object get_bundle_dir at 0x1e43a1b7ad0, file Ewt.py>, line 29
+#    6: 'logPath'
+#    7: <Code311 code object InitLogger at 0x1e43a1b7f50, file Ewt.py>, line 36
+#    8: False
+#    9: 'level'
+#   10: 'outputToConsole'
+#   11: <Code311 code object WriteLog at 0x1e43a1e0380, file Ewt.py>, line 46
+#   12: <Code311 code object CalibrateDeviceTime at 0x1e43a1e0680, file Ewt.py>, line 70
+#   13: <Code311 code object AESCipher at 0x1e439d1a0c0, file Ewt.py>, line 92
+#   14: 'AESCipher'
+#   15: <Code311 code object Account at 0x1e43a1e1f10, file Ewt.py>, line 121
+#   16: 'Account'
+#   17: '__main__'
+#   18: ('', '', '985211')
+#   19: 'accounts.xlsx'
+#   20: (1000, 0)
+#   21: 2
+#   22: 30
+#   23: 'EwtLog.log'
+#   24: 1
+#   25: True
+#   26: ('min_row', 'max_row', 'values_only')
+#   27: '姓名'
+#   28: 'EWT账号'
+#   29: '密码'
+#   30: ('姓名', 'EWT账号', '密码')
+#   31: ('min_row', 'values_only')
+#   32: ('target',)
+#   33: 20
+#   34: '总循环数量：'
+#   35: '，实际运行中的账号数量：'
+#   36: <Code311 code object <genexpr> at 0x1e43a1e27b0, file Ewt.py>, line 743
+#   37: 'debug'
+#   38: ('info', False)
+# Names:
+#    0: os
+#    1: sys
+#    2: json
+#    3: time
+#    4: hmac
+#    5: math
+#    6: random
+#    7: string
+#    8: openpyxl
+#    9: hashlib
+#   10: logging
+#   11: requests
+#   12: threading
+#   13: unicodedata
+#   14: binascii
+#   15: termcolor
+#   16: colored
+#   17: pyaes
+#   18: datetime
+#   19: timedelta
+#   20: Lock
+#   21: logger_lock
+#   22: get_current_file_path
+#   23: get_bundle_dir
+#   24: str
+#   25: InitLogger
+#   26: bool
+#   27: WriteLog
+#   28: CalibrateDeviceTime
+#   29: AESCipher
+#   30: Account
+#   31: __name__
+#   32: singleAccountMode
+#   33: userName
+#   34: account
+#   35: password
+#   36: excelPath
+#   37: maxAccounts
+#   38: accountRunFrequency
+#   39: subjectFilter
+#   40: speed
+#   41: taskAdvanceDay
+#   42: logPath
+#   43: logger
+#   44: runAccount
+#   45: threads
+#   46: load_workbook
+#   47: path
+#   48: join
+#   49: wb
+#   50: active
+#   51: ws
+#   52: next
+#   53: iter_rows
+#   54: header_row
+#   55: index
+#   56: column_mapping
+#   57: row_count
+#   58: row
+#   59: Thread
+#   60: thread
+#   61: start
+#   62: append
+#   63: sleep
+#   64: close
+#   65: sum
+
+  0:           0 RESUME               0
+
+  1:           2 LOAD_CONST           (0)
+               4 LOAD_CONST           (None)
+               6 IMPORT_NAME          (os)
+               8 STORE_NAME           (os)
+
+  2:          10 LOAD_CONST           (0)
+              12 LOAD_CONST           (None)
+              14 IMPORT_NAME          (sys)
+              16 STORE_NAME           (sys)
+
+  3:          18 LOAD_CONST           (0)
+              20 LOAD_CONST           (None)
+              22 IMPORT_NAME          (json)
+              24 STORE_NAME           (json)
+
+  4:          26 LOAD_CONST           (0)
+              28 LOAD_CONST           (None)
+              30 IMPORT_NAME          (time)
+              32 STORE_NAME           (time)
+
+  5:          34 LOAD_CONST           (0)
+              36 LOAD_CONST           (None)
+              38 IMPORT_NAME          (hmac)
+              40 STORE_NAME           (hmac)
+
+  6:          42 LOAD_CONST           (0)
+              44 LOAD_CONST           (None)
+              46 IMPORT_NAME          (math)
+              48 STORE_NAME           (math)
+
+  7:          50 LOAD_CONST           (0)
+              52 LOAD_CONST           (None)
+              54 IMPORT_NAME          (random)
+              56 STORE_NAME           (random)
+
+  8:          58 LOAD_CONST           (0)
+              60 LOAD_CONST           (None)
+              62 IMPORT_NAME          (string)
+              64 STORE_NAME           (string)
+
+  9:          66 LOAD_CONST           (0)
+              68 LOAD_CONST           (None)
+              70 IMPORT_NAME          (openpyxl)
+              72 STORE_NAME           (openpyxl)
+
+ 10:          74 LOAD_CONST           (0)
+              76 LOAD_CONST           (None)
+              78 IMPORT_NAME          (hashlib)
+              80 STORE_NAME           (hashlib)
+
+ 11:          82 LOAD_CONST           (0)
+              84 LOAD_CONST           (None)
+              86 IMPORT_NAME          (logging)
+              88 STORE_NAME           (logging)
+
+ 12:          90 LOAD_CONST           (0)
+              92 LOAD_CONST           (None)
+              94 IMPORT_NAME          (requests)
+              96 STORE_NAME           (requests)
+
+ 13:          98 LOAD_CONST           (0)
+             100 LOAD_CONST           (None)
+             102 IMPORT_NAME          (threading)
+             104 STORE_NAME           (threading)
+
+ 14:         106 LOAD_CONST           (0)
+             108 LOAD_CONST           (None)
+             110 IMPORT_NAME          (unicodedata)
+             112 STORE_NAME           (unicodedata)
+
+ 15:         114 LOAD_CONST           (0)
+             116 LOAD_CONST           (None)
+             118 IMPORT_NAME          (binascii)
+             120 STORE_NAME           (binascii)
+
+ 16:         122 LOAD_CONST           (0)
+             124 LOAD_CONST           (('colored',))
+             126 IMPORT_NAME          (termcolor)
+             128 IMPORT_FROM          (colored)
+             130 STORE_NAME           (colored)
+             132 POP_TOP
+
+ 17:         134 LOAD_CONST           (0)
+             136 LOAD_CONST           (None)
+             138 IMPORT_NAME          (pyaes)
+             140 STORE_NAME           (pyaes)
+
+ 18:         142 LOAD_CONST           (0)
+             144 LOAD_CONST           (('datetime', 'timedelta'))
+             146 IMPORT_NAME          (datetime)
+             148 IMPORT_FROM          (datetime)
+             150 STORE_NAME           (datetime)
+             152 IMPORT_FROM          (timedelta)
+             154 STORE_NAME           (timedelta)
+             156 POP_TOP
+
+ 19:         158 LOAD_NAME            (threading)
+             160 LOAD_ATTR            (Lock)
+             180 PUSH_NULL
+             182 CALL                 (0 positional)
+             190 STORE_NAME           (logger_lock)
+
+ 22:         192 LOAD_CONST           (<Code311 code object get_current_file_path at 0x1e439cd23c0, file Ewt.py>, line 22)
+             194 MAKE_FUNCTION
+             196 STORE_NAME           (get_current_file_path)
+
+ 29:         198 LOAD_CONST           (<Code311 code object get_bundle_dir at 0x1e43a1b7ad0, file Ewt.py>, line 29)
+             200 MAKE_FUNCTION
+             202 STORE_NAME           (get_bundle_dir)
+
+ 36:         204 LOAD_CONST           ("logPath")
+             206 LOAD_NAME            (str)
+             208 BUILD_TUPLE          2
+             210 LOAD_CONST           (<Code311 code object InitLogger at 0x1e43a1b7f50, file Ewt.py>, line 36)
+             212 MAKE_FUNCTION
+             214 SET_FUNCTION_ATTRIBUTE 4
+             216 STORE_NAME           (InitLogger)
+
+ 46:         218 LOAD_CONST           (('info', False))
+             220 LOAD_CONST           ("level")
+             222 LOAD_NAME            (str)
+             224 LOAD_CONST           ("outputToConsole")
+             226 LOAD_NAME            (bool)
+             228 BUILD_TUPLE          4
+             230 LOAD_CONST           (<Code311 code object WriteLog at 0x1e43a1e0380, file Ewt.py>, line 46)
+             232 MAKE_FUNCTION
+             234 SET_FUNCTION_ATTRIBUTE 4
+             236 SET_FUNCTION_ATTRIBUTE 1
+             238 STORE_NAME           (WriteLog)
+
+ 70:         240 LOAD_CONST           (<Code311 code object CalibrateDeviceTime at 0x1e43a1e0680, file Ewt.py>, line 70)
+             242 MAKE_FUNCTION
+             244 STORE_NAME           (CalibrateDeviceTime)
+
+ 92:         246 LOAD_BUILD_CLASS
+             248 PUSH_NULL
+             250 LOAD_CONST           (<Code311 code object AESCipher at 0x1e439d1a0c0, file Ewt.py>, line 92)
+             252 MAKE_FUNCTION
+             254 LOAD_CONST           ("AESCipher")
+             256 CALL                 (2 positional)
+             264 STORE_NAME           (AESCipher)
+
+121:         266 LOAD_BUILD_CLASS
+             268 PUSH_NULL
+             270 LOAD_CONST           (<Code311 code object Account at 0x1e43a1e1f10, file Ewt.py>, line 121)
+             272 MAKE_FUNCTION
+             274 LOAD_CONST           ("Account")
+             276 CALL                 (2 positional)
+             284 STORE_NAME           (Account)
+
+670:         286 LOAD_NAME            (__name__)
+             288 LOAD_CONST           ("__main__")
+             290 COMPARE_OP           (==)
+             294 EXTENDED_ARG         (256)
+             296 POP_JUMP_IF_FALSE    (to 1228)
+
+672:         300 LOAD_CONST           (False)
+             302 STORE_NAME           (singleAccountMode)
+
+673:         304 LOAD_NAME            (singleAccountMode)
+             306 TO_BOOL
+             314 POP_JUMP_IF_FALSE    (to 330)
+
+675:         318 LOAD_CONST           (('', '', '985211'))
+             320 UNPACK_SEQUENCE      3
+             324 STORE_NAME           (userName)
+             326 STORE_NAME           (account)
+             328 STORE_NAME           (password)
+
+677:     >>  330 LOAD_CONST           ("accounts.xlsx")
+             332 STORE_NAME           (excelPath)
+
+678:         334 LOAD_CONST           ((1000, 0))
+             336 UNPACK_SEQUENCE      2
+             340 STORE_NAME           (maxAccounts)
+             342 STORE_NAME           (accountRunFrequency)
+
+681:         344 BUILD_LIST           0
+             346 STORE_NAME           (subjectFilter)
+
+683:         348 LOAD_CONST           (2)
+             350 STORE_NAME           (speed)
+
+685:         352 LOAD_CONST           (30)
+             354 STORE_NAME           (taskAdvanceDay)
+
+688:         356 LOAD_CONST           ("EwtLog.log")
+             358 STORE_NAME           (logPath)
+
+689:         360 LOAD_NAME            (InitLogger)
+             362 PUSH_NULL
+             364 LOAD_NAME            (logPath)
+             366 CALL                 (1 positional)
+             374 STORE_NAME           (logger)
+
+693:         376 LOAD_NAME            (singleAccountMode)
+             378 TO_BOOL
+             386 POP_JUMP_IF_FALSE    (to 446)
+
+694:         390 LOAD_NAME            (Account)
+             392 PUSH_NULL
+             394 LOAD_NAME            (userName)
+             396 LOAD_NAME            (account)
+             398 LOAD_NAME            (password)
+             400 LOAD_NAME            (taskAdvanceDay)
+
+695:         402 LOAD_NAME            (subjectFilter)
+             404 LOAD_NAME            (speed)
+
+694:         406 CALL                 (6 positional)
+
+695:         414 LOAD_ATTR            (NULL|self + runAccount)
+             434 CALL                 (0 positional)
+             442 POP_TOP
+             444 RETURN_CONST         (None)
+
+697:     >>  446 BUILD_LIST           0
+             448 STORE_NAME           (threads)
+
+711:         450 LOAD_NAME            (openpyxl)
+             452 LOAD_ATTR            (load_workbook)
+             472 PUSH_NULL
+             474 LOAD_NAME            (os)
+             476 LOAD_ATTR            (path)
+             496 LOAD_ATTR            (NULL|self + join)
+             516 LOAD_NAME            (get_bundle_dir)
+             518 PUSH_NULL
+             520 CALL                 (0 positional)
+             528 LOAD_NAME            (excelPath)
+             530 CALL                 (2 positional)
+             538 CALL                 (1 positional)
+             546 STORE_NAME           (wb)
+
+712:         548 LOAD_NAME            (wb)
+             550 LOAD_ATTR            (active)
+             570 STORE_NAME           (ws)
+
+715:         572 LOAD_NAME            (next)
+             574 PUSH_NULL
+             576 LOAD_NAME            (ws)
+             578 LOAD_ATTR            (NULL|self + iter_rows)
+             598 LOAD_CONST           (1)
+             600 LOAD_CONST           (1)
+             602 LOAD_CONST           (True)
+             604 LOAD_CONST           (('min_row', 'max_row', 'values_only'))
+             606 CALL_KW              3
+             608 CALL                 (1 positional)
+             616 STORE_NAME           (header_row)
+
+717:         618 LOAD_NAME            (header_row)
+             620 LOAD_ATTR            (NULL|self + index)
+             640 LOAD_CONST           ("姓名")
+             642 CALL                 (1 positional)
+
+718:         650 LOAD_NAME            (header_row)
+             652 LOAD_ATTR            (NULL|self + index)
+             672 LOAD_CONST           ("EWT账号")
+             674 CALL                 (1 positional)
+
+719:         682 LOAD_NAME            (header_row)
+             684 LOAD_ATTR            (NULL|self + index)
+             704 LOAD_CONST           ("密码")
+             706 CALL                 (1 positional)
+
+716:         714 LOAD_CONST           (('姓名', 'EWT账号', '密码'))
+             716 BUILD_CONST_KEY_MAP  3
+             718 STORE_NAME           (column_mapping)
+
+723:         720 LOAD_CONST           (0)
+             722 STORE_NAME           (row_count)
+
+724:         724 LOAD_NAME            (ws)
+             726 LOAD_ATTR            (NULL|self + iter_rows)
+             746 LOAD_CONST           (2)
+             748 LOAD_CONST           (True)
+             750 LOAD_CONST           (('min_row', 'values_only'))
+             752 CALL_KW              2
+             754 GET_ITER
+             756 FOR_ITER             (to 1040)
+             760 STORE_NAME           (row)
+
+725:         762 LOAD_NAME            (row_count)
+             764 LOAD_NAME            (maxAccounts)
+             766 COMPARE_OP           (>=)
+             770 POP_JUMP_IF_FALSE    (to 778)
+
+726:         774 POP_TOP
+             776 JUMP_FORWARD         (to 1044)
+
+728:     >>  778 LOAD_NAME            (row)
+             780 LOAD_NAME            (column_mapping)
+             782 LOAD_CONST           ("姓名")
+             784 BINARY_SUBSCR
+             788 BINARY_SUBSCR
+             792 STORE_NAME           (userName)
+
+729:         794 LOAD_NAME            (str)
+             796 PUSH_NULL
+             798 LOAD_NAME            (row)
+             800 LOAD_NAME            (column_mapping)
+             802 LOAD_CONST           ("EWT账号")
+             804 BINARY_SUBSCR
+             808 BINARY_SUBSCR
+             812 CALL                 (1 positional)
+             820 STORE_NAME           (account)
+
+730:         822 LOAD_NAME            (str)
+             824 PUSH_NULL
+             826 LOAD_NAME            (row)
+             828 LOAD_NAME            (column_mapping)
+             830 LOAD_CONST           ("密码")
+             832 BINARY_SUBSCR
+             836 BINARY_SUBSCR
+             840 CALL                 (1 positional)
+             848 STORE_NAME           (password)
+
+733:         850 LOAD_NAME            (threading)
+             852 LOAD_ATTR            (Thread)
+             872 PUSH_NULL
+             874 LOAD_NAME            (Account)
+             876 PUSH_NULL
+
+734:         878 LOAD_NAME            (userName)
+             880 LOAD_NAME            (account)
+             882 LOAD_NAME            (password)
+             884 LOAD_NAME            (taskAdvanceDay)
+             886 LOAD_NAME            (subjectFilter)
+             888 LOAD_NAME            (speed)
+
+733:         890 CALL                 (6 positional)
+
+734:         898 LOAD_ATTR            (runAccount)
+
+733:         918 LOAD_CONST           (('target',))
+             920 CALL_KW              1
+             922 STORE_NAME           (thread)
+
+735:         924 LOAD_NAME            (thread)
+             926 LOAD_ATTR            (NULL|self + start)
+             946 CALL                 (0 positional)
+             954 POP_TOP
+
+736:         956 LOAD_NAME            (threads)
+             958 LOAD_ATTR            (NULL|self + append)
+             978 LOAD_NAME            (thread)
+             980 CALL                 (1 positional)
+             988 POP_TOP
+
+737:         990 LOAD_NAME            (row_count)
+             992 LOAD_CONST           (1)
+             994 BINARY_OP            (+=)
+             998 STORE_NAME           (row_count)
+
+738:        1000 LOAD_NAME            (time)
+            1002 LOAD_ATTR            (sleep)
+            1022 PUSH_NULL
+            1024 LOAD_NAME            (accountRunFrequency)
+            1026 CALL                 (1 positional)
+            1034 POP_TOP
+            1036 JUMP_BACKWARD        (to 756)
+
+724:     >> 1040 END_FOR
+            1042 POP_TOP
+
+740:     >> 1044 LOAD_NAME            (wb)
+            1046 LOAD_ATTR            (NULL|self + close)
+            1066 CALL                 (0 positional)
+            1074 POP_TOP
+
+742:        1076 LOAD_NAME            (time)
+            1078 LOAD_ATTR            (sleep)
+            1098 PUSH_NULL
+            1100 LOAD_NAME            (accountRunFrequency)
+            1102 LOAD_CONST           (20)
+            1104 BINARY_OP            (+)
+            1108 CALL                 (1 positional)
+            1116 POP_TOP
+
+743:        1118 LOAD_NAME            (WriteLog)
+            1120 PUSH_NULL
+            1122 LOAD_CONST           ("总循环数量：")
+            1124 LOAD_NAME            (row_count)
+            1126 FORMAT_SIMPLE
+            1128 LOAD_CONST           ("，实际运行中的账号数量：")
+            1130 LOAD_NAME            (sum)
+            1132 PUSH_NULL
+            1134 LOAD_CONST           (<Code311 code object <genexpr> at 0x1e43a1e27b0, file Ewt.py>, line 743)
+            1136 MAKE_FUNCTION
+            1138 LOAD_NAME            (threads)
+            1140 GET_ITER
+            1142 CALL                 (0 positional)
+            1150 CALL                 (1 positional)
+            1158 FORMAT_SIMPLE
+            1160 BUILD_STRING         4
+
+744:        1162 LOAD_CONST           ("debug")
+            1164 LOAD_CONST           (True)
+
+743:        1166 CALL                 (3 positional)
+            1174 POP_TOP
+
+746:        1176 LOAD_NAME            (threads)
+            1178 GET_ITER
+            1180 FOR_ITER             (to 1222)
+            1184 STORE_NAME           (thread)
+
+747:        1186 LOAD_NAME            (thread)
+            1188 LOAD_ATTR            (NULL|self + join)
+            1208 CALL                 (0 positional)
+            1216 POP_TOP
+            1218 JUMP_BACKWARD        (to 1180)
+
+746:     >> 1222 END_FOR
+            1224 POP_TOP
+            1226 RETURN_CONST         (None)
+
+670:     >> 1228 RETURN_CONST         (None)
+
+
+# Method Name:       get_current_file_path
+# Filename:          Ewt.py
+# Argument count:    0
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  1
+# Stack size:        5
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        22
+# Constants:
+#    0: '获取当前程序运行路径'
+#    1: 'frozen'
+#    2: False
+# Names:
+#    0: getattr
+#    1: sys
+#    2: executable
+#    3: __file__
+# Varnames:
+#	current_file_path
+# Local variables:
+#    0: current_file_path
+
+ 22:           0 RESUME               0
+
+ 24:           2 LOAD_GLOBAL          (NULL + getattr)
+
+ 25:          12 LOAD_GLOBAL          (sys)
+              22 LOAD_CONST           ("frozen")
+              24 LOAD_CONST           (False)
+
+ 24:          26 CALL                 (3 positional)
+              34 TO_BOOL
+              42 POP_JUMP_IF_FALSE    (to 82)
+              46 LOAD_GLOBAL          (sys)
+              56 LOAD_ATTR            (executable)
+              76 STORE_FAST           (current_file_path)
+
+ 26:          78 LOAD_FAST            (current_file_path)
+              80 RETURN_VALUE
+
+ 25:     >>   82 LOAD_GLOBAL          (__file__)
+
+ 24:          92 STORE_FAST           (current_file_path)
+
+ 26:          94 LOAD_FAST            (current_file_path)
+              96 RETURN_VALUE
+
+
+# Method Name:       get_bundle_dir
+# Filename:          Ewt.py
+# Argument count:    0
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  1
+# Stack size:        5
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        29
+# Constants:
+#    0: '获取数据文件夹'
+#    1: 'frozen'
+#    2: False
+# Names:
+#    0: getattr
+#    1: sys
+#    2: _MEIPASS
+#    3: os
+#    4: path
+#    5: dirname
+#    6: abspath
+#    7: __file__
+# Varnames:
+#	bundle_dir
+# Local variables:
+#    0: bundle_dir
+
+ 29:           0 RESUME               0
+
+ 31:           2 LOAD_GLOBAL          (NULL + getattr)
+
+ 32:          12 LOAD_GLOBAL          (sys)
+              22 LOAD_CONST           ("frozen")
+              24 LOAD_CONST           (False)
+
+ 31:          26 CALL                 (3 positional)
+              34 TO_BOOL
+              42 POP_JUMP_IF_FALSE    (to 82)
+              46 LOAD_GLOBAL          (sys)
+              56 LOAD_ATTR            (_MEIPASS)
+              76 STORE_FAST           (bundle_dir)
+
+ 33:          78 LOAD_FAST            (bundle_dir)
+              80 RETURN_VALUE
+
+ 32:     >>   82 LOAD_GLOBAL          (os)
+              92 LOAD_ATTR            (path)
+             112 LOAD_ATTR            (NULL|self + dirname)
+             132 LOAD_GLOBAL          (os)
+             142 LOAD_ATTR            (path)
+             162 LOAD_ATTR            (NULL|self + abspath)
+             182 LOAD_GLOBAL          (__file__)
+             192 CALL                 (1 positional)
+             200 CALL                 (1 positional)
+
+ 31:         208 STORE_FAST           (bundle_dir)
+
+ 33:         210 LOAD_FAST            (bundle_dir)
+             212 RETURN_VALUE
+
+
+# Method Name:       InitLogger
+# Filename:          Ewt.py
+# Argument count:    1
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  3
+# Stack size:        8
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        36
+# Constants:
+#    0: None
+#    1: 'a'
+#    2: 'UTF-8'
+#    3: ('mode', 'encoding')
+# Names:
+#    0: logging
+#    1: getLogger
+#    2: setLevel
+#    3: INFO
+#    4: FileHandler
+#    5: os
+#    6: path
+#    7: join
+#    8: dirname
+#    9: get_current_file_path
+#   10: addHandler
+# Varnames:
+#	logPath, logger, fileHandler
+# Positional arguments:
+#	logPath
+# Local variables:
+#    1: logger
+#    2: fileHandler
+
+ 36:           0 RESUME               0
+
+ 37:           2 LOAD_GLOBAL          (logging)
+              12 LOAD_ATTR            (getLogger)
+              32 PUSH_NULL
+              34 CALL                 (0 positional)
+              42 STORE_FAST           (logger)
+
+ 38:          44 LOAD_FAST            (logger)
+              46 LOAD_ATTR            (NULL|self + setLevel)
+              66 LOAD_GLOBAL          (logging)
+              76 LOAD_ATTR            (INFO)
+              96 CALL                 (1 positional)
+             104 POP_TOP
+
+ 40:         106 LOAD_GLOBAL          (logging)
+             116 LOAD_ATTR            (FileHandler)
+             136 PUSH_NULL
+             138 LOAD_GLOBAL          (os)
+             148 LOAD_ATTR            (path)
+             168 LOAD_ATTR            (NULL|self + join)
+             188 LOAD_GLOBAL          (os)
+             198 LOAD_ATTR            (path)
+             218 LOAD_ATTR            (NULL|self + dirname)
+
+ 41:         238 LOAD_GLOBAL          (NULL + get_current_file_path)
+             248 CALL                 (0 positional)
+
+ 40:         256 CALL                 (1 positional)
+
+ 41:         264 LOAD_FAST            (logPath)
+
+ 40:         266 CALL                 (2 positional)
+
+ 41:         274 LOAD_CONST           ("a")
+             276 LOAD_CONST           ("UTF-8")
+
+ 40:         278 LOAD_CONST           (('mode', 'encoding'))
+             280 CALL_KW              3
+             282 STORE_FAST           (fileHandler)
+
+ 42:         284 LOAD_FAST            (logger)
+             286 LOAD_ATTR            (NULL|self + addHandler)
+             306 LOAD_FAST            (fileHandler)
+             308 CALL                 (1 positional)
+             316 POP_TOP
+
+ 43:         318 LOAD_FAST            (logger)
+             320 RETURN_VALUE
+
+
+# Method Name:       WriteLog
+# Filename:          Ewt.py
+# Argument count:    3
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  5
+# Stack size:        6
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        46
+# Constants:
+#    0: None
+#    1: '%Y-%m-%d %H:%M:%S.%f'
+#    2: -3
+#    3: ' ['
+#    4: '] '
+#    5: 'info'
+#    6: 'green'
+#    7: 'error'
+#    8: 'red'
+#    9: 'debug'
+#   10: 'blue'
+#   11: 'warning'
+#   12: 'yellow'
+#   13: 'white'
+# Names:
+#    0: datetime
+#    1: now
+#    2: strftime
+#    3: upper
+#    4: logger
+#    5: info
+#    6: colored
+#    7: error
+#    8: debug
+#    9: warning
+#   10: logger_lock
+#   11: print
+# Varnames:
+#	msg, level, outputToConsole, formatedMsg, coloredMsg
+# Positional arguments:
+#	msg, level, outputToConsole
+# Local variables:
+#    3: formatedMsg
+#    4: coloredMsg
+
+ 46:           0 RESUME               0
+
+ 47:           2 LOAD_GLOBAL          (datetime)
+              12 LOAD_ATTR            (now)
+              32 PUSH_NULL
+              34 CALL                 (0 positional)
+              42 LOAD_ATTR            (NULL|self + strftime)
+              62 LOAD_CONST           ("%Y-%m-%d %H:%M:%S.%f")
+              64 CALL                 (1 positional)
+              72 LOAD_CONST           (None)
+              74 LOAD_CONST           (-3)
+              76 BINARY_SLICE
+              78 FORMAT_SIMPLE
+              80 LOAD_CONST           (" [")
+              82 LOAD_FAST            (level)
+              84 LOAD_ATTR            (NULL|self + upper)
+             104 CALL                 (0 positional)
+             112 FORMAT_SIMPLE
+             114 LOAD_CONST           ("] ")
+             116 LOAD_FAST            (msg)
+             118 FORMAT_SIMPLE
+             120 BUILD_STRING         5
+             122 STORE_FAST           (formatedMsg)
+
+ 49:         124 LOAD_FAST            (level)
+             126 LOAD_CONST           ("info")
+             128 COMPARE_OP           (==)
+             132 POP_JUMP_IF_FALSE    (to 204)
+
+ 50:         136 LOAD_GLOBAL          (logger)
+             146 LOAD_ATTR            (NULL|self + info)
+             166 LOAD_FAST            (formatedMsg)
+             168 CALL                 (1 positional)
+             176 POP_TOP
+
+ 51:         178 LOAD_GLOBAL          (NULL + colored)
+             188 LOAD_FAST            (formatedMsg)
+             190 LOAD_CONST           ("green")
+             192 CALL                 (2 positional)
+             200 STORE_FAST           (coloredMsg)
+             202 JUMP_FORWARD         (to 510)
+
+ 52:     >>  204 LOAD_FAST            (level)
+             206 LOAD_CONST           ("error")
+             208 COMPARE_OP           (==)
+             212 POP_JUMP_IF_FALSE    (to 284)
+
+ 53:         216 LOAD_GLOBAL          (logger)
+             226 LOAD_ATTR            (NULL|self + error)
+             246 LOAD_FAST            (formatedMsg)
+             248 CALL                 (1 positional)
+             256 POP_TOP
+
+ 54:         258 LOAD_GLOBAL          (NULL + colored)
+             268 LOAD_FAST            (formatedMsg)
+             270 LOAD_CONST           ("red")
+             272 CALL                 (2 positional)
+             280 STORE_FAST           (coloredMsg)
+             282 JUMP_FORWARD         (to 510)
+
+ 55:     >>  284 LOAD_FAST            (level)
+             286 LOAD_CONST           ("debug")
+             288 COMPARE_OP           (==)
+             292 POP_JUMP_IF_FALSE    (to 364)
+
+ 56:         296 LOAD_GLOBAL          (NULL + colored)
+             306 LOAD_FAST            (formatedMsg)
+             308 LOAD_CONST           ("blue")
+             310 CALL                 (2 positional)
+             318 STORE_FAST           (coloredMsg)
+
+ 57:         320 LOAD_GLOBAL          (logger)
+             330 LOAD_ATTR            (NULL|self + debug)
+             350 LOAD_FAST            (formatedMsg)
+             352 CALL                 (1 positional)
+             360 POP_TOP
+             362 JUMP_FORWARD         (to 510)
+
+ 58:     >>  364 LOAD_FAST            (level)
+             366 LOAD_CONST           ("warning")
+             368 COMPARE_OP           (==)
+             372 POP_JUMP_IF_FALSE    (to 444)
+
+ 59:         376 LOAD_GLOBAL          (logger)
+             386 LOAD_ATTR            (NULL|self + warning)
+             406 LOAD_FAST            (formatedMsg)
+             408 CALL                 (1 positional)
+             416 POP_TOP
+
+ 60:         418 LOAD_GLOBAL          (NULL + colored)
+             428 LOAD_FAST            (formatedMsg)
+             430 LOAD_CONST           ("yellow")
+             432 CALL                 (2 positional)
+             440 STORE_FAST           (coloredMsg)
+             442 JUMP_FORWARD         (to 510)
+
+ 62:     >>  444 LOAD_GLOBAL          (logger)
+             454 LOAD_ATTR            (NULL|self + info)
+             474 LOAD_FAST            (formatedMsg)
+             476 CALL                 (1 positional)
+             484 POP_TOP
+
+ 63:         486 LOAD_GLOBAL          (NULL + colored)
+             496 LOAD_FAST            (formatedMsg)
+             498 LOAD_CONST           ("white")
+             500 CALL                 (2 positional)
+             508 STORE_FAST           (coloredMsg)
+
+ 65:     >>  510 LOAD_FAST            (outputToConsole)
+             512 TO_BOOL
+             520 POP_JUMP_IF_FALSE    (to 578)
+
+ 66:         524 LOAD_GLOBAL          (logger_lock)
+             534 BEFORE_WITH
+             536 POP_TOP
+
+ 67:         538 LOAD_GLOBAL          (NULL + print)
+             548 LOAD_FAST            (coloredMsg)
+             550 CALL                 (1 positional)
+             558 POP_TOP
+
+ 66:         560 LOAD_CONST           (None)
+             562 LOAD_CONST           (None)
+             564 LOAD_CONST           (None)
+             566 CALL                 (2 positional)
+             574 POP_TOP
+             576 RETURN_CONST         (None)
+
+ 65:     >>  578 RETURN_CONST         (None)
+
+ 66:         580 PUSH_EXC_INFO
+             582 WITH_EXCEPT_START    0
+             584 TO_BOOL
+             592 POP_JUMP_IF_TRUE     (to 598)
+             596 RERAISE              2
+         >>  598 POP_TOP
+             600 POP_EXCEPT
+             602 POP_TOP
+             604 POP_TOP
+             606 RETURN_CONST         (None)
+             608 COPY                 3
+             610 POP_EXCEPT
+             612 RERAISE              1
+
+ExceptionTable:
+  536 to 558 -> 580 [1] lasti
+  580 to 598 -> 608 [3] lasti
+
+# Method Name:       CalibrateDeviceTime
+# Filename:          Ewt.py
+# Argument count:    0
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  4
+# Stack size:        6
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        70
+# Constants:
+#    0: '校验设备时间'
+#    1: '正在校验系统时间...'
+#    2: 'debug'
+#    3: True
+#    4: 'https://acs.m.taobao.com/gw/mtop.common.getTimestamp/'
+#    5: ('url',)
+#    6: 'data'
+#    7: 't'
+#    8: '获取网络时间失败，请检查网络。'
+#    9: 'error'
+#   10: 1000
+#   11: 5000
+#   12: '您的系统时钟不准确，误差超过 5 秒。请校对并重新启动程序。'
+#   13: '系统时间校验成功。'
+#   14: None
+# Names:
+#    0: WriteLog
+#    1: requests
+#    2: get
+#    3: json
+#    4: int
+#    5: Exception
+#    6: SystemExit
+#    7: round
+#    8: time
+# Varnames:
+#	res, data, currentTime, sysTime
+# Local variables:
+#    0: res
+#    1: data
+#    2: currentTime
+#    3: sysTime
+
+ 70:           0 RESUME               0
+
+ 72:           2 NOP
+
+ 73:           4 LOAD_GLOBAL          (NULL + WriteLog)
+              14 LOAD_CONST           ("正在校验系统时间...")
+              16 LOAD_CONST           ("debug")
+              18 LOAD_CONST           (True)
+              20 CALL                 (3 positional)
+              28 POP_TOP
+
+ 75:          30 LOAD_GLOBAL          (requests)
+              40 LOAD_ATTR            (get)
+              60 PUSH_NULL
+
+ 76:          62 LOAD_CONST           ("https://acs.m.taobao.com/gw/mtop.common.getTimestamp/")
+
+ 75:          64 LOAD_CONST           (('url',))
+              66 CALL_KW              1
+              68 STORE_FAST           (res)
+
+ 77:          70 LOAD_FAST            (res)
+              72 LOAD_ATTR            (NULL|self + json)
+              92 CALL                 (0 positional)
+             100 STORE_FAST           (data)
+
+ 78:         102 LOAD_GLOBAL          (NULL + int)
+             112 LOAD_FAST            (data)
+             114 LOAD_CONST           ("data")
+             116 BINARY_SUBSCR
+             120 LOAD_CONST           ("t")
+             122 BINARY_SUBSCR
+             126 CALL                 (1 positional)
+             134 STORE_FAST           (currentTime)
+
+ 84:         136 LOAD_GLOBAL          (NULL + round)
+             146 LOAD_GLOBAL          (time)
+             156 LOAD_ATTR            (time)
+             176 PUSH_NULL
+             178 CALL                 (0 positional)
+             186 LOAD_CONST           (1000)
+             188 BINARY_OP            (*)
+             192 CALL                 (1 positional)
+             200 STORE_FAST           (sysTime)
+
+ 85:         202 LOAD_FAST_LOAD_FAST  (sysTime, currentTime)
+             204 LOAD_CONST           (5000)
+             206 BINARY_OP            (+)
+             210 COMPARE_OP           (>)
+             214 POP_JUMP_IF_TRUE     (to 234)
+             218 LOAD_FAST_LOAD_FAST  (sysTime, currentTime)
+             220 LOAD_CONST           (5000)
+             222 BINARY_OP            (-)
+             226 COMPARE_OP           (<)
+             230 POP_JUMP_IF_FALSE    (to 272)
+
+ 86:     >>  234 LOAD_GLOBAL          (NULL + WriteLog)
+             244 LOAD_CONST           ("您的系统时钟不准确，误差超过 5 秒。请校对并重新启动程序。")
+             246 LOAD_CONST           ("error")
+             248 LOAD_CONST           (True)
+             250 CALL                 (3 positional)
+             258 POP_TOP
+
+ 87:         260 LOAD_GLOBAL          (SystemExit)
+             270 RAISE_VARARGS        (exception instance)
+
+ 89:     >>  272 LOAD_GLOBAL          (NULL + WriteLog)
+             282 LOAD_CONST           ("系统时间校验成功。")
+             284 LOAD_CONST           ("debug")
+             286 LOAD_CONST           (True)
+             288 CALL                 (3 positional)
+             296 POP_TOP
+             298 RETURN_CONST         (None)
+             300 PUSH_EXC_INFO
+
+ 79:         302 LOAD_GLOBAL          (Exception)
+             312 CHECK_EXC_MATCH
+             314 POP_JUMP_IF_FALSE    (to 358)
+             318 POP_TOP
+
+ 80:         320 LOAD_GLOBAL          (NULL + WriteLog)
+             330 LOAD_CONST           ("获取网络时间失败，请检查网络。")
+             332 LOAD_CONST           ("error")
+             334 LOAD_CONST           (True)
+             336 CALL                 (3 positional)
+             344 POP_TOP
+
+ 81:         346 LOAD_GLOBAL          (SystemExit)
+             356 RAISE_VARARGS        (exception instance)
+
+ 79:     >>  358 RERAISE              0
+             360 COPY                 3
+             362 POP_EXCEPT
+             364 RERAISE              1
+
+ExceptionTable:
+  4 to 134 -> 300 [0]
+  300 to 358 -> 360 [1] lasti
+
+# Method Name:       AESCipher
+# Filename:          Ewt.py
+# Argument count:    0
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  0
+# Stack size:        4
+# Flags:             0x00000000 (0x0)
+# First Line:        92
+# Constants:
+#    0: 'AESCipher'
+#    1: 92
+#    2: 'encryptionKey'
+#    3: 'initializationVector'
+#    4: <Code311 code object __init__ at 0x1e43a1e07a0, file Ewt.py>, line 93
+#    5: 'textBytes'
+#    6: <Code311 code object padText at 0x1e439be2840, file Ewt.py>, line 98
+#    7: 'plainText'
+#    8: <Code311 code object encryptText at 0x1e439c1bf80, file Ewt.py>, line 103
+#    9: ('encryptionKey', 'initializationVector')
+#   10: None
+# Names:
+#    0: __name__
+#    1: __module__
+#    2: __qualname__
+#    3: __firstlineno__
+#    4: bytes
+#    5: __init__
+#    6: padText
+#    7: str
+#    8: encryptText
+#    9: __static_attributes__
+
+ 92:           0 RESUME               0
+               2 LOAD_NAME            (__name__)
+               4 STORE_NAME           (__module__)
+               6 LOAD_CONST           ("AESCipher")
+               8 STORE_NAME           (__qualname__)
+              10 LOAD_CONST           (92)
+              12 STORE_NAME           (__firstlineno__)
+
+ 93:          14 LOAD_CONST           ("encryptionKey")
+              16 LOAD_NAME            (bytes)
+              18 LOAD_CONST           ("initializationVector")
+              20 LOAD_NAME            (bytes)
+              22 BUILD_TUPLE          4
+              24 LOAD_CONST           (<Code311 code object __init__ at 0x1e43a1e07a0, file Ewt.py>, line 93)
+              26 MAKE_FUNCTION
+              28 SET_FUNCTION_ATTRIBUTE 4
+              30 STORE_NAME           (__init__)
+
+ 98:          32 LOAD_CONST           ("textBytes")
+              34 LOAD_NAME            (bytes)
+              36 BUILD_TUPLE          2
+              38 LOAD_CONST           (<Code311 code object padText at 0x1e439be2840, file Ewt.py>, line 98)
+              40 MAKE_FUNCTION
+              42 SET_FUNCTION_ATTRIBUTE 4
+              44 STORE_NAME           (padText)
+
+103:          46 LOAD_CONST           ("plainText")
+              48 LOAD_NAME            (str)
+              50 BUILD_TUPLE          2
+              52 LOAD_CONST           (<Code311 code object encryptText at 0x1e439c1bf80, file Ewt.py>, line 103)
+              54 MAKE_FUNCTION
+              56 SET_FUNCTION_ATTRIBUTE 4
+              58 STORE_NAME           (encryptText)
+              60 LOAD_CONST           (('encryptionKey', 'initializationVector'))
+              62 STORE_NAME           (__static_attributes__)
+              64 RETURN_CONST         (None)
+
+
+# Method Name:       Account
+# Filename:          Ewt.py
+# Argument count:    0
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  0
+# Stack size:        13
+# Flags:             0x00000000 (0x0)
+# First Line:        121
+# Constants:
+#    0: 'Account'
+#    1: 121
+#    2: <Code311 code object __init__ at 0x1e43a1e0da0, file Ewt.py>, line 122
+#    3: <Code311 code object getNowTimestamp at 0x1e43a1e0dd0, file Ewt.py>, line 163
+#    4: 'day'
+#    5: <Code311 code object getMidnightTimestamp at 0x1e43a1e1010, file Ewt.py>, line 167
+#    6: 'timestamp'
+#    7: <Code311 code object timestamp2Date at 0x1e43a1e0f50, file Ewt.py>, line 173
+#    8: <Code311 code object userLogin at 0x1e43a1e12e0, file Ewt.py>, line 177
+#    9: <Code311 code object getUserInfo at 0x1e43a1e1340, file Ewt.py>, line 213
+#   10: <Code311 code object getSceneId at 0x1e43a1e1370, file Ewt.py>, line 232
+#   11: 'sceneId'
+#   12: <Code311 code object getHomeworkId at 0x1e43a1e1400, file Ewt.py>, line 251
+#   13: 'homeworkId'
+#   14: <Code311 code object getDayList at 0x1e43a1e14c0, file Ewt.py>, line 270
+#   15: <Code311 code object getHomeworkList at 0x1e43a1e1550, file Ewt.py>, line 297
+#   16: <Code311 code object getPlayerGlobalConf at 0x1e43a1e1640, file Ewt.py>, line 329
+#   17: <Code311 code object uploadProgress at 0x1e43a1e1310, file Ewt.py>, line 357
+#   18: 'cls'
+#   19: <Code311 code object uploadFMProgress at 0x1e43a1e1c70, file Ewt.py>, line 443
+#   20: <Code311 code object isLessonCompleted at 0x1e43a1e1d30, file Ewt.py>, line 468
+#   21: <Code311 code object updateProgressAndOutputTime at 0x1e43a1e1d90, file Ewt.py>, line 478
+#   22: None
+#   23: 'output2Cosole'
+#   24: 'dayShowWidth'
+#   25: 'subjectNameWidth'
+#   26: 'titleWidth'
+#   27: 'ratioWidth'
+#   28: <Code311 code object writeLessonDetails2Log at 0x1e43a1e23f0, file Ewt.py>, line 509
+#   29: <Code311 code object scanLessonsAndRunFilter at 0x1e43a1e24e0, file Ewt.py>, line 542
+#   30: <Code311 code object runLession at 0x1e43a1e2570, file Ewt.py>, line 582
+#   31: <Code311 code object runAccount at 0x1e43a1e25a0, file Ewt.py>, line 645
+#   32: ('account', 'aesCipher', 'commonHeader', 'commonHeaderJSON', 'ip', 'iv', 'key', 'lessons', 'password', 'remainingTime', 'schoolId', 'speed', 'subjectFilter', 'taskAdvanceDay', 'token', 'userId', 'userName')
+#   33: (False, None, 15, 15, 50, 10)
+# Names:
+#    0: __name__
+#    1: __module__
+#    2: __qualname__
+#    3: __firstlineno__
+#    4: __init__
+#    5: getNowTimestamp
+#    6: int
+#    7: getMidnightTimestamp
+#    8: timestamp2Date
+#    9: userLogin
+#   10: getUserInfo
+#   11: getSceneId
+#   12: getHomeworkId
+#   13: getDayList
+#   14: list
+#   15: getHomeworkList
+#   16: getPlayerGlobalConf
+#   17: uploadProgress
+#   18: uploadFMProgress
+#   19: isLessonCompleted
+#   20: updateProgressAndOutputTime
+#   21: bool
+#   22: writeLessonDetails2Log
+#   23: scanLessonsAndRunFilter
+#   24: runLession
+#   25: runAccount
+#   26: __static_attributes__
+
+121:           0 RESUME               0
+               2 LOAD_NAME            (__name__)
+               4 STORE_NAME           (__module__)
+               6 LOAD_CONST           ("Account")
+               8 STORE_NAME           (__qualname__)
+              10 LOAD_CONST           (121)
+              12 STORE_NAME           (__firstlineno__)
+
+122:          14 LOAD_CONST           (<Code311 code object __init__ at 0x1e43a1e0da0, file Ewt.py>, line 122)
+              16 MAKE_FUNCTION
+              18 STORE_NAME           (__init__)
+
+163:          20 LOAD_CONST           (<Code311 code object getNowTimestamp at 0x1e43a1e0dd0, file Ewt.py>, line 163)
+              22 MAKE_FUNCTION
+              24 STORE_NAME           (getNowTimestamp)
+
+167:          26 LOAD_CONST           ("day")
+              28 LOAD_NAME            (int)
+              30 BUILD_TUPLE          2
+              32 LOAD_CONST           (<Code311 code object getMidnightTimestamp at 0x1e43a1e1010, file Ewt.py>, line 167)
+              34 MAKE_FUNCTION
+              36 SET_FUNCTION_ATTRIBUTE 4
+              38 STORE_NAME           (getMidnightTimestamp)
+
+173:          40 LOAD_CONST           ("timestamp")
+              42 LOAD_NAME            (int)
+              44 BUILD_TUPLE          2
+              46 LOAD_CONST           (<Code311 code object timestamp2Date at 0x1e43a1e0f50, file Ewt.py>, line 173)
+              48 MAKE_FUNCTION
+              50 SET_FUNCTION_ATTRIBUTE 4
+              52 STORE_NAME           (timestamp2Date)
+
+177:          54 LOAD_CONST           (<Code311 code object userLogin at 0x1e43a1e12e0, file Ewt.py>, line 177)
+              56 MAKE_FUNCTION
+              58 STORE_NAME           (userLogin)
+
+213:          60 LOAD_CONST           (<Code311 code object getUserInfo at 0x1e43a1e1340, file Ewt.py>, line 213)
+              62 MAKE_FUNCTION
+              64 STORE_NAME           (getUserInfo)
+
+232:          66 LOAD_CONST           (<Code311 code object getSceneId at 0x1e43a1e1370, file Ewt.py>, line 232)
+              68 MAKE_FUNCTION
+              70 STORE_NAME           (getSceneId)
+
+251:          72 LOAD_CONST           ("sceneId")
+              74 LOAD_NAME            (int)
+              76 BUILD_TUPLE          2
+              78 LOAD_CONST           (<Code311 code object getHomeworkId at 0x1e43a1e1400, file Ewt.py>, line 251)
+              80 MAKE_FUNCTION
+              82 SET_FUNCTION_ATTRIBUTE 4
+              84 STORE_NAME           (getHomeworkId)
+
+270:          86 LOAD_CONST           ("homeworkId")
+              88 LOAD_NAME            (int)
+              90 LOAD_CONST           ("sceneId")
+              92 LOAD_NAME            (int)
+              94 BUILD_TUPLE          4
+              96 LOAD_CONST           (<Code311 code object getDayList at 0x1e43a1e14c0, file Ewt.py>, line 270)
+              98 MAKE_FUNCTION
+             100 SET_FUNCTION_ATTRIBUTE 4
+             102 STORE_NAME           (getDayList)
+
+297:         104 LOAD_CONST           ("homeworkId")
+             106 LOAD_NAME            (int)
+             108 LOAD_CONST           ("day")
+             110 LOAD_NAME            (list)
+             112 LOAD_CONST           ("sceneId")
+             114 LOAD_NAME            (int)
+             116 BUILD_TUPLE          6
+             118 LOAD_CONST           (<Code311 code object getHomeworkList at 0x1e43a1e1550, file Ewt.py>, line 297)
+             120 MAKE_FUNCTION
+             122 SET_FUNCTION_ATTRIBUTE 4
+             124 STORE_NAME           (getHomeworkList)
+
+329:         126 LOAD_CONST           (<Code311 code object getPlayerGlobalConf at 0x1e43a1e1640, file Ewt.py>, line 329)
+             128 MAKE_FUNCTION
+             130 STORE_NAME           (getPlayerGlobalConf)
+
+357:         132 LOAD_CONST           (<Code311 code object uploadProgress at 0x1e43a1e1310, file Ewt.py>, line 357)
+             134 MAKE_FUNCTION
+             136 STORE_NAME           (uploadProgress)
+
+443:         138 LOAD_CONST           ("cls")
+             140 LOAD_NAME            (list)
+             142 BUILD_TUPLE          2
+             144 LOAD_CONST           (<Code311 code object uploadFMProgress at 0x1e43a1e1c70, file Ewt.py>, line 443)
+             146 MAKE_FUNCTION
+             148 SET_FUNCTION_ATTRIBUTE 4
+             150 STORE_NAME           (uploadFMProgress)
+
+468:         152 LOAD_CONST           ("cls")
+             154 LOAD_NAME            (list)
+             156 BUILD_TUPLE          2
+             158 LOAD_CONST           (<Code311 code object isLessonCompleted at 0x1e43a1e1d30, file Ewt.py>, line 468)
+             160 MAKE_FUNCTION
+             162 SET_FUNCTION_ATTRIBUTE 4
+             164 STORE_NAME           (isLessonCompleted)
+
+478:         166 LOAD_CONST           ("cls")
+             168 LOAD_NAME            (list)
+             170 BUILD_TUPLE          2
+             172 LOAD_CONST           (<Code311 code object updateProgressAndOutputTime at 0x1e43a1e1d90, file Ewt.py>, line 478)
+             174 MAKE_FUNCTION
+             176 SET_FUNCTION_ATTRIBUTE 4
+             178 STORE_NAME           (updateProgressAndOutputTime)
+
+509:         180 NOP
+
+510:         182 NOP
+
+509:         184 LOAD_CONST           ((False, None, 15, 15, 50, 10))
+             186 LOAD_CONST           ("output2Cosole")
+             188 LOAD_NAME            (bool)
+             190 LOAD_CONST           ("cls")
+             192 LOAD_NAME            (list)
+             194 LOAD_CONST           ("dayShowWidth")
+             196 LOAD_NAME            (int)
+             198 LOAD_CONST           ("subjectNameWidth")
+
+510:         200 LOAD_NAME            (int)
+
+509:         202 LOAD_CONST           ("titleWidth")
+
+510:         204 LOAD_NAME            (int)
+
+509:         206 LOAD_CONST           ("ratioWidth")
+
+510:         208 LOAD_NAME            (int)
+
+509:         210 BUILD_TUPLE          12
+             212 LOAD_CONST           (<Code311 code object writeLessonDetails2Log at 0x1e43a1e23f0, file Ewt.py>, line 509)
+             214 MAKE_FUNCTION
+             216 SET_FUNCTION_ATTRIBUTE 4
+             218 SET_FUNCTION_ATTRIBUTE 1
+             220 STORE_NAME           (writeLessonDetails2Log)
+
+542:         222 LOAD_CONST           (<Code311 code object scanLessonsAndRunFilter at 0x1e43a1e24e0, file Ewt.py>, line 542)
+             224 MAKE_FUNCTION
+             226 STORE_NAME           (scanLessonsAndRunFilter)
+
+582:         228 LOAD_CONST           ("cls")
+             230 LOAD_NAME            (list)
+             232 BUILD_TUPLE          2
+             234 LOAD_CONST           (<Code311 code object runLession at 0x1e43a1e2570, file Ewt.py>, line 582)
+             236 MAKE_FUNCTION
+             238 SET_FUNCTION_ATTRIBUTE 4
+             240 STORE_NAME           (runLession)
+
+645:         242 LOAD_CONST           (<Code311 code object runAccount at 0x1e43a1e25a0, file Ewt.py>, line 645)
+             244 MAKE_FUNCTION
+             246 STORE_NAME           (runAccount)
+             248 LOAD_CONST           (('account', 'aesCipher', 'commonHeader', 'commonHeaderJSON', 'ip', 'iv', 'key', 'lessons', 'password', 'remainingTime', 'schoolId', 'speed', 'subjectFilter', 'taskAdvanceDay', 'token', 'userId', 'userName'))
+             250 STORE_NAME           (__static_attributes__)
+             252 RETURN_CONST         (None)
+
+
+# Method Name:       <genexpr>
+# Filename:          Ewt.py
+# Argument count:    1
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  2
+# Stack size:        3
+# Flags:             0x00000023 (GENERATOR | NEWLOCALS | OPTIMIZED)
+# First Line:        743
+# Constants:
+#    0: 1
+#    1: None
+# Names:
+#    0: is_alive
+# Varnames:
+#	.0, t
+# Positional arguments:
+#	.0
+# Local variables:
+#    1: t
+
+743:           0 RETURN_GENERATOR
+               2 POP_TOP
+               4 RESUME               0
+               6 LOAD_FAST            (.0)
+               8 GET_ITER
+              10 FOR_ITER             (to 72)
+              14 STORE_FAST_LOAD_FAST (t, t)
+              16 LOAD_ATTR            (NULL|self + is_alive)
+              36 CALL                 (0 positional)
+              44 TO_BOOL
+              52 POP_JUMP_IF_TRUE     (to 60)
+              56 JUMP_BACKWARD        (to 10)
+         >>   60 LOAD_CONST           (1)
+              62 YIELD_VALUE          0
+              64 RESUME               5
+              66 POP_TOP
+              68 JUMP_BACKWARD        (to 10)
+         >>   72 END_FOR
+              74 POP_TOP
+              76 RETURN_CONST         (None)
+              78 CALL_INTRINSIC_1     (INTRINSIC_STOPITERATION_ERROR)
+              80 RERAISE              1
+
+ExceptionTable:
+  4 to 50 -> 78 [0] lasti
+  60 to 76 -> 78 [0] lasti
+
+# Method Name:       __init__
+# Filename:          Ewt.py
+# Argument count:    3
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  3
+# Stack size:        2
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        93
+# Constants:
+#    0: None
+# Names:
+#    0: encryptionKey
+#    1: initializationVector
+# Varnames:
+#	self, encryptionKey, initializationVector
+# Positional arguments:
+#	self, encryptionKey, initializationVector
+
+ 93:           0 RESUME               0
+
+ 95:           2 LOAD_FAST_LOAD_FAST  (encryptionKey, self)
+               4 STORE_ATTR           (encryptionKey)
+
+ 96:          14 LOAD_FAST_LOAD_FAST  (initializationVector, self)
+              16 STORE_ATTR           (initializationVector)
+              26 RETURN_CONST         (None)
+
+
+# Method Name:       padText
+# Filename:          Ewt.py
+# Argument count:    2
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  3
+# Stack size:        5
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        98
+# Constants:
+#    0: 'PKCS#7 填充'
+#    1: 16
+# Names:
+#    0: len
+#    1: bytes
+# Varnames:
+#	self, textBytes, padLength
+# Positional arguments:
+#	self, textBytes
+# Local variables:
+#    2: padLength
+
+ 98:           0 RESUME               0
+
+100:           2 LOAD_CONST           (16)
+               4 LOAD_GLOBAL          (NULL + len)
+              14 LOAD_FAST            (textBytes)
+              16 CALL                 (1 positional)
+              24 LOAD_CONST           (16)
+              26 BINARY_OP            (%)
+              30 BINARY_OP            (-)
+              34 STORE_FAST           (padLength)
+
+101:          36 LOAD_FAST            (textBytes)
+              38 LOAD_GLOBAL          (NULL + bytes)
+              48 LOAD_FAST            (padLength)
+              50 BUILD_LIST           1
+              52 LOAD_FAST            (padLength)
+              54 BINARY_OP            (*)
+              58 CALL                 (1 positional)
+              66 BINARY_OP            (+)
+              70 RETURN_VALUE
+
+
+# Method Name:       encryptText
+# Filename:          Ewt.py
+# Argument count:    2
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  6
+# Stack size:        5
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        103
+# Constants:
+#    0: None
+#    1: 'utf-8'
+#    2: ('key', 'iv')
+# Names:
+#    0: encode
+#    1: padText
+#    2: pyaes
+#    3: AESModeOfOperationCBC
+#    4: encryptionKey
+#    5: initializationVector
+#    6: encrypt
+#    7: binascii
+#    8: b2a_hex
+#    9: decode
+#   10: upper
+# Varnames:
+#	self, plainText, textBytes, paddedText, aes, cipherText
+# Positional arguments:
+#	self, plainText
+# Local variables:
+#    2: textBytes
+#    3: paddedText
+#    4: aes
+#    5: cipherText
+
+103:           0 RESUME               0
+
+105:           2 LOAD_FAST            (plainText)
+               4 LOAD_ATTR            (NULL|self + encode)
+              24 LOAD_CONST           ("utf-8")
+              26 CALL                 (1 positional)
+              34 STORE_FAST           (textBytes)
+
+106:          36 LOAD_FAST            (self)
+              38 LOAD_ATTR            (NULL|self + padText)
+              58 LOAD_FAST            (textBytes)
+              60 CALL                 (1 positional)
+              68 STORE_FAST           (paddedText)
+
+109:          70 LOAD_GLOBAL          (pyaes)
+              80 LOAD_ATTR            (AESModeOfOperationCBC)
+             100 PUSH_NULL
+
+110:         102 LOAD_FAST            (self)
+             104 LOAD_ATTR            (encryptionKey)
+
+111:         124 LOAD_FAST            (self)
+             126 LOAD_ATTR            (initializationVector)
+
+109:         146 LOAD_CONST           (('key', 'iv'))
+             148 CALL_KW              2
+             150 STORE_FAST           (aes)
+
+115:         152 LOAD_FAST            (aes)
+             154 LOAD_ATTR            (NULL|self + encrypt)
+             174 LOAD_FAST            (paddedText)
+             176 CALL                 (1 positional)
+             184 STORE_FAST           (cipherText)
+
+118:         186 LOAD_GLOBAL          (binascii)
+             196 LOAD_ATTR            (b2a_hex)
+             216 PUSH_NULL
+             218 LOAD_FAST            (cipherText)
+             220 CALL                 (1 positional)
+             228 LOAD_ATTR            (NULL|self + decode)
+             248 LOAD_CONST           ("utf-8")
+             250 CALL                 (1 positional)
+             258 LOAD_ATTR            (NULL|self + upper)
+             278 CALL                 (0 positional)
+             286 RETURN_VALUE
+
+
+# Method Name:       __init__
+# Filename:          Ewt.py
+# Argument count:    7
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  7
+# Stack size:        13
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        122
+# Constants:
+#    0: None
+#    1: 0
+#    2: ''
+#    3: b'20171109124536982017110912453698'
+#    4: b'2017110912453698'
+#    5: 59
+#    6: 61
+#    7: '.'
+#    8: 230
+#    9: 'text/plain'
+#   10: '*'
+#   11: 'https://teacher.ewt360.com'
+#   12: 'https://teacher.ewt360.com/'
+#   13: '"Chromium";v="104", " Not A;Brand";v="99", "Microsoft Edge";v="104"'
+#   14: '?0'
+#   15: 'Windows'
+#   16: 'empty'
+#   17: 'cors'
+#   18: 'same-site'
+#   19: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.30'
+#   20: ('content-type', 'access-control-allow-origin', 'origin', 'referer', 'sec-ch-ua', 'sec-ch-ua-mobile', 'sec-ch-ua-platform', 'sec-fetch-dest', 'sec-fetch-mode', 'sec-fetch-site', 'token', 'user-agent')
+#   21: 'application/json'
+# Names:
+#    0: userName
+#    1: account
+#    2: password
+#    3: taskAdvanceDay
+#    4: subjectFilter
+#    5: speed
+#    6: lessons
+#    7: remainingTime
+#    8: token
+#    9: schoolId
+#   10: userId
+#   11: key
+#   12: iv
+#   13: random
+#   14: randint
+#   15: ip
+#   16: commonHeader
+#   17: commonHeaderJSON
+#   18: AESCipher
+#   19: aesCipher
+# Varnames:
+#	self, userName, account, password, taskAdvanceDay, subjectFilter, speed
+# Positional arguments:
+#	self, userName, account, password, taskAdvanceDay, subjectFilter, speed
+
+122:           0 RESUME               0
+
+125:           2 LOAD_FAST_LOAD_FAST  (userName, self)
+               4 STORE_ATTR           (userName)
+
+126:          14 LOAD_FAST_LOAD_FAST  (account, self)
+              16 STORE_ATTR           (account)
+
+127:          26 LOAD_FAST_LOAD_FAST  (password, self)
+              28 STORE_ATTR           (password)
+
+128:          38 LOAD_FAST_LOAD_FAST  (taskAdvanceDay, self)
+              40 STORE_ATTR           (taskAdvanceDay)
+
+129:          50 LOAD_FAST_LOAD_FAST  (subjectFilter, self)
+              52 STORE_ATTR           (subjectFilter)
+
+130:          62 LOAD_FAST_LOAD_FAST  (speed, self)
+              64 STORE_ATTR           (speed)
+
+133:          74 BUILD_LIST           0
+              76 LOAD_FAST            (self)
+              78 STORE_ATTR           (lessons)
+
+134:          88 LOAD_CONST           (0)
+              90 LOAD_FAST            (self)
+              92 STORE_ATTR           (remainingTime)
+
+135:         102 LOAD_CONST           ("")
+             104 LOAD_FAST            (self)
+             106 STORE_ATTR           (token)
+
+136:         116 LOAD_CONST           ("")
+             118 LOAD_FAST            (self)
+             120 STORE_ATTR           (schoolId)
+
+137:         130 LOAD_CONST           ("")
+             132 LOAD_FAST            (self)
+             134 STORE_ATTR           (userId)
+
+138:         144 LOAD_CONST           (b'20171109124536982017110912453698')
+             146 LOAD_FAST            (self)
+             148 STORE_ATTR           (key)
+
+139:         158 LOAD_CONST           (b'2017110912453698')
+             160 LOAD_FAST            (self)
+             162 STORE_ATTR           (iv)
+
+141:         172 LOAD_GLOBAL          (random)
+             182 LOAD_ATTR            (randint)
+             202 PUSH_NULL
+             204 LOAD_CONST           (59)
+             206 LOAD_CONST           (61)
+             208 CALL                 (2 positional)
+             216 FORMAT_SIMPLE
+             218 LOAD_CONST           (".")
+             220 LOAD_GLOBAL          (random)
+             230 LOAD_ATTR            (randint)
+             250 PUSH_NULL
+             252 LOAD_CONST           (0)
+             254 LOAD_CONST           (230)
+             256 CALL                 (2 positional)
+             264 FORMAT_SIMPLE
+             266 LOAD_CONST           (".")
+             268 LOAD_GLOBAL          (random)
+             278 LOAD_ATTR            (randint)
+             298 PUSH_NULL
+             300 LOAD_CONST           (0)
+             302 LOAD_CONST           (230)
+             304 CALL                 (2 positional)
+             312 FORMAT_SIMPLE
+             314 LOAD_CONST           (".")
+             316 LOAD_GLOBAL          (random)
+             326 LOAD_ATTR            (randint)
+             346 PUSH_NULL
+             348 LOAD_CONST           (0)
+             350 LOAD_CONST           (230)
+             352 CALL                 (2 positional)
+             360 FORMAT_SIMPLE
+             362 BUILD_STRING         7
+             364 LOAD_FAST            (self)
+             366 STORE_ATTR           (ip)
+
+143:         376 LOAD_CONST           ("text/plain")
+             378 LOAD_CONST           ("*")
+
+144:         380 LOAD_CONST           ("https://teacher.ewt360.com")
+             382 LOAD_CONST           ("https://teacher.ewt360.com/")
+
+145:         384 LOAD_CONST           ('"Chromium";v="104", " Not A;Brand";v="99", "Microsoft Edge";v="104"')
+
+146:         386 LOAD_CONST           ("?0")
+             388 LOAD_CONST           ("Windows")
+
+147:         390 LOAD_CONST           ("empty")
+             392 LOAD_CONST           ("cors")
+             394 LOAD_CONST           ("same-site")
+
+148:         396 LOAD_CONST           ("")
+
+149:         398 LOAD_CONST           ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.30")
+
+142:         400 LOAD_CONST           (('content-type', 'access-control-allow-origin', 'origin', 'referer', 'sec-ch-ua', 'sec-ch-ua-mobile', 'sec-ch-ua-platform', 'sec-fetch-dest', 'sec-fetch-mode', 'sec-fetch-site', 'token', 'user-agent'))
+             402 BUILD_CONST_KEY_MAP  12
+             404 LOAD_FAST            (self)
+             406 STORE_ATTR           (commonHeader)
+
+152:         416 LOAD_CONST           ("application/json")
+             418 LOAD_CONST           ("*")
+
+153:         420 LOAD_CONST           ("https://teacher.ewt360.com")
+             422 LOAD_CONST           ("https://teacher.ewt360.com/")
+
+154:         424 LOAD_CONST           ('"Chromium";v="104", " Not A;Brand";v="99", "Microsoft Edge";v="104"')
+
+155:         426 LOAD_CONST           ("?0")
+             428 LOAD_CONST           ("Windows")
+
+156:         430 LOAD_CONST           ("empty")
+             432 LOAD_CONST           ("cors")
+             434 LOAD_CONST           ("same-site")
+
+157:         436 LOAD_CONST           ("")
+
+158:         438 LOAD_CONST           ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.30")
+
+151:         440 LOAD_CONST           (('content-type', 'access-control-allow-origin', 'origin', 'referer', 'sec-ch-ua', 'sec-ch-ua-mobile', 'sec-ch-ua-platform', 'sec-fetch-dest', 'sec-fetch-mode', 'sec-fetch-site', 'token', 'user-agent'))
+             442 BUILD_CONST_KEY_MAP  12
+             444 LOAD_FAST            (self)
+             446 STORE_ATTR           (commonHeaderJSON)
+
+160:         456 LOAD_GLOBAL          (NULL + AESCipher)
+             466 LOAD_FAST            (self)
+             468 LOAD_ATTR            (key)
+             488 LOAD_FAST            (self)
+             490 LOAD_ATTR            (iv)
+             510 CALL                 (2 positional)
+             518 LOAD_FAST            (self)
+             520 STORE_ATTR           (aesCipher)
+             530 RETURN_CONST         (None)
+
+
+# Method Name:       getNowTimestamp
+# Filename:          Ewt.py
+# Argument count:    1
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  1
+# Stack size:        4
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        163
+# Constants:
+#    0: None
+#    1: 1000
+# Names:
+#    0: math
+#    1: floor
+#    2: time
+# Varnames:
+#	self
+# Positional arguments:
+#	self
+
+163:           0 RESUME               0
+
+164:           2 LOAD_GLOBAL          (math)
+              12 LOAD_ATTR            (floor)
+              32 PUSH_NULL
+              34 LOAD_GLOBAL          (time)
+              44 LOAD_ATTR            (time)
+              64 PUSH_NULL
+              66 CALL                 (0 positional)
+              74 LOAD_CONST           (1000)
+              76 BINARY_OP            (*)
+              80 CALL                 (1 positional)
+              88 RETURN_VALUE
+
+
+# Method Name:       getMidnightTimestamp
+# Filename:          Ewt.py
+# Argument count:    2
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  4
+# Stack size:        5
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        167
+# Constants:
+#    0: None
+#    1: ('days',)
+#    2: 1000
+# Names:
+#    0: datetime
+#    1: combine
+#    2: today
+#    3: min
+#    4: time
+#    5: timedelta
+#    6: int
+#    7: timestamp
+# Varnames:
+#	self, day, midnight, targetMidnight
+# Positional arguments:
+#	self, day
+# Local variables:
+#    2: midnight
+#    3: targetMidnight
+
+167:           0 RESUME               0
+
+168:           2 LOAD_GLOBAL          (datetime)
+              12 LOAD_ATTR            (combine)
+              32 PUSH_NULL
+              34 LOAD_GLOBAL          (datetime)
+              44 LOAD_ATTR            (today)
+              64 PUSH_NULL
+              66 CALL                 (0 positional)
+              74 LOAD_GLOBAL          (datetime)
+              84 LOAD_ATTR            (min)
+             104 LOAD_ATTR            (NULL|self + time)
+             124 CALL                 (0 positional)
+             132 CALL                 (2 positional)
+             140 STORE_FAST           (midnight)
+
+169:         142 LOAD_FAST            (midnight)
+             144 LOAD_GLOBAL          (NULL + timedelta)
+             154 LOAD_FAST            (day)
+             156 LOAD_CONST           (('days',))
+             158 CALL_KW              1
+             160 BINARY_OP            (+)
+             164 STORE_FAST           (targetMidnight)
+
+170:         166 LOAD_GLOBAL          (NULL + int)
+             176 LOAD_FAST            (targetMidnight)
+             178 LOAD_ATTR            (NULL|self + timestamp)
+             198 CALL                 (0 positional)
+             206 LOAD_CONST           (1000)
+             208 BINARY_OP            (*)
+             212 CALL                 (1 positional)
+             220 RETURN_VALUE
+
+
+# Method Name:       timestamp2Date
+# Filename:          Ewt.py
+# Argument count:    2
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  2
+# Stack size:        7
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        173
+# Constants:
+#    0: None
+#    1: '%Y-%m-%d'
+#    2: 1000
+# Names:
+#    0: time
+#    1: strftime
+#    2: localtime
+# Varnames:
+#	self, timestamp
+# Positional arguments:
+#	self, timestamp
+
+173:           0 RESUME               0
+
+174:           2 LOAD_GLOBAL          (time)
+              12 LOAD_ATTR            (strftime)
+              32 PUSH_NULL
+              34 LOAD_CONST           ("%Y-%m-%d")
+              36 LOAD_GLOBAL          (time)
+              46 LOAD_ATTR            (localtime)
+              66 PUSH_NULL
+              68 LOAD_FAST            (timestamp)
+              70 LOAD_CONST           (1000)
+              72 BINARY_OP            (/)
+              76 CALL                 (1 positional)
+              84 CALL                 (2 positional)
+              92 RETURN_VALUE
+
+
+# Method Name:       userLogin
+# Filename:          Ewt.py
+# Argument count:    1
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  5
+# Stack size:        12
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        177
+# Constants:
+#    0: None
+#    1: 'https://gateway.ewt360.com/api/authcenter/v2/oauth/login/account'
+#    2: 'true'
+#    3: 1
+#    4: ('autoLogin', 'password', 'platform', 'userName')
+#    5: 'accept'
+#    6: 'application/json'
+#    7: 'accept-language'
+#    8: 'zh-CN,zh;q=0.9'
+#    9: 'content-type'
+#   10: 'application/json;charset=UTF-8'
+#   11: 'origin'
+#   12: 'https://web.ewt360.com'
+#   13: 'platform'
+#   14: '1'
+#   15: 'referer'
+#   16: 'https://web.ewt360.com/'
+#   17: 'sec-ch-ua'
+#   18: '" Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"'
+#   19: 'sec-ch-ua-mobile'
+#   20: '?0'
+#   21: 'sec-ch-ua-platform'
+#   22: '"Windows"'
+#   23: 'sec-fetch-dest'
+#   24: 'empty'
+#   25: 'sec-fetch-mode'
+#   26: 'cors'
+#   27: 'sec-fetch-site'
+#   28: 'same-site'
+#   29: 'secretid'
+#   30: '2'
+#   31: 'sign'
+#   32: 'utf8'
+#   33: 'bdc739ff2dcf'
+#   34: 'timestamp'
+#   35: 'user-agent'
+#   36: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.30'
+#   37: ('url', 'data', 'headers')
+#   38: '['
+#   39: '] 登录请求失败: '
+#   40: 'error'
+#   41: True
+#   42: 'code'
+#   43: '200'
+#   44: 'data'
+#   45: 'token'
+#   46: '] 登录状态码异常: '
+# Names:
+#    0: getNowTimestamp
+#    1: requests
+#    2: post
+#    3: json
+#    4: dumps
+#    5: aesCipher
+#    6: encryptText
+#    7: password
+#    8: account
+#    9: hashlib
+#   10: md5
+#   11: str
+#   12: encode
+#   13: hexdigest
+#   14: upper
+#   15: RequestException
+#   16: WriteLog
+#   17: userName
+#   18: SystemExit
+#   19: token
+#   20: commonHeader
+#   21: commonHeaderJSON
+# Varnames:
+#	self, timestamp, res, err, data
+# Positional arguments:
+#	self
+# Local variables:
+#    1: timestamp
+#    2: res
+#    3: err
+#    4: data
+
+177:           0 RESUME               0
+
+178:           2 LOAD_FAST            (self)
+               4 LOAD_ATTR            (NULL|self + getNowTimestamp)
+              24 CALL                 (0 positional)
+              32 STORE_FAST           (timestamp)
+
+179:          34 NOP
+
+180:          36 LOAD_GLOBAL          (requests)
+              46 LOAD_ATTR            (post)
+              66 PUSH_NULL
+
+181:          68 LOAD_CONST           ("https://gateway.ewt360.com/api/authcenter/v2/oauth/login/account")
+
+182:          70 LOAD_GLOBAL          (json)
+              80 LOAD_ATTR            (dumps)
+             100 PUSH_NULL
+
+183:         102 LOAD_CONST           ("true")
+
+184:         104 LOAD_FAST            (self)
+             106 LOAD_ATTR            (aesCipher)
+             126 LOAD_ATTR            (NULL|self + encryptText)
+             146 LOAD_FAST            (self)
+             148 LOAD_ATTR            (password)
+             168 CALL                 (1 positional)
+
+185:         176 LOAD_CONST           (1)
+
+186:         178 LOAD_FAST            (self)
+             180 LOAD_ATTR            (account)
+
+182:         200 LOAD_CONST           (('autoLogin', 'password', 'platform', 'userName'))
+             202 BUILD_CONST_KEY_MAP  4
+             204 CALL                 (1 positional)
+
+188:         212 BUILD_MAP            0
+
+189:         214 LOAD_CONST           ("accept")
+             216 LOAD_CONST           ("application/json")
+
+188:         218 MAP_ADD              1
+
+189:         220 LOAD_CONST           ("accept-language")
+             222 LOAD_CONST           ("zh-CN,zh;q=0.9")
+
+188:         224 MAP_ADD              1
+
+189:         226 LOAD_CONST           ("content-type")
+             228 LOAD_CONST           ("application/json;charset=UTF-8")
+
+188:         230 MAP_ADD              1
+
+189:         232 LOAD_CONST           ("origin")
+             234 LOAD_CONST           ("https://web.ewt360.com")
+
+188:         236 MAP_ADD              1
+
+190:         238 LOAD_CONST           ("platform")
+             240 LOAD_CONST           ("1")
+
+188:         242 MAP_ADD              1
+
+191:         244 LOAD_CONST           ("referer")
+             246 LOAD_CONST           ("https://web.ewt360.com/")
+
+188:         248 MAP_ADD              1
+
+191:         250 LOAD_CONST           ("sec-ch-ua")
+             252 LOAD_CONST           ('" Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"')
+
+188:         254 MAP_ADD              1
+
+192:         256 LOAD_CONST           ("sec-ch-ua-mobile")
+             258 LOAD_CONST           ("?0")
+
+188:         260 MAP_ADD              1
+
+192:         262 LOAD_CONST           ("sec-ch-ua-platform")
+             264 LOAD_CONST           ('"Windows"')
+
+188:         266 MAP_ADD              1
+
+192:         268 LOAD_CONST           ("sec-fetch-dest")
+             270 LOAD_CONST           ("empty")
+
+188:         272 MAP_ADD              1
+
+192:         274 LOAD_CONST           ("sec-fetch-mode")
+             276 LOAD_CONST           ("cors")
+
+188:         278 MAP_ADD              1
+
+192:         280 LOAD_CONST           ("sec-fetch-site")
+             282 LOAD_CONST           ("same-site")
+
+188:         284 MAP_ADD              1
+
+193:         286 LOAD_CONST           ("secretid")
+             288 LOAD_CONST           ("2")
+
+188:         290 MAP_ADD              1
+
+194:         292 LOAD_CONST           ("sign")
+             294 LOAD_GLOBAL          (hashlib)
+             304 LOAD_ATTR            (md5)
+             324 PUSH_NULL
+             326 LOAD_GLOBAL          (NULL + str)
+             336 LOAD_FAST            (timestamp)
+             338 CALL                 (1 positional)
+             346 LOAD_ATTR            (NULL|self + encode)
+             366 LOAD_CONST           ("utf8")
+             368 CALL                 (1 positional)
+             376 LOAD_CONST           ("bdc739ff2dcf")
+             378 LOAD_ATTR            (NULL|self + encode)
+             398 LOAD_CONST           ("utf8")
+             400 CALL                 (1 positional)
+             408 BINARY_OP            (+)
+             412 CALL                 (1 positional)
+             420 LOAD_ATTR            (NULL|self + hexdigest)
+             440 CALL                 (0 positional)
+             448 LOAD_ATTR            (NULL|self + upper)
+             468 CALL                 (0 positional)
+
+188:         476 MAP_ADD              1
+
+195:         478 LOAD_CONST           ("timestamp")
+             480 LOAD_GLOBAL          (NULL + str)
+             490 LOAD_FAST            (timestamp)
+             492 CALL                 (1 positional)
+
+188:         500 MAP_ADD              1
+
+196:         502 LOAD_CONST           ("user-agent")
+             504 LOAD_CONST           ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.30")
+
+188:         506 MAP_ADD              1
+
+180:         508 LOAD_CONST           (('url', 'data', 'headers'))
+             510 CALL_KW              3
+             512 STORE_FAST           (res)
+
+203:         514 LOAD_FAST            (res)
+             516 LOAD_ATTR            (NULL|self + json)
+             536 CALL                 (0 positional)
+             544 STORE_FAST           (data)
+
+204:         546 LOAD_FAST            (data)
+             548 LOAD_CONST           ("code")
+             550 BINARY_SUBSCR
+             554 LOAD_CONST           ("200")
+             556 COMPARE_OP           (==)
+             560 POP_JUMP_IF_FALSE    (to 692)
+
+205:         564 LOAD_FAST            (data)
+             566 LOAD_CONST           ("data")
+             568 BINARY_SUBSCR
+             572 LOAD_CONST           ("token")
+             574 BINARY_SUBSCR
+             578 LOAD_FAST            (self)
+             580 STORE_ATTR           (token)
+
+206:         590 LOAD_FAST            (self)
+             592 LOAD_ATTR            (token)
+             612 LOAD_FAST            (self)
+             614 LOAD_ATTR            (commonHeader)
+             634 LOAD_CONST           ("token")
+             636 STORE_SUBSCR
+
+207:         640 LOAD_FAST            (self)
+             642 LOAD_ATTR            (token)
+             662 LOAD_FAST            (self)
+             664 LOAD_ATTR            (commonHeaderJSON)
+             684 LOAD_CONST           ("token")
+             686 STORE_SUBSCR
+             690 RETURN_CONST         (None)
+
+209:     >>  692 LOAD_GLOBAL          (NULL + WriteLog)
+             702 LOAD_CONST           ("[")
+             704 LOAD_FAST            (self)
+             706 LOAD_ATTR            (userName)
+             726 FORMAT_SIMPLE
+             728 LOAD_CONST           ("] 登录状态码异常: ")
+             730 LOAD_FAST            (data)
+             732 FORMAT_SIMPLE
+             734 BUILD_STRING         4
+             736 LOAD_CONST           ("error")
+             738 LOAD_CONST           (True)
+             740 CALL                 (3 positional)
+             748 POP_TOP
+
+210:         750 LOAD_GLOBAL          (SystemExit)
+             760 RAISE_VARARGS        (exception instance)
+             762 PUSH_EXC_INFO
+
+199:         764 LOAD_GLOBAL          (requests)
+             774 LOAD_ATTR            (RequestException)
+             794 CHECK_EXC_MATCH
+             796 POP_JUMP_IF_FALSE    (to 880)
+             800 STORE_FAST           (err)
+
+200:         802 LOAD_GLOBAL          (NULL + WriteLog)
+             812 LOAD_CONST           ("[")
+             814 LOAD_FAST            (self)
+             816 LOAD_ATTR            (userName)
+             836 FORMAT_SIMPLE
+             838 LOAD_CONST           ("] 登录请求失败: ")
+             840 LOAD_FAST            (err)
+             842 FORMAT_SIMPLE
+             844 BUILD_STRING         4
+             846 LOAD_CONST           ("error")
+             848 LOAD_CONST           (True)
+             850 CALL                 (3 positional)
+             858 POP_TOP
+
+201:         860 LOAD_GLOBAL          (SystemExit)
+             870 RAISE_VARARGS        (exception instance)
+             872 LOAD_CONST           (None)
+             874 STORE_FAST           (err)
+             876 DELETE_FAST          (err)
+             878 RERAISE              1
+
+199:     >>  880 RERAISE              0
+             882 COPY                 3
+             884 POP_EXCEPT
+             886 RERAISE              1
+
+ExceptionTable:
+  36 to 512 -> 762 [0]
+  762 to 800 -> 882 [1] lasti
+  802 to 870 -> 872 [1] lasti
+  872 to 880 -> 882 [1] lasti
+
+# Method Name:       getUserInfo
+# Filename:          Ewt.py
+# Argument count:    1
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  4
+# Stack size:        7
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        213
+# Constants:
+#    0: None
+#    1: 'https://teacher.ewt360.com/api/eteacherproduct/school/getSchoolUserInfo'
+#    2: ('url', 'headers')
+#    3: '['
+#    4: '] 获取用户信息请求失败: '
+#    5: 'error'
+#    6: True
+#    7: 'code'
+#    8: '200'
+#    9: 'data'
+#   10: 'schoolId'
+#   11: 'userId'
+#   12: '] 获取用户信息失败：状态码异常，'
+# Names:
+#    0: requests
+#    1: get
+#    2: commonHeader
+#    3: RequestException
+#    4: WriteLog
+#    5: userName
+#    6: SystemExit
+#    7: json
+#    8: schoolId
+#    9: userId
+# Varnames:
+#	self, res, err, data
+# Positional arguments:
+#	self
+# Local variables:
+#    1: res
+#    2: err
+#    3: data
+
+213:           0 RESUME               0
+
+214:           2 NOP
+
+215:           4 LOAD_GLOBAL          (requests)
+              14 LOAD_ATTR            (get)
+              34 PUSH_NULL
+
+216:          36 LOAD_CONST           ("https://teacher.ewt360.com/api/eteacherproduct/school/getSchoolUserInfo")
+
+217:          38 LOAD_FAST            (self)
+              40 LOAD_ATTR            (commonHeader)
+
+215:          60 LOAD_CONST           (('url', 'headers'))
+              62 CALL_KW              2
+              64 STORE_FAST           (res)
+
+223:          66 LOAD_FAST            (res)
+              68 LOAD_ATTR            (NULL|self + json)
+              88 CALL                 (0 positional)
+              96 STORE_FAST           (data)
+
+224:          98 LOAD_FAST            (data)
+             100 LOAD_CONST           ("code")
+             102 BINARY_SUBSCR
+             106 LOAD_CONST           ("200")
+             108 COMPARE_OP           (==)
+             112 POP_JUMP_IF_FALSE    (to 170)
+
+225:         116 LOAD_FAST            (data)
+             118 LOAD_CONST           ("data")
+             120 BINARY_SUBSCR
+             124 LOAD_CONST           ("schoolId")
+             126 BINARY_SUBSCR
+             130 LOAD_FAST            (self)
+             132 STORE_ATTR           (schoolId)
+
+226:         142 LOAD_FAST            (data)
+             144 LOAD_CONST           ("data")
+             146 BINARY_SUBSCR
+             150 LOAD_CONST           ("userId")
+             152 BINARY_SUBSCR
+             156 LOAD_FAST            (self)
+             158 STORE_ATTR           (userId)
+             168 RETURN_CONST         (None)
+
+228:     >>  170 LOAD_GLOBAL          (NULL + WriteLog)
+             180 LOAD_CONST           ("[")
+             182 LOAD_FAST            (self)
+             184 LOAD_ATTR            (userName)
+             204 FORMAT_SIMPLE
+             206 LOAD_CONST           ("] 获取用户信息失败：状态码异常，")
+             208 LOAD_FAST            (data)
+             210 FORMAT_SIMPLE
+             212 BUILD_STRING         4
+             214 LOAD_CONST           ("error")
+             216 LOAD_CONST           (True)
+             218 CALL                 (3 positional)
+             226 POP_TOP
+
+229:         228 LOAD_GLOBAL          (SystemExit)
+             238 RAISE_VARARGS        (exception instance)
+             240 PUSH_EXC_INFO
+
+219:         242 LOAD_GLOBAL          (requests)
+             252 LOAD_ATTR            (RequestException)
+             272 CHECK_EXC_MATCH
+             274 POP_JUMP_IF_FALSE    (to 358)
+             278 STORE_FAST           (err)
+
+220:         280 LOAD_GLOBAL          (NULL + WriteLog)
+             290 LOAD_CONST           ("[")
+             292 LOAD_FAST            (self)
+             294 LOAD_ATTR            (userName)
+             314 FORMAT_SIMPLE
+             316 LOAD_CONST           ("] 获取用户信息请求失败: ")
+             318 LOAD_FAST            (err)
+             320 FORMAT_SIMPLE
+             322 BUILD_STRING         4
+             324 LOAD_CONST           ("error")
+             326 LOAD_CONST           (True)
+             328 CALL                 (3 positional)
+             336 POP_TOP
+
+221:         338 LOAD_GLOBAL          (SystemExit)
+             348 RAISE_VARARGS        (exception instance)
+             350 LOAD_CONST           (None)
+             352 STORE_FAST           (err)
+             354 DELETE_FAST          (err)
+             356 RERAISE              1
+
+219:     >>  358 RERAISE              0
+             360 COPY                 3
+             362 POP_EXCEPT
+             364 RERAISE              1
+
+ExceptionTable:
+  4 to 64 -> 240 [0]
+  240 to 278 -> 360 [1] lasti
+  280 to 348 -> 350 [1] lasti
+  350 to 358 -> 360 [1] lasti
+
+# Method Name:       getSceneId
+# Filename:          Ewt.py
+# Argument count:    1
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  4
+# Stack size:        8
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        232
+# Constants:
+#    0: None
+#    1: 'https://gateway.ewt360.com/api/holidayprod/scene/student/study/checkHoliday?'
+#    2: 'clientType=1&preview=0&schoolId='
+#    3: '&timestamp='
+#    4: ('url', 'headers')
+#    5: '['
+#    6: '] 获取场景id请求失败: '
+#    7: 'error'
+#    8: True
+#    9: 'code'
+#   10: '200'
+#   11: 'data'
+#   12: 'sceneList'
+#   13: '] 获取场景id失败：状态码异常，'
+# Names:
+#    0: requests
+#    1: get
+#    2: schoolId
+#    3: getNowTimestamp
+#    4: commonHeader
+#    5: RequestException
+#    6: WriteLog
+#    7: userName
+#    8: SystemExit
+#    9: json
+# Varnames:
+#	self, res, err, data
+# Positional arguments:
+#	self
+# Local variables:
+#    1: res
+#    2: err
+#    3: data
+
+232:           0 RESUME               0
+
+233:           2 NOP
+
+234:           4 LOAD_GLOBAL          (requests)
+              14 LOAD_ATTR            (get)
+              34 PUSH_NULL
+
+235:          36 LOAD_CONST           ("https://gateway.ewt360.com/api/holidayprod/scene/student/study/checkHoliday?")
+
+236:          38 LOAD_CONST           ("clientType=1&preview=0&schoolId=")
+              40 LOAD_FAST            (self)
+              42 LOAD_ATTR            (schoolId)
+              62 FORMAT_SIMPLE
+              64 LOAD_CONST           ("&timestamp=")
+              66 LOAD_FAST            (self)
+              68 LOAD_ATTR            (NULL|self + getNowTimestamp)
+              88 CALL                 (0 positional)
+              96 FORMAT_SIMPLE
+              98 BUILD_STRING         4
+
+235:         100 BINARY_OP            (+)
+
+237:         104 LOAD_FAST            (self)
+             106 LOAD_ATTR            (commonHeader)
+
+234:         126 LOAD_CONST           (('url', 'headers'))
+             128 CALL_KW              2
+             130 STORE_FAST           (res)
+
+243:         132 LOAD_FAST            (res)
+             134 LOAD_ATTR            (NULL|self + json)
+             154 CALL                 (0 positional)
+             162 STORE_FAST           (data)
+
+244:         164 LOAD_FAST            (data)
+             166 LOAD_CONST           ("code")
+             168 BINARY_SUBSCR
+             172 LOAD_CONST           ("200")
+             174 COMPARE_OP           (==)
+             178 POP_JUMP_IF_FALSE    (to 198)
+
+245:         182 LOAD_FAST            (data)
+             184 LOAD_CONST           ("data")
+             186 BINARY_SUBSCR
+             190 LOAD_CONST           ("sceneList")
+             192 BINARY_SUBSCR
+             196 RETURN_VALUE
+
+247:     >>  198 LOAD_GLOBAL          (NULL + WriteLog)
+             208 LOAD_CONST           ("[")
+             210 LOAD_FAST            (self)
+             212 LOAD_ATTR            (userName)
+             232 FORMAT_SIMPLE
+             234 LOAD_CONST           ("] 获取场景id失败：状态码异常，")
+             236 LOAD_FAST            (data)
+             238 FORMAT_SIMPLE
+             240 BUILD_STRING         4
+             242 LOAD_CONST           ("error")
+             244 LOAD_CONST           (True)
+             246 CALL                 (3 positional)
+             254 POP_TOP
+
+248:         256 LOAD_GLOBAL          (SystemExit)
+             266 RAISE_VARARGS        (exception instance)
+             268 PUSH_EXC_INFO
+
+239:         270 LOAD_GLOBAL          (requests)
+             280 LOAD_ATTR            (RequestException)
+             300 CHECK_EXC_MATCH
+             302 POP_JUMP_IF_FALSE    (to 386)
+             306 STORE_FAST           (err)
+
+240:         308 LOAD_GLOBAL          (NULL + WriteLog)
+             318 LOAD_CONST           ("[")
+             320 LOAD_FAST            (self)
+             322 LOAD_ATTR            (userName)
+             342 FORMAT_SIMPLE
+             344 LOAD_CONST           ("] 获取场景id请求失败: ")
+             346 LOAD_FAST            (err)
+             348 FORMAT_SIMPLE
+             350 BUILD_STRING         4
+             352 LOAD_CONST           ("error")
+             354 LOAD_CONST           (True)
+             356 CALL                 (3 positional)
+             364 POP_TOP
+
+241:         366 LOAD_GLOBAL          (SystemExit)
+             376 RAISE_VARARGS        (exception instance)
+             378 LOAD_CONST           (None)
+             380 STORE_FAST           (err)
+             382 DELETE_FAST          (err)
+             384 RERAISE              1
+
+239:     >>  386 RERAISE              0
+             388 COPY                 3
+             390 POP_EXCEPT
+             392 RERAISE              1
+
+ExceptionTable:
+  4 to 130 -> 268 [0]
+  268 to 306 -> 388 [1] lasti
+  308 to 376 -> 378 [1] lasti
+  378 to 386 -> 388 [1] lasti
+
+# Method Name:       getHomeworkId
+# Filename:          Ewt.py
+# Argument count:    2
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  5
+# Stack size:        9
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        251
+# Constants:
+#    0: None
+#    1: 'https://gateway.ewt360.com/api/homeworkprod/homework/student/holiday/'
+#    2: 'getHomeworkSummaryInfo?schoolId='
+#    3: '&timestamp='
+#    4: '&sceneId='
+#    5: ('url', 'headers')
+#    6: '['
+#    7: '] 获取作业id请求失败: '
+#    8: 'error'
+#    9: True
+#   10: 'code'
+#   11: '200'
+#   12: 'data'
+#   13: 'homeworkIds'
+#   14: '] 获取作业id失败：状态码异常，'
+# Names:
+#    0: requests
+#    1: get
+#    2: schoolId
+#    3: getNowTimestamp
+#    4: commonHeader
+#    5: RequestException
+#    6: WriteLog
+#    7: userName
+#    8: SystemExit
+#    9: json
+# Varnames:
+#	self, sceneId, res, err, data
+# Positional arguments:
+#	self, sceneId
+# Local variables:
+#    2: res
+#    3: err
+#    4: data
+
+251:           0 RESUME               0
+
+252:           2 NOP
+
+253:           4 LOAD_GLOBAL          (requests)
+              14 LOAD_ATTR            (get)
+              34 PUSH_NULL
+
+254:          36 LOAD_CONST           ("https://gateway.ewt360.com/api/homeworkprod/homework/student/holiday/")
+
+255:          38 LOAD_CONST           ("getHomeworkSummaryInfo?schoolId=")
+              40 LOAD_FAST            (self)
+              42 LOAD_ATTR            (schoolId)
+              62 FORMAT_SIMPLE
+              64 LOAD_CONST           ("&timestamp=")
+              66 LOAD_FAST            (self)
+              68 LOAD_ATTR            (NULL|self + getNowTimestamp)
+              88 CALL                 (0 positional)
+              96 FORMAT_SIMPLE
+              98 LOAD_CONST           ("&sceneId=")
+             100 LOAD_FAST            (sceneId)
+             102 FORMAT_SIMPLE
+             104 BUILD_STRING         6
+
+254:         106 BINARY_OP            (+)
+
+256:         110 LOAD_FAST            (self)
+             112 LOAD_ATTR            (commonHeader)
+
+253:         132 LOAD_CONST           (('url', 'headers'))
+             134 CALL_KW              2
+             136 STORE_FAST           (res)
+
+262:         138 LOAD_FAST            (res)
+             140 LOAD_ATTR            (NULL|self + json)
+             160 CALL                 (0 positional)
+             168 STORE_FAST           (data)
+
+263:         170 LOAD_FAST            (data)
+             172 LOAD_CONST           ("code")
+             174 BINARY_SUBSCR
+             178 LOAD_CONST           ("200")
+             180 COMPARE_OP           (==)
+             184 POP_JUMP_IF_FALSE    (to 204)
+
+264:         188 LOAD_FAST            (data)
+             190 LOAD_CONST           ("data")
+             192 BINARY_SUBSCR
+             196 LOAD_CONST           ("homeworkIds")
+             198 BINARY_SUBSCR
+             202 RETURN_VALUE
+
+266:     >>  204 LOAD_GLOBAL          (NULL + WriteLog)
+             214 LOAD_CONST           ("[")
+             216 LOAD_FAST            (self)
+             218 LOAD_ATTR            (userName)
+             238 FORMAT_SIMPLE
+             240 LOAD_CONST           ("] 获取作业id失败：状态码异常，")
+             242 LOAD_FAST            (data)
+             244 FORMAT_SIMPLE
+             246 BUILD_STRING         4
+             248 LOAD_CONST           ("error")
+             250 LOAD_CONST           (True)
+             252 CALL                 (3 positional)
+             260 POP_TOP
+
+267:         262 LOAD_GLOBAL          (SystemExit)
+             272 RAISE_VARARGS        (exception instance)
+             274 PUSH_EXC_INFO
+
+258:         276 LOAD_GLOBAL          (requests)
+             286 LOAD_ATTR            (RequestException)
+             306 CHECK_EXC_MATCH
+             308 POP_JUMP_IF_FALSE    (to 392)
+             312 STORE_FAST           (err)
+
+259:         314 LOAD_GLOBAL          (NULL + WriteLog)
+             324 LOAD_CONST           ("[")
+             326 LOAD_FAST            (self)
+             328 LOAD_ATTR            (userName)
+             348 FORMAT_SIMPLE
+             350 LOAD_CONST           ("] 获取作业id请求失败: ")
+             352 LOAD_FAST            (err)
+             354 FORMAT_SIMPLE
+             356 BUILD_STRING         4
+             358 LOAD_CONST           ("error")
+             360 LOAD_CONST           (True)
+             362 CALL                 (3 positional)
+             370 POP_TOP
+
+260:         372 LOAD_GLOBAL          (SystemExit)
+             382 RAISE_VARARGS        (exception instance)
+             384 LOAD_CONST           (None)
+             386 STORE_FAST           (err)
+             388 DELETE_FAST          (err)
+             390 RERAISE              1
+
+258:     >>  392 RERAISE              0
+             394 COPY                 3
+             396 POP_EXCEPT
+             398 RERAISE              1
+
+ExceptionTable:
+  4 to 136 -> 274 [0]
+  274 to 312 -> 394 [1] lasti
+  314 to 382 -> 384 [1] lasti
+  384 to 392 -> 394 [1] lasti
+
+# Method Name:       getDayList
+# Filename:          Ewt.py
+# Argument count:    3
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  6
+# Stack size:        12
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        270
+# Constants:
+#    0: None
+#    1: 'https://gateway.ewt360.com/api/homeworkprod/homework/student/holiday/'
+#    2: 'getHomeworkDistribution?sceneId='
+#    3: 2
+#    4: 'false'
+#    5: 'null'
+#    6: ('homeworkIds', 'type', 'isSelfTask', 'userOptionTaskId', 'schoolId', 'sceneId')
+#    7: ('url', 'data', 'headers')
+#    8: '['
+#    9: '] 获取天数表请求失败: '
+#   10: 'error'
+#   11: True
+#   12: 'code'
+#   13: '200'
+#   14: 'data'
+#   15: 'days'
+#   16: '] 获取用户信息失败：状态码异常，'
+# Names:
+#    0: requests
+#    1: post
+#    2: json
+#    3: dumps
+#    4: schoolId
+#    5: commonHeaderJSON
+#    6: RequestException
+#    7: WriteLog
+#    8: userName
+#    9: SystemExit
+# Varnames:
+#	self, homeworkId, sceneId, res, err, data
+# Positional arguments:
+#	self, homeworkId, sceneId
+# Local variables:
+#    3: res
+#    4: err
+#    5: data
+
+270:           0 RESUME               0
+
+271:           2 NOP
+
+272:           4 LOAD_GLOBAL          (requests)
+              14 LOAD_ATTR            (post)
+              34 PUSH_NULL
+
+273:          36 LOAD_CONST           ("https://gateway.ewt360.com/api/homeworkprod/homework/student/holiday/")
+
+274:          38 LOAD_CONST           ("getHomeworkDistribution?sceneId=")
+              40 LOAD_FAST            (sceneId)
+              42 FORMAT_SIMPLE
+              44 BUILD_STRING         2
+
+273:          46 BINARY_OP            (+)
+
+275:          50 LOAD_GLOBAL          (json)
+              60 LOAD_ATTR            (dumps)
+              80 PUSH_NULL
+
+276:          82 LOAD_FAST            (homeworkId)
+              84 BUILD_LIST           1
+
+277:          86 LOAD_CONST           (2)
+
+278:          88 LOAD_CONST           ("false")
+
+279:          90 LOAD_CONST           ("null")
+
+280:          92 LOAD_FAST            (self)
+              94 LOAD_ATTR            (schoolId)
+
+281:         114 LOAD_FAST            (sceneId)
+
+275:         116 LOAD_CONST           (('homeworkIds', 'type', 'isSelfTask', 'userOptionTaskId', 'schoolId', 'sceneId'))
+             118 BUILD_CONST_KEY_MAP  6
+             120 CALL                 (1 positional)
+
+283:         128 LOAD_FAST            (self)
+             130 LOAD_ATTR            (commonHeaderJSON)
+
+272:         150 LOAD_CONST           (('url', 'data', 'headers'))
+             152 CALL_KW              3
+             154 STORE_FAST           (res)
+
+289:         156 LOAD_FAST            (res)
+             158 LOAD_ATTR            (NULL|self + json)
+             178 CALL                 (0 positional)
+             186 STORE_FAST           (data)
+
+290:         188 LOAD_FAST            (data)
+             190 LOAD_CONST           ("code")
+             192 BINARY_SUBSCR
+             196 LOAD_CONST           ("200")
+             198 COMPARE_OP           (==)
+             202 POP_JUMP_IF_FALSE    (to 222)
+
+291:         206 LOAD_FAST            (data)
+             208 LOAD_CONST           ("data")
+             210 BINARY_SUBSCR
+             214 LOAD_CONST           ("days")
+             216 BINARY_SUBSCR
+             220 RETURN_VALUE
+
+293:     >>  222 LOAD_GLOBAL          (NULL + WriteLog)
+             232 LOAD_CONST           ("[")
+             234 LOAD_FAST            (self)
+             236 LOAD_ATTR            (userName)
+             256 FORMAT_SIMPLE
+             258 LOAD_CONST           ("] 获取用户信息失败：状态码异常，")
+             260 LOAD_FAST            (data)
+             262 FORMAT_SIMPLE
+             264 BUILD_STRING         4
+             266 LOAD_CONST           ("error")
+             268 LOAD_CONST           (True)
+             270 CALL                 (3 positional)
+             278 POP_TOP
+
+294:         280 LOAD_GLOBAL          (SystemExit)
+             290 RAISE_VARARGS        (exception instance)
+             292 PUSH_EXC_INFO
+
+285:         294 LOAD_GLOBAL          (requests)
+             304 LOAD_ATTR            (RequestException)
+             324 CHECK_EXC_MATCH
+             326 POP_JUMP_IF_FALSE    (to 410)
+             330 STORE_FAST           (err)
+
+286:         332 LOAD_GLOBAL          (NULL + WriteLog)
+             342 LOAD_CONST           ("[")
+             344 LOAD_FAST            (self)
+             346 LOAD_ATTR            (userName)
+             366 FORMAT_SIMPLE
+             368 LOAD_CONST           ("] 获取天数表请求失败: ")
+             370 LOAD_FAST            (err)
+             372 FORMAT_SIMPLE
+             374 BUILD_STRING         4
+             376 LOAD_CONST           ("error")
+             378 LOAD_CONST           (True)
+             380 CALL                 (3 positional)
+             388 POP_TOP
+
+287:         390 LOAD_GLOBAL          (SystemExit)
+             400 RAISE_VARARGS        (exception instance)
+             402 LOAD_CONST           (None)
+             404 STORE_FAST           (err)
+             406 DELETE_FAST          (err)
+             408 RERAISE              1
+
+285:     >>  410 RERAISE              0
+             412 COPY                 3
+             414 POP_EXCEPT
+             416 RERAISE              1
+
+ExceptionTable:
+  4 to 154 -> 292 [0]
+  292 to 330 -> 412 [1] lasti
+  332 to 400 -> 402 [1] lasti
+  402 to 410 -> 412 [1] lasti
+
+# Method Name:       getHomeworkList
+# Filename:          Ewt.py
+# Argument count:    4
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  7
+# Stack size:        17
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        297
+# Constants:
+#    0: None
+#    1: 'https://gateway.ewt360.com/api/homeworkprod/homework/student/holiday/'
+#    2: 'pageHomeworkTasks?sceneId='
+#    3: 'dayId'
+#    4: 0
+#    5: 'day'
+#    6: 'false'
+#    7: 'null'
+#    8: 1
+#    9: 30
+#   10: ('dayId', 'day', 'status', 'homeworkIds', 'isSelfTask', 'userOptionTaskId', 'pageIndex', 'pageSize', 'missionType', 'schoolId', 'sceneId')
+#   11: ('url', 'data', 'headers')
+#   12: '['
+#   13: '] 获取作业列表请求失败: '
+#   14: 'error'
+#   15: True
+#   16: 'code'
+#   17: '200'
+#   18: 'data'
+#   19: '] 获取作业列表失败：状态码异常，'
+# Names:
+#    0: requests
+#    1: post
+#    2: json
+#    3: dumps
+#    4: schoolId
+#    5: commonHeaderJSON
+#    6: RequestException
+#    7: WriteLog
+#    8: userName
+#    9: SystemExit
+# Varnames:
+#	self, homeworkId, day, sceneId, res, err, data
+# Positional arguments:
+#	self, homeworkId, day, sceneId
+# Local variables:
+#    4: res
+#    5: err
+#    6: data
+
+297:           0 RESUME               0
+
+298:           2 NOP
+
+299:           4 LOAD_GLOBAL          (requests)
+              14 LOAD_ATTR            (post)
+              34 PUSH_NULL
+
+300:          36 LOAD_CONST           ("https://gateway.ewt360.com/api/homeworkprod/homework/student/holiday/")
+
+301:          38 LOAD_CONST           ("pageHomeworkTasks?sceneId=")
+              40 LOAD_FAST            (sceneId)
+              42 FORMAT_SIMPLE
+              44 BUILD_STRING         2
+
+300:          46 BINARY_OP            (+)
+
+302:          50 LOAD_GLOBAL          (json)
+              60 LOAD_ATTR            (dumps)
+              80 PUSH_NULL
+
+303:          82 LOAD_FAST            (day)
+              84 LOAD_CONST           ("dayId")
+              86 BINARY_SUBSCR
+              90 LOAD_CONST           (0)
+              92 BINARY_SUBSCR
+              96 BUILD_LIST           1
+
+304:          98 LOAD_FAST            (day)
+             100 LOAD_CONST           ("day")
+             102 BINARY_SUBSCR
+
+305:         106 LOAD_CONST           (0)
+
+306:         108 LOAD_FAST            (homeworkId)
+             110 BUILD_LIST           1
+
+307:         112 LOAD_CONST           ("false")
+
+308:         114 LOAD_CONST           ("null")
+
+309:         116 LOAD_CONST           (1)
+
+310:         118 LOAD_CONST           (30)
+
+311:         120 LOAD_CONST           (0)
+
+312:         122 LOAD_FAST            (self)
+             124 LOAD_ATTR            (schoolId)
+
+313:         144 LOAD_FAST            (sceneId)
+
+302:         146 LOAD_CONST           (('dayId', 'day', 'status', 'homeworkIds', 'isSelfTask', 'userOptionTaskId', 'pageIndex', 'pageSize', 'missionType', 'schoolId', 'sceneId'))
+             148 BUILD_CONST_KEY_MAP  11
+             150 CALL                 (1 positional)
+
+315:         158 LOAD_FAST            (self)
+             160 LOAD_ATTR            (commonHeaderJSON)
+
+299:         180 LOAD_CONST           (('url', 'data', 'headers'))
+             182 CALL_KW              3
+             184 STORE_FAST           (res)
+
+321:         186 LOAD_FAST            (res)
+             188 LOAD_ATTR            (NULL|self + json)
+             208 CALL                 (0 positional)
+             216 STORE_FAST           (data)
+
+322:         218 LOAD_FAST            (data)
+             220 LOAD_CONST           ("code")
+             222 BINARY_SUBSCR
+             226 LOAD_CONST           ("200")
+             228 COMPARE_OP           (==)
+             232 POP_JUMP_IF_FALSE    (to 252)
+
+323:         236 LOAD_FAST            (data)
+             238 LOAD_CONST           ("data")
+             240 BINARY_SUBSCR
+             244 LOAD_CONST           ("data")
+             246 BINARY_SUBSCR
+             250 RETURN_VALUE
+
+325:     >>  252 LOAD_GLOBAL          (NULL + WriteLog)
+             262 LOAD_CONST           ("[")
+             264 LOAD_FAST            (self)
+             266 LOAD_ATTR            (userName)
+             286 FORMAT_SIMPLE
+             288 LOAD_CONST           ("] 获取作业列表失败：状态码异常，")
+             290 LOAD_FAST            (data)
+             292 FORMAT_SIMPLE
+             294 BUILD_STRING         4
+             296 LOAD_CONST           ("error")
+             298 LOAD_CONST           (True)
+             300 CALL                 (3 positional)
+             308 POP_TOP
+
+326:         310 LOAD_GLOBAL          (SystemExit)
+             320 RAISE_VARARGS        (exception instance)
+             322 PUSH_EXC_INFO
+
+317:         324 LOAD_GLOBAL          (requests)
+             334 LOAD_ATTR            (RequestException)
+             354 CHECK_EXC_MATCH
+             356 POP_JUMP_IF_FALSE    (to 440)
+             360 STORE_FAST           (err)
+
+318:         362 LOAD_GLOBAL          (NULL + WriteLog)
+             372 LOAD_CONST           ("[")
+             374 LOAD_FAST            (self)
+             376 LOAD_ATTR            (userName)
+             396 FORMAT_SIMPLE
+             398 LOAD_CONST           ("] 获取作业列表请求失败: ")
+             400 LOAD_FAST            (err)
+             402 FORMAT_SIMPLE
+             404 BUILD_STRING         4
+             406 LOAD_CONST           ("error")
+             408 LOAD_CONST           (True)
+             410 CALL                 (3 positional)
+             418 POP_TOP
+
+319:         420 LOAD_GLOBAL          (SystemExit)
+             430 RAISE_VARARGS        (exception instance)
+             432 LOAD_CONST           (None)
+             434 STORE_FAST           (err)
+             436 DELETE_FAST          (err)
+             438 RERAISE              1
+
+317:     >>  440 RERAISE              0
+             442 COPY                 3
+             444 POP_EXCEPT
+             446 RERAISE              1
+
+ExceptionTable:
+  4 to 184 -> 322 [0]
+  322 to 360 -> 442 [1] lasti
+  362 to 430 -> 432 [1] lasti
+  432 to 440 -> 442 [1] lasti
+
+# Method Name:       getPlayerGlobalConf
+# Filename:          Ewt.py
+# Argument count:    1
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  7
+# Stack size:        7
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        329
+# Constants:
+#    0: None
+#    1: 'https://web.ewt360.com/api/videoplayerprod/videoplayer/getPlayerGlobalConf?'
+#    2: 'videoBizCode=1001&sdkVersion=3.0.19&_='
+#    3: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.30'
+#    4: ('Token', 'user-agent')
+#    5: ('url', 'headers')
+#    6: '['
+#    7: '] 获取视频播放器全局配置信息请求失败: '
+#    8: 'error'
+#    9: True
+#   10: 'code'
+#   11: '200'
+#   12: 'data'
+#   13: 'globalInfo'
+#   14: 'secret'
+#   15: 'sessionId'
+#   16: 'ts'
+#   17: '] 获取视频播放器全局配置信息失败：状态码异常，'
+# Names:
+#    0: requests
+#    1: get
+#    2: getNowTimestamp
+#    3: token
+#    4: RequestException
+#    5: WriteLog
+#    6: userName
+#    7: SystemExit
+#    8: json
+# Varnames:
+#	self, res, err, data, secret, xBfeSessionId, beginTs
+# Positional arguments:
+#	self
+# Local variables:
+#    1: res
+#    2: err
+#    3: data
+#    4: secret
+#    5: xBfeSessionId
+#    6: beginTs
+
+329:           0 RESUME               0
+
+330:           2 NOP
+
+331:           4 LOAD_GLOBAL          (requests)
+              14 LOAD_ATTR            (get)
+              34 PUSH_NULL
+
+332:          36 LOAD_CONST           ("https://web.ewt360.com/api/videoplayerprod/videoplayer/getPlayerGlobalConf?")
+
+333:          38 LOAD_CONST           ("videoBizCode=1001&sdkVersion=3.0.19&_=")
+              40 LOAD_FAST            (self)
+              42 LOAD_ATTR            (NULL|self + getNowTimestamp)
+              62 CALL                 (0 positional)
+              70 FORMAT_SIMPLE
+              72 BUILD_STRING         2
+
+332:          74 BINARY_OP            (+)
+
+335:          78 LOAD_FAST            (self)
+              80 LOAD_ATTR            (token)
+
+336:         100 LOAD_CONST           ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.30")
+
+334:         102 LOAD_CONST           (('Token', 'user-agent'))
+             104 BUILD_CONST_KEY_MAP  2
+
+331:         106 LOAD_CONST           (('url', 'headers'))
+             108 CALL_KW              2
+             110 STORE_FAST           (res)
+
+345:         112 LOAD_FAST            (res)
+             114 LOAD_ATTR            (NULL|self + json)
+             134 CALL                 (0 positional)
+             142 STORE_FAST           (data)
+
+346:         144 LOAD_FAST            (data)
+             146 LOAD_CONST           ("code")
+             148 BINARY_SUBSCR
+             152 LOAD_CONST           ("200")
+             154 COMPARE_OP           (==)
+             158 POP_JUMP_IF_FALSE    (to 236)
+
+347:         162 LOAD_FAST            (data)
+             164 LOAD_CONST           ("data")
+             166 BINARY_SUBSCR
+             170 LOAD_CONST           ("globalInfo")
+             172 BINARY_SUBSCR
+             176 LOAD_CONST           ("secret")
+             178 BINARY_SUBSCR
+             182 STORE_FAST           (secret)
+
+348:         184 LOAD_FAST            (data)
+             186 LOAD_CONST           ("data")
+             188 BINARY_SUBSCR
+             192 LOAD_CONST           ("globalInfo")
+             194 BINARY_SUBSCR
+             198 LOAD_CONST           ("sessionId")
+             200 BINARY_SUBSCR
+             204 STORE_FAST           (xBfeSessionId)
+
+349:         206 LOAD_FAST            (data)
+             208 LOAD_CONST           ("data")
+             210 BINARY_SUBSCR
+             214 LOAD_CONST           ("globalInfo")
+             216 BINARY_SUBSCR
+             220 LOAD_CONST           ("ts")
+             222 BINARY_SUBSCR
+             226 STORE_FAST           (beginTs)
+
+350:         228 LOAD_FAST_LOAD_FAST  (secret, xBfeSessionId)
+             230 LOAD_FAST            (beginTs)
+             232 BUILD_TUPLE          3
+             234 RETURN_VALUE
+
+352:     >>  236 LOAD_GLOBAL          (NULL + WriteLog)
+
+353:         246 LOAD_CONST           ("[")
+             248 LOAD_FAST            (self)
+             250 LOAD_ATTR            (userName)
+             270 FORMAT_SIMPLE
+             272 LOAD_CONST           ("] 获取视频播放器全局配置信息失败：状态码异常，")
+             274 LOAD_FAST            (data)
+             276 FORMAT_SIMPLE
+             278 BUILD_STRING         4
+             280 LOAD_CONST           ("error")
+             282 LOAD_CONST           (True)
+
+352:         284 CALL                 (3 positional)
+             292 POP_TOP
+
+354:         294 LOAD_GLOBAL          (SystemExit)
+             304 RAISE_VARARGS        (exception instance)
+             306 PUSH_EXC_INFO
+
+340:         308 LOAD_GLOBAL          (requests)
+             318 LOAD_ATTR            (RequestException)
+             338 CHECK_EXC_MATCH
+             340 POP_JUMP_IF_FALSE    (to 424)
+             344 STORE_FAST           (err)
+
+341:         346 LOAD_GLOBAL          (NULL + WriteLog)
+
+342:         356 LOAD_CONST           ("[")
+             358 LOAD_FAST            (self)
+             360 LOAD_ATTR            (userName)
+             380 FORMAT_SIMPLE
+             382 LOAD_CONST           ("] 获取视频播放器全局配置信息请求失败: ")
+             384 LOAD_FAST            (err)
+             386 FORMAT_SIMPLE
+             388 BUILD_STRING         4
+             390 LOAD_CONST           ("error")
+             392 LOAD_CONST           (True)
+
+341:         394 CALL                 (3 positional)
+             402 POP_TOP
+
+343:         404 LOAD_GLOBAL          (SystemExit)
+             414 RAISE_VARARGS        (exception instance)
+             416 LOAD_CONST           (None)
+             418 STORE_FAST           (err)
+             420 DELETE_FAST          (err)
+             422 RERAISE              1
+
+340:     >>  424 RERAISE              0
+             426 COPY                 3
+             428 POP_EXCEPT
+             430 RERAISE              1
+
+ExceptionTable:
+  4 to 110 -> 306 [0]
+  306 to 344 -> 426 [1] lasti
+  346 to 414 -> 416 [1] lasti
+  416 to 424 -> 426 [1] lasti
+
+# Method Name:       uploadProgress
+# Filename:          Ewt.py
+# Argument count:    10
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  20
+# Stack size:        17
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        357
+# Constants:
+#    0: None
+#    1: <Code311 code object generateUuid at 0x1e43a1e16d0, file Ewt.py>, line 360
+#    2: <Code311 code object generateSignature at 0x1e43a1e19a0, file Ewt.py>, line 364
+#    3: 'https://bfe.ewt360.com/monitor/web/collect/batch?TrVideoBizCode=1013&TrFallback=0&TrUserId='
+#    4: '&TrlessonId='
+#    5: '&TrUuId='
+#    6: '&sdkVersion=3.0.8&_='
+#    7: '*'
+#    8: 'application/json'
+#    9: 'https://web.ewt360.com'
+#   10: 'https://web.ewt360.com/'
+#   11: '?0'
+#   12: '"Windows"'
+#   13: 'empty'
+#   14: 'cors'
+#   15: 'same-site'
+#   16: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.30'
+#   17: ('access-control-allow-origin', 'content-type', 'origin', 'referer', 'sec-ch-ua-mobile', 'sec-ch-ua-platform', 'sec-fetch-dest', 'sec-fetch-mode', 'sec-fetch-site', 'Token', 'user-agent', 'X-Bfe-Session-ID')
+#   18: 'Windows'
+#   19: '1920*1080'
+#   20: 'Chrome'
+#   21: '5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.30'
+#   22: 1
+#   23: '3.0.19'
+#   24: '1013'
+#   25: ('userid', 'ip', 'os', 'resolution', 'mstid', 'browser', 'browser_ver', 'playerType', 'sdkVersion', 'videoBizCode')
+#   26: 3
+#   27: 60000
+#   28: 25
+#   29: '高清'
+#   30: 0
+#   31: ('lesson_id', 'course_id', 'stay_time', 'status', 'begin_time', 'report_time', 'point_time_id', 'point_time', 'point_num', 'video_type', 'speed', 'quality', 'action', 'fallback', 'uuid')
+#   32: ''
+#   33: 'ewt_web_video_detail'
+#   34: ('CommonPackage', 'EventPackage', 'signature', 'sn', '_')
+#   35: 'signature'
+#   36: ('data', 'headers')
+#   37: '['
+#   38: '] 上传进度请求失败: '
+#   39: 'error'
+#   40: True
+#   41: 'code'
+#   42: 200
+#   43: '] 上传进度失败：状态码异常，'
+# Names:
+#    0: getNowTimestamp
+#    1: userId
+#    2: token
+#    3: int
+#    4: ip
+#    5: str
+#    6: speed
+#    7: requests
+#    8: post
+#    9: json
+#   10: dumps
+#   11: RequestException
+#   12: WriteLog
+#   13: userName
+#   14: SystemExit
+#   15: get
+# Varnames:
+#	self, secret, xBfeSessionId, beginTime, reportTime, lessonId, courseId, index, action, duration, generateUuid, generateSignature, uuid, timestamp, url, headers, payload, res, err, data
+# Positional arguments:
+#	self, secret, xBfeSessionId, beginTime, reportTime, lessonId, courseId, index, action, duration
+# Local variables:
+#   10: generateUuid
+#   11: generateSignature
+#   12: uuid
+#   13: timestamp
+#   14: url
+#   15: headers
+#   16: payload
+#   17: res
+#   18: err
+#   19: data
+
+357:           0 RESUME               0
+
+360:           2 LOAD_CONST           (<Code311 code object generateUuid at 0x1e43a1e16d0, file Ewt.py>, line 360)
+               4 MAKE_FUNCTION
+               6 STORE_FAST           (generateUuid)
+
+364:           8 LOAD_CONST           (<Code311 code object generateSignature at 0x1e43a1e19a0, file Ewt.py>, line 364)
+              10 MAKE_FUNCTION
+              12 STORE_FAST           (generateSignature)
+
+370:          14 LOAD_FAST            (generateUuid)
+              16 PUSH_NULL
+              18 LOAD_FAST            (index)
+              20 CALL                 (1 positional)
+              28 STORE_FAST           (uuid)
+
+371:          30 LOAD_FAST            (self)
+              32 LOAD_ATTR            (NULL|self + getNowTimestamp)
+              52 CALL                 (0 positional)
+              60 STORE_FAST           (timestamp)
+
+372:          62 LOAD_CONST           ("https://bfe.ewt360.com/monitor/web/collect/batch?TrVideoBizCode=1013&TrFallback=0&TrUserId=")
+
+373:          64 LOAD_FAST            (self)
+              66 LOAD_ATTR            (userId)
+              86 FORMAT_SIMPLE
+              88 LOAD_CONST           ("&TrlessonId=")
+              90 LOAD_FAST            (lessonId)
+              92 FORMAT_SIMPLE
+              94 LOAD_CONST           ("&TrUuId=")
+              96 LOAD_FAST            (uuid)
+              98 FORMAT_SIMPLE
+
+374:         100 LOAD_CONST           ("&sdkVersion=3.0.8&_=")
+             102 LOAD_FAST            (timestamp)
+             104 FORMAT_SIMPLE
+
+372:         106 BUILD_STRING         8
+             108 STORE_FAST           (url)
+
+376:         110 LOAD_CONST           ("*")
+
+377:         112 LOAD_CONST           ("application/json")
+
+378:         114 LOAD_CONST           ("https://web.ewt360.com")
+
+379:         116 LOAD_CONST           ("https://web.ewt360.com/")
+
+380:         118 LOAD_CONST           ("?0")
+
+381:         120 LOAD_CONST           ('"Windows"')
+
+382:         122 LOAD_CONST           ("empty")
+
+383:         124 LOAD_CONST           ("cors")
+
+384:         126 LOAD_CONST           ("same-site")
+
+385:         128 LOAD_FAST            (self)
+             130 LOAD_ATTR            (token)
+
+386:         150 LOAD_CONST           ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.30")
+
+388:         152 LOAD_FAST            (xBfeSessionId)
+
+375:         154 LOAD_CONST           (('access-control-allow-origin', 'content-type', 'origin', 'referer', 'sec-ch-ua-mobile', 'sec-ch-ua-platform', 'sec-fetch-dest', 'sec-fetch-mode', 'sec-fetch-site', 'Token', 'user-agent', 'X-Bfe-Session-ID'))
+             156 BUILD_CONST_KEY_MAP  12
+             158 STORE_FAST           (headers)
+
+392:         160 LOAD_GLOBAL          (NULL + int)
+             170 LOAD_FAST            (self)
+             172 LOAD_ATTR            (userId)
+             192 CALL                 (1 positional)
+
+393:         200 LOAD_FAST            (self)
+             202 LOAD_ATTR            (ip)
+
+394:         222 LOAD_CONST           ("Windows")
+
+395:         224 LOAD_CONST           ("1920*1080")
+
+396:         226 LOAD_FAST            (self)
+             228 LOAD_ATTR            (token)
+
+397:         248 LOAD_CONST           ("Chrome")
+
+398:         250 LOAD_CONST           ("5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.30")
+
+400:         252 LOAD_CONST           (1)
+
+401:         254 LOAD_CONST           ("3.0.19")
+
+402:         256 LOAD_CONST           ("1013")
+
+391:         258 LOAD_CONST           (('userid', 'ip', 'os', 'resolution', 'mstid', 'browser', 'browser_ver', 'playerType', 'sdkVersion', 'videoBizCode'))
+             260 BUILD_CONST_KEY_MAP  10
+
+405:         262 LOAD_GLOBAL          (NULL + str)
+             272 LOAD_FAST            (lessonId)
+             274 CALL                 (1 positional)
+
+406:         282 LOAD_GLOBAL          (NULL + str)
+             292 LOAD_FAST            (courseId)
+             294 CALL                 (1 positional)
+
+407:         302 LOAD_FAST            (duration)
+
+408:         304 LOAD_FAST            (action)
+             306 LOAD_CONST           (3)
+             308 COMPARE_OP           (!=)
+             312 POP_JUMP_IF_FALSE    (to 320)
+             316 LOAD_CONST           (1)
+             318 JUMP_FORWARD         (to 322)
+         >>  320 LOAD_CONST           (3)
+
+409:     >>  322 LOAD_GLOBAL          (NULL + str)
+             332 LOAD_FAST            (beginTime)
+             334 CALL                 (1 positional)
+
+410:         342 LOAD_FAST            (reportTime)
+
+411:         344 LOAD_CONST           (1)
+
+412:         346 LOAD_CONST           (60000)
+
+413:         348 LOAD_CONST           (25)
+
+414:         350 LOAD_CONST           (1)
+
+415:         352 LOAD_FAST            (self)
+             354 LOAD_ATTR            (speed)
+
+416:         374 LOAD_CONST           ("高清")
+
+417:         376 LOAD_FAST            (action)
+
+418:         378 LOAD_CONST           (0)
+
+419:         380 LOAD_FAST            (uuid)
+
+404:         382 LOAD_CONST           (('lesson_id', 'course_id', 'stay_time', 'status', 'begin_time', 'report_time', 'point_time_id', 'point_time', 'point_num', 'video_type', 'speed', 'quality', 'action', 'fallback', 'uuid'))
+             384 BUILD_CONST_KEY_MAP  15
+             386 BUILD_LIST           1
+
+421:         388 LOAD_CONST           ("")
+
+422:         390 LOAD_CONST           ("ewt_web_video_detail")
+
+423:         392 LOAD_FAST            (timestamp)
+
+390:         394 LOAD_CONST           (('CommonPackage', 'EventPackage', 'signature', 'sn', '_'))
+             396 BUILD_CONST_KEY_MAP  5
+             398 STORE_FAST           (payload)
+
+426:         400 LOAD_FAST            (generateSignature)
+             402 PUSH_NULL
+
+427:         404 LOAD_FAST_LOAD_FAST  (secret, action)
+             406 LOAD_FAST_LOAD_FAST  (duration, reportTime)
+             408 LOAD_FAST            (self)
+             410 LOAD_ATTR            (token)
+
+426:         430 CALL                 (5 positional)
+             438 LOAD_FAST            (payload)
+             440 LOAD_CONST           ("signature")
+             442 STORE_SUBSCR
+
+429:         446 NOP
+
+430:         448 LOAD_GLOBAL          (requests)
+             458 LOAD_ATTR            (post)
+             478 PUSH_NULL
+             480 LOAD_FAST            (url)
+             482 LOAD_GLOBAL          (json)
+             492 LOAD_ATTR            (dumps)
+             512 PUSH_NULL
+             514 LOAD_FAST            (payload)
+             516 CALL                 (1 positional)
+             524 LOAD_FAST            (headers)
+             526 LOAD_CONST           (('data', 'headers'))
+             528 CALL_KW              3
+             530 STORE_FAST           (res)
+
+435:         532 LOAD_FAST            (res)
+             534 LOAD_ATTR            (NULL|self + json)
+             554 CALL                 (0 positional)
+             562 STORE_FAST           (data)
+
+436:         564 LOAD_FAST            (data)
+             566 LOAD_ATTR            (NULL|self + get)
+             586 LOAD_CONST           ("code")
+             588 CALL                 (1 positional)
+             596 LOAD_CONST           (200)
+             598 COMPARE_OP           (==)
+             602 POP_JUMP_IF_FALSE    (to 608)
+
+437:         606 RETURN_CONST         (None)
+
+439:     >>  608 LOAD_GLOBAL          (NULL + WriteLog)
+             618 LOAD_CONST           ("[")
+             620 LOAD_FAST            (self)
+             622 LOAD_ATTR            (userName)
+             642 FORMAT_SIMPLE
+             644 LOAD_CONST           ("] 上传进度失败：状态码异常，")
+             646 LOAD_FAST            (data)
+             648 FORMAT_SIMPLE
+             650 BUILD_STRING         4
+             652 LOAD_CONST           ("error")
+             654 LOAD_CONST           (True)
+             656 CALL                 (3 positional)
+             664 POP_TOP
+
+440:         666 LOAD_GLOBAL          (SystemExit)
+             676 RAISE_VARARGS        (exception instance)
+             678 PUSH_EXC_INFO
+
+431:         680 LOAD_GLOBAL          (requests)
+             690 LOAD_ATTR            (RequestException)
+             710 CHECK_EXC_MATCH
+             712 POP_JUMP_IF_FALSE    (to 796)
+             716 STORE_FAST           (err)
+
+432:         718 LOAD_GLOBAL          (NULL + WriteLog)
+             728 LOAD_CONST           ("[")
+             730 LOAD_FAST            (self)
+             732 LOAD_ATTR            (userName)
+             752 FORMAT_SIMPLE
+             754 LOAD_CONST           ("] 上传进度请求失败: ")
+             756 LOAD_FAST            (err)
+             758 FORMAT_SIMPLE
+             760 BUILD_STRING         4
+             762 LOAD_CONST           ("error")
+             764 LOAD_CONST           (True)
+             766 CALL                 (3 positional)
+             774 POP_TOP
+
+433:         776 LOAD_GLOBAL          (SystemExit)
+             786 RAISE_VARARGS        (exception instance)
+             788 LOAD_CONST           (None)
+             790 STORE_FAST           (err)
+             792 DELETE_FAST          (err)
+             794 RERAISE              1
+
+431:     >>  796 RERAISE              0
+             798 COPY                 3
+             800 POP_EXCEPT
+             802 RERAISE              1
+
+ExceptionTable:
+  448 to 530 -> 678 [0]
+  678 to 716 -> 798 [1] lasti
+  718 to 786 -> 788 [1] lasti
+  788 to 796 -> 798 [1] lasti
+
+# Method Name:       uploadFMProgress
+# Filename:          Ewt.py
+# Argument count:    2
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  5
+# Stack size:        11
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        443
+# Constants:
+#    0: None
+#    1: 'https://gateway.ewt360.com/api/homeworkprod/homework/student/updateMission?'
+#    2: 'sceneId'
+#    3: 'contentId'
+#    4: 3
+#    5: 1
+#    6: ('contentId', 'contentType', 'sceneId', 'percent', 'schoolId')
+#    7: ('url', 'data', 'headers')
+#    8: '['
+#    9: '] 上传FM进度请求失败: '
+#   10: 'error'
+#   11: True
+#   12: 'code'
+#   13: '200'
+#   14: '] 上传FM进度失败，状态码异常：'
+# Names:
+#    0: requests
+#    1: post
+#    2: json
+#    3: dumps
+#    4: schoolId
+#    5: commonHeaderJSON
+#    6: RequestException
+#    7: WriteLog
+#    8: userName
+#    9: SystemExit
+# Varnames:
+#	self, cls, res, err, data
+# Positional arguments:
+#	self, cls
+# Local variables:
+#    2: res
+#    3: err
+#    4: data
+
+443:           0 RESUME               0
+
+444:           2 NOP
+
+445:           4 LOAD_GLOBAL          (requests)
+              14 LOAD_ATTR            (post)
+              34 PUSH_NULL
+
+446:          36 LOAD_CONST           ("https://gateway.ewt360.com/api/homeworkprod/homework/student/updateMission?")
+              38 LOAD_FAST            (cls)
+              40 LOAD_CONST           ("sceneId")
+              42 BINARY_SUBSCR
+              46 FORMAT_SIMPLE
+              48 BUILD_STRING         2
+
+447:          50 LOAD_GLOBAL          (json)
+              60 LOAD_ATTR            (dumps)
+              80 PUSH_NULL
+
+448:          82 LOAD_FAST            (cls)
+              84 LOAD_CONST           ("contentId")
+              86 BINARY_SUBSCR
+
+449:          90 LOAD_CONST           (3)
+
+450:          92 LOAD_FAST            (cls)
+              94 LOAD_CONST           ("sceneId")
+              96 BINARY_SUBSCR
+
+451:         100 LOAD_CONST           (1)
+
+452:         102 LOAD_FAST            (self)
+             104 LOAD_ATTR            (schoolId)
+
+447:         124 LOAD_CONST           (('contentId', 'contentType', 'sceneId', 'percent', 'schoolId'))
+             126 BUILD_CONST_KEY_MAP  5
+             128 CALL                 (1 positional)
+
+454:         136 LOAD_FAST            (self)
+             138 LOAD_ATTR            (commonHeaderJSON)
+
+445:         158 LOAD_CONST           (('url', 'data', 'headers'))
+             160 CALL_KW              3
+             162 STORE_FAST           (res)
+
+460:         164 LOAD_FAST            (res)
+             166 LOAD_ATTR            (NULL|self + json)
+             186 CALL                 (0 positional)
+             194 STORE_FAST           (data)
+
+461:         196 LOAD_FAST            (data)
+             198 LOAD_CONST           ("code")
+             200 BINARY_SUBSCR
+             204 LOAD_CONST           ("200")
+             206 COMPARE_OP           (==)
+             210 POP_JUMP_IF_FALSE    (to 216)
+
+462:         214 RETURN_CONST         (None)
+
+464:     >>  216 LOAD_GLOBAL          (NULL + WriteLog)
+             226 LOAD_CONST           ("[")
+             228 LOAD_FAST            (self)
+             230 LOAD_ATTR            (userName)
+             250 FORMAT_SIMPLE
+             252 LOAD_CONST           ("] 上传FM进度失败，状态码异常：")
+             254 LOAD_FAST            (data)
+             256 FORMAT_SIMPLE
+             258 BUILD_STRING         4
+             260 LOAD_CONST           ("error")
+             262 LOAD_CONST           (True)
+             264 CALL                 (3 positional)
+             272 POP_TOP
+
+465:         274 LOAD_GLOBAL          (SystemExit)
+             284 RAISE_VARARGS        (exception instance)
+             286 PUSH_EXC_INFO
+
+456:         288 LOAD_GLOBAL          (requests)
+             298 LOAD_ATTR            (RequestException)
+             318 CHECK_EXC_MATCH
+             320 POP_JUMP_IF_FALSE    (to 404)
+             324 STORE_FAST           (err)
+
+457:         326 LOAD_GLOBAL          (NULL + WriteLog)
+             336 LOAD_CONST           ("[")
+             338 LOAD_FAST            (self)
+             340 LOAD_ATTR            (userName)
+             360 FORMAT_SIMPLE
+             362 LOAD_CONST           ("] 上传FM进度请求失败: ")
+             364 LOAD_FAST            (err)
+             366 FORMAT_SIMPLE
+             368 BUILD_STRING         4
+             370 LOAD_CONST           ("error")
+             372 LOAD_CONST           (True)
+             374 CALL                 (3 positional)
+             382 POP_TOP
+
+458:         384 LOAD_GLOBAL          (SystemExit)
+             394 RAISE_VARARGS        (exception instance)
+             396 LOAD_CONST           (None)
+             398 STORE_FAST           (err)
+             400 DELETE_FAST          (err)
+             402 RERAISE              1
+
+456:     >>  404 RERAISE              0
+             406 COPY                 3
+             408 POP_EXCEPT
+             410 RERAISE              1
+
+ExceptionTable:
+  4 to 162 -> 286 [0]
+  286 to 324 -> 406 [1] lasti
+  326 to 394 -> 396 [1] lasti
+  396 to 404 -> 406 [1] lasti
+
+# Method Name:       isLessonCompleted
+# Filename:          Ewt.py
+# Argument count:    2
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  4
+# Stack size:        6
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        468
+# Constants:
+#    0: None
+#    1: 'homeworkId'
+#    2: 'day'
+#    3: 'dayId'
+#    4: ('day', 'dayId')
+#    5: 'sceneId'
+#    6: 'contentId'
+#    7: 'parentContentId'
+#    8: False
+#    9: True
+# Names:
+#    0: getHomeworkList
+# Varnames:
+#	self, cls, networkList, item
+# Positional arguments:
+#	self, cls
+# Local variables:
+#    2: networkList
+#    3: item
+
+468:           0 RESUME               0
+
+469:           2 LOAD_FAST            (self)
+               4 LOAD_ATTR            (NULL|self + getHomeworkList)
+              24 LOAD_FAST            (cls)
+              26 LOAD_CONST           ("homeworkId")
+              28 BINARY_SUBSCR
+
+470:          32 LOAD_FAST            (cls)
+              34 LOAD_CONST           ("day")
+              36 BINARY_SUBSCR
+              40 LOAD_FAST            (cls)
+              42 LOAD_CONST           ("dayId")
+              44 BINARY_SUBSCR
+              48 BUILD_LIST           1
+
+469:          50 LOAD_CONST           (('day', 'dayId'))
+              52 BUILD_CONST_KEY_MAP  2
+
+470:          54 LOAD_FAST            (cls)
+              56 LOAD_CONST           ("sceneId")
+              58 BINARY_SUBSCR
+
+469:          62 CALL                 (3 positional)
+              70 STORE_FAST           (networkList)
+
+472:          72 LOAD_FAST            (networkList)
+              74 GET_ITER
+              76 FOR_ITER             (to 142)
+              80 STORE_FAST           (item)
+
+473:          82 LOAD_FAST            (item)
+              84 LOAD_CONST           ("contentId")
+              86 BINARY_SUBSCR
+              90 LOAD_FAST            (cls)
+              92 LOAD_CONST           ("contentId")
+              94 BINARY_SUBSCR
+              98 COMPARE_OP           (==)
+             102 POP_JUMP_IF_TRUE     (to 110)
+             106 JUMP_BACKWARD        (to 76)
+         >>  110 LOAD_FAST            (item)
+             112 LOAD_CONST           ("parentContentId")
+             114 BINARY_SUBSCR
+             118 LOAD_FAST            (cls)
+             120 LOAD_CONST           ("parentContentId")
+             122 BINARY_SUBSCR
+             126 COMPARE_OP           (==)
+             130 POP_JUMP_IF_TRUE     (to 138)
+             134 JUMP_BACKWARD        (to 76)
+
+474:     >>  138 POP_TOP
+             140 RETURN_CONST         (False)
+
+472:     >>  142 END_FOR
+         >>  144 POP_TOP
+
+475:         146 RETURN_CONST         (True)
+
+
+# Method Name:       updateProgressAndOutputTime
+# Filename:          Ewt.py
+# Argument count:    2
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  4
+# Stack size:        6
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        478
+# Constants:
+#    0: None
+#    1: <Code311 code object updateLocalData at 0x1e43a1e1ee0, file Ewt.py>, line 480
+#    2: 'homeworkId'
+#    3: 'day'
+#    4: 'dayId'
+#    5: ('day', 'dayId')
+#    6: 'sceneId'
+#    7: 'contentId'
+#    8: 'parentContentId'
+#    9: 'ratio'
+#   10: 1
+# Names:
+#    0: getHomeworkList
+# Varnames:
+#	self, cls, updateLocalData, networkList
+# Positional arguments:
+#	self, cls
+# Local variables:
+#    2: updateLocalData
+#    3: networkList
+# Cell variables:
+#    0: self
+#    1: item
+               0 MAKE_CELL            (self)
+               2 MAKE_CELL            (item)
+
+478:           4 RESUME               0
+
+480:           6 LOAD_FAST            (item)
+               8 LOAD_FAST            (self)
+              10 BUILD_TUPLE          2
+              12 LOAD_CONST           (<Code311 code object updateLocalData at 0x1e43a1e1ee0, file Ewt.py>, line 480)
+              14 MAKE_FUNCTION
+              16 SET_FUNCTION_ATTRIBUTE 8
+              18 STORE_FAST           (updateLocalData)
+
+497:          20 LOAD_DEREF           (self)
+              22 LOAD_ATTR            (NULL|self + getHomeworkList)
+              42 LOAD_FAST            (cls)
+              44 LOAD_CONST           ("homeworkId")
+              46 BINARY_SUBSCR
+              50 LOAD_FAST            (cls)
+              52 LOAD_CONST           ("day")
+              54 BINARY_SUBSCR
+              58 LOAD_FAST            (cls)
+              60 LOAD_CONST           ("dayId")
+              62 BINARY_SUBSCR
+              66 BUILD_LIST           1
+              68 LOAD_CONST           (('day', 'dayId'))
+              70 BUILD_CONST_KEY_MAP  2
+
+498:          72 LOAD_FAST            (cls)
+              74 LOAD_CONST           ("sceneId")
+              76 BINARY_SUBSCR
+
+497:          80 CALL                 (3 positional)
+              88 STORE_FAST           (networkList)
+
+500:          90 LOAD_FAST            (networkList)
+              92 GET_ITER
+              94 FOR_ITER             (to 184)
+              98 STORE_DEREF          (item)
+
+501:         100 LOAD_DEREF           (item)
+             102 LOAD_CONST           ("contentId")
+             104 BINARY_SUBSCR
+             108 LOAD_FAST            (cls)
+             110 LOAD_CONST           ("contentId")
+             112 BINARY_SUBSCR
+             116 COMPARE_OP           (==)
+             120 POP_JUMP_IF_TRUE     (to 128)
+             124 JUMP_BACKWARD        (to 94)
+         >>  128 LOAD_DEREF           (item)
+             130 LOAD_CONST           ("parentContentId")
+             132 BINARY_SUBSCR
+             136 LOAD_FAST            (cls)
+             138 LOAD_CONST           ("parentContentId")
+             140 BINARY_SUBSCR
+             144 COMPARE_OP           (==)
+             148 POP_JUMP_IF_TRUE     (to 156)
+             152 JUMP_BACKWARD        (to 94)
+
+503:     >>  156 LOAD_FAST            (updateLocalData)
+             158 PUSH_NULL
+             160 LOAD_DEREF           (item)
+         >>  162 LOAD_CONST           ("ratio")
+             164 BINARY_SUBSCR
+             168 LOAD_FAST            (cls)
+             170 CALL                 (2 positional)
+             178 POP_TOP
+
+504:         180 POP_TOP
+             182 RETURN_CONST         (None)
+
+500:     >>  184 END_FOR
+             186 POP_TOP
+
+506:         188 LOAD_FAST            (updateLocalData)
+             190 PUSH_NULL
+             192 LOAD_CONST           (1)
+             194 LOAD_FAST            (cls)
+             196 CALL                 (2 positional)
+             204 POP_TOP
+             206 RETURN_CONST         (None)
+
+
+# Method Name:       writeLessonDetails2Log
+# Filename:          Ewt.py
+# Argument count:    7
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  10
+# Stack size:        12
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        509
+# Constants:
+#    0: None
+#    1: <Code311 code object getDisplayWidth at 0x1e43a1e1fd0, file Ewt.py>, line 511
+#    2: <Code311 code object padText at 0x1e43a1e21e0, file Ewt.py>, line 514
+#    3: 'lesson'
+#    4: 'dayShowWidth'
+#    5: 'subjectNameWidth'
+#    6: 'titleWidth'
+#    7: 'ratioWidth'
+#    8: <Code311 code object formatLessonDetails at 0x1e43a1e2360, file Ewt.py>, line 519
+#    9: '['
+#   10: '] 课程表：'
+#   11: 'info'
+#   12: ']'
+#   13: '日期'
+#   14: ' '
+#   15: '学科'
+#   16: '标题'
+#   17: '进度'
+#   18: (15, 15, 50, 10)
+# Names:
+#    0: list
+#    1: int
+#    2: WriteLog
+#    3: userName
+#    4: lessons
+# Varnames:
+#	self, output2Cosole, cls, dayShowWidth, subjectNameWidth, titleWidth, ratioWidth, formatLessonDetails, lessons, lesson
+# Positional arguments:
+#	self, output2Cosole, cls, dayShowWidth, subjectNameWidth, titleWidth, ratioWidth
+# Local variables:
+#    7: formatLessonDetails
+#    8: lessons
+#    9: lesson
+# Cell variables:
+#    0: getDisplayWidth
+#    1: padText
+               0 MAKE_CELL            (getDisplayWidth)
+               2 MAKE_CELL            (padText)
+
+509:           4 RESUME               0
+
+511:           6 LOAD_CONST           (<Code311 code object getDisplayWidth at 0x1e43a1e1fd0, file Ewt.py>, line 511)
+               8 MAKE_FUNCTION
+              10 STORE_DEREF          (getDisplayWidth)
+
+514:          12 LOAD_FAST            (getDisplayWidth)
+              14 BUILD_TUPLE          1
+              16 LOAD_CONST           (<Code311 code object padText at 0x1e43a1e21e0, file Ewt.py>, line 514)
+              18 MAKE_FUNCTION
+              20 SET_FUNCTION_ATTRIBUTE 8
+              22 STORE_DEREF          (padText)
+
+519:          24 NOP
+
+520:          26 NOP
+
+519:          28 LOAD_CONST           ((15, 15, 50, 10))
+              30 LOAD_CONST           ("lesson")
+              32 LOAD_GLOBAL          (list)
+              42 LOAD_CONST           ("dayShowWidth")
+              44 LOAD_GLOBAL          (int)
+              54 LOAD_CONST           ("subjectNameWidth")
+
+520:          56 LOAD_GLOBAL          (int)
+
+519:          66 LOAD_CONST           ("titleWidth")
+
+520:          68 LOAD_GLOBAL          (int)
+
+519:          78 LOAD_CONST           ("ratioWidth")
+
+520:          80 LOAD_GLOBAL          (int)
+
+519:          90 BUILD_TUPLE          10
+              92 LOAD_FAST            (padText)
+              94 BUILD_TUPLE          1
+              96 LOAD_CONST           (<Code311 code object formatLessonDetails at 0x1e43a1e2360, file Ewt.py>, line 519)
+              98 MAKE_FUNCTION
+             100 SET_FUNCTION_ATTRIBUTE 8
+             102 SET_FUNCTION_ATTRIBUTE 4
+             104 SET_FUNCTION_ATTRIBUTE 1
+             106 STORE_FAST           (formatLessonDetails)
+
+529:         108 LOAD_FAST            (cls)
+             110 LOAD_CONST           (None)
+             112 COMPARE_OP           (==)
+             116 POP_JUMP_IF_FALSE    (to 176)
+
+530:         120 LOAD_GLOBAL          (NULL + WriteLog)
+             130 LOAD_CONST           ("[")
+             132 LOAD_FAST            (self)
+             134 LOAD_ATTR            (userName)
+             154 FORMAT_SIMPLE
+             156 LOAD_CONST           ("] 课程表：")
+             158 BUILD_STRING         3
+             160 LOAD_CONST           ("info")
+             162 LOAD_FAST            (output2Cosole)
+             164 CALL                 (3 positional)
+             172 POP_TOP
+             174 JUMP_FORWARD         (to 230)
+
+532:     >>  176 LOAD_GLOBAL          (NULL + WriteLog)
+             186 LOAD_CONST           ("[")
+             188 LOAD_FAST            (self)
+             190 LOAD_ATTR            (userName)
+             210 FORMAT_SIMPLE
+             212 LOAD_CONST           ("]")
+             214 BUILD_STRING         3
+             216 LOAD_CONST           ("info")
+             218 LOAD_FAST            (output2Cosole)
+             220 CALL                 (3 positional)
+             228 POP_TOP
+
+533:     >>  230 LOAD_GLOBAL          (NULL + WriteLog)
+             240 LOAD_DEREF           (padText)
+             242 PUSH_NULL
+             244 LOAD_CONST           ("日期")
+             246 LOAD_FAST            (dayShowWidth)
+             248 CALL                 (2 positional)
+             256 FORMAT_SIMPLE
+             258 LOAD_CONST           (" ")
+             260 LOAD_DEREF           (padText)
+             262 PUSH_NULL
+             264 LOAD_CONST           ("学科")
+             266 LOAD_FAST            (subjectNameWidth)
+             268 CALL                 (2 positional)
+             276 FORMAT_SIMPLE
+             278 LOAD_CONST           (" ")
+             280 LOAD_DEREF           (padText)
+             282 PUSH_NULL
+             284 LOAD_CONST           ("标题")
+             286 LOAD_FAST            (titleWidth)
+             288 CALL                 (2 positional)
+             296 FORMAT_SIMPLE
+             298 LOAD_CONST           (" ")
+             300 LOAD_DEREF           (padText)
+             302 PUSH_NULL
+             304 LOAD_CONST           ("进度")
+             306 LOAD_FAST            (ratioWidth)
+             308 CALL                 (2 positional)
+             316 FORMAT_SIMPLE
+             318 BUILD_STRING         7
+
+534:         320 LOAD_CONST           ("info")
+             322 LOAD_FAST            (output2Cosole)
+
+533:         324 CALL                 (3 positional)
+             332 POP_TOP
+
+536:         334 LOAD_FAST            (cls)
+             336 POP_JUMP_IF_NOT_NONE (to 364)
+             340 LOAD_FAST            (self)
+             342 LOAD_ATTR            (lessons)
+             362 JUMP_FORWARD         (to 368)
+         >>  364 LOAD_FAST            (cls)
+             366 BUILD_LIST           1
+         >>  368 STORE_FAST           (lessons)
+
+537:         370 LOAD_FAST            (lessons)
+             372 GET_ITER
+             374 FOR_ITER             (to 426)
+             378 STORE_FAST           (lesson)
+
+538:         380 LOAD_GLOBAL          (NULL + WriteLog)
+             390 LOAD_FAST            (formatLessonDetails)
+             392 PUSH_NULL
+             394 LOAD_FAST_LOAD_FAST  (lesson, dayShowWidth)
+
+539:         396 LOAD_FAST_LOAD_FAST  (subjectNameWidth, titleWidth)
+             398 LOAD_FAST            (ratioWidth)
+
+538:         400 CALL                 (5 positional)
+
+539:         408 LOAD_CONST           ("info")
+             410 LOAD_FAST            (output2Cosole)
+
+538:         412 CALL                 (3 positional)
+             420 POP_TOP
+             422 JUMP_BACKWARD        (to 374)
+
+537:     >>  426 END_FOR
+             428 POP_TOP
+             430 RETURN_CONST         (None)
+
+
+# Method Name:       scanLessonsAndRunFilter
+# Filename:          Ewt.py
+# Argument count:    1
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  10
+# Stack size:        22
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        542
+# Constants:
+#    0: None
+#    1: 'id'
+#    2: 'day'
+#    3: 'subjectId'
+#    4: 'contentType'
+#    5: 2
+#    6: 'parentContentId'
+#    7: 'title'
+#    8: 'duration'
+#    9: 'contentId'
+#   10: 'ratio'
+#   11: 'subjectName'
+#   12: 'dayId'
+#   13: 0
+#   14: ('subjectId', 'parentContentId', 'title', 'duration', 'contentId', 'contentType', 'ratio', 'subjectName', 'homeworkId', 'sceneId', 'day', 'dayId', 'dayShow')
+#   15: '['
+#   16: '] 任务已全部完成。'
+#   17: 'info'
+#   18: True
+#   19: '] 课程获取失败，请检查网络或重启程序。'
+#   20: 'error'
+# Names:
+#    0: getMidnightTimestamp
+#    1: taskAdvanceDay
+#    2: getSceneId
+#    3: getHomeworkId
+#    4: getDayList
+#    5: getHomeworkList
+#    6: subjectFilter
+#    7: lessons
+#    8: append
+#    9: get
+#   10: timestamp2Date
+#   11: len
+#   12: WriteLog
+#   13: userName
+#   14: SystemExit
+#   15: Exception
+# Varnames:
+#	self, midnightTimestamp, scene, sceneId, homeworkId, dayList, day, validDays, cls, err
+# Positional arguments:
+#	self
+# Local variables:
+#    1: midnightTimestamp
+#    2: scene
+#    3: sceneId
+#    4: homeworkId
+#    5: dayList
+#    6: day
+#    7: validDays
+#    8: cls
+#    9: err
+
+542:           0 RESUME               0
+
+543:           2 LOAD_FAST            (self)
+               4 LOAD_ATTR            (NULL|self + getMidnightTimestamp)
+              24 LOAD_FAST            (self)
+              26 LOAD_ATTR            (taskAdvanceDay)
+              46 CALL                 (1 positional)
+              54 STORE_FAST           (midnightTimestamp)
+
+544:          56 NOP
+
+546:          58 LOAD_FAST            (self)
+              60 LOAD_ATTR            (NULL|self + getSceneId)
+              80 CALL                 (0 positional)
+              88 GET_ITER
+              90 FOR_ITER             (to 592)
+              94 STORE_FAST           (scene)
+
+547:          96 LOAD_FAST            (scene)
+              98 LOAD_CONST           ("id")
+             100 BINARY_SUBSCR
+             104 STORE_FAST           (sceneId)
+
+548:         106 LOAD_FAST            (self)
+             108 LOAD_ATTR            (NULL|self + getHomeworkId)
+             128 LOAD_FAST            (sceneId)
+             130 CALL                 (1 positional)
+             138 GET_ITER
+             140 FOR_ITER             (to 584)
+             144 STORE_FAST           (homeworkId)
+
+550:         146 LOAD_FAST            (self)
+             148 LOAD_ATTR            (NULL|self + getDayList)
+             168 LOAD_FAST_LOAD_FAST  (homeworkId, sceneId)
+             170 CALL                 (2 positional)
+             178 STORE_FAST           (dayList)
+
+552:         180 LOAD_FAST            (dayList)
+             182 GET_ITER
+
+551:         184 LOAD_FAST_AND_CLEAR  (day)
+             186 SWAP                 (TOS <-> TOS1)
+             188 BUILD_LIST           0
+             190 SWAP                 (TOS <-> TOS1)
+
+552:         192 GET_ITER
+             194 FOR_ITER             (to 228)
+             198 STORE_FAST_LOAD_FAST (day, day)
+             200 LOAD_CONST           ("day")
+             202 BINARY_SUBSCR
+             206 LOAD_FAST            (midnightTimestamp)
+             208 COMPARE_OP           (<=)
+             212 POP_JUMP_IF_TRUE     (to 220)
+             216 JUMP_BACKWARD        (to 194)
+         >>  220 LOAD_FAST            (day)
+             222 LIST_APPEND          2
+             224 JUMP_BACKWARD        (to 194)
+         >>  228 END_FOR
+             230 POP_TOP
+
+551:         232 STORE_FAST           (validDays)
+             234 STORE_FAST           (day)
+
+553:         236 LOAD_FAST            (validDays)
+             238 GET_ITER
+             240 FOR_ITER             (to 576)
+             244 STORE_FAST           (day)
+
+555:     >>  246 LOAD_FAST            (self)
+             248 LOAD_ATTR            (NULL|self + getHomeworkList)
+             268 LOAD_FAST_LOAD_FAST  (homeworkId, day)
+             270 LOAD_FAST            (sceneId)
+             272 CALL                 (3 positional)
+             280 GET_ITER
+             282 FOR_ITER             (to 568)
+             286 STORE_FAST           (cls)
+
+556:         288 LOAD_FAST            (cls)
+             290 LOAD_CONST           ("subjectId")
+             292 BINARY_SUBSCR
+             296 LOAD_FAST            (self)
+             298 LOAD_ATTR            (subjectFilter)
+             318 CONTAINS_OP          (not in)
+             322 POP_JUMP_IF_TRUE     (to 330)
+             326 JUMP_BACKWARD        (to 282)
+         >>  330 LOAD_FAST            (cls)
+             332 LOAD_CONST           ("contentType")
+             334 BINARY_SUBSCR
+             338 LOAD_CONST           (2)
+             340 COMPARE_OP           (!=)
+             344 POP_JUMP_IF_TRUE     (to 352)
+             348 JUMP_BACKWARD        (to 282)
+
+558:     >>  352 LOAD_FAST            (self)
+             354 LOAD_ATTR            (lessons)
+             374 LOAD_ATTR            (NULL|self + append)
+
+559:         394 LOAD_FAST            (cls)
+             396 LOAD_CONST           ("subjectId")
+             398 BINARY_SUBSCR
+
+560:         402 LOAD_FAST            (cls)
+             404 LOAD_CONST           ("parentContentId")
+             406 BINARY_SUBSCR
+
+561:         410 LOAD_FAST            (cls)
+             412 LOAD_CONST           ("title")
+             414 BINARY_SUBSCR
+
+562:         418 LOAD_FAST            (cls)
+             420 LOAD_CONST           ("duration")
+         >>  422 BINARY_SUBSCR
+
+563:         426 LOAD_FAST            (cls)
+             428 LOAD_CONST           ("contentId")
+             430 BINARY_SUBSCR
+
+564:         434 LOAD_FAST            (cls)
+             436 LOAD_CONST           ("contentType")
+             438 BINARY_SUBSCR
+
+565:         442 LOAD_FAST            (cls)
+             444 LOAD_CONST           ("ratio")
+             446 BINARY_SUBSCR
+
+566:         450 LOAD_FAST            (cls)
+             452 LOAD_CONST           ("subjectName")
+             454 BINARY_SUBSCR
+
+567:         458 LOAD_FAST            (homeworkId)
+
+568:         460 LOAD_FAST            (sceneId)
+
+569:         462 LOAD_FAST            (day)
+             464 LOAD_CONST           ("day")
+             466 BINARY_SUBSCR
+
+570:         470 LOAD_FAST            (day)
+             472 LOAD_ATTR            (NULL|self + get)
+             492 LOAD_CONST           ("dayId")
+             494 LOAD_CONST           (0)
+             496 BUILD_LIST           1
+             498 CALL                 (2 positional)
+             506 LOAD_CONST           (0)
+             508 BINARY_SUBSCR
+
+571:         512 LOAD_FAST            (self)
+             514 LOAD_ATTR            (NULL|self + timestamp2Date)
+             534 LOAD_FAST            (day)
+             536 LOAD_CONST           ("day")
+             538 BINARY_SUBSCR
+             542 CALL                 (1 positional)
+
+558:         550 LOAD_CONST           (('subjectId', 'parentContentId', 'title', 'duration', 'contentId', 'contentType', 'ratio', 'subjectName', 'homeworkId', 'sceneId', 'day', 'dayId', 'dayShow'))
+             552 BUILD_CONST_KEY_MAP  13
+             554 CALL                 (1 positional)
+             562 POP_TOP
+             564 JUMP_BACKWARD        (to 282)
+
+555:     >>  568 END_FOR
+             570 POP_TOP
+             572 JUMP_BACKWARD        (to 240)
+
+553:     >>  576 END_FOR
+             578 POP_TOP
+             580 JUMP_BACKWARD        (to 140)
+
+548:     >>  584 END_FOR
+             586 POP_TOP
+             588 JUMP_BACKWARD        (to 90)
+
+546:     >>  592 END_FOR
+             594 POP_TOP
+
+573:         596 LOAD_GLOBAL          (NULL + len)
+             606 LOAD_FAST            (self)
+             608 LOAD_ATTR            (lessons)
+             628 CALL                 (1 positional)
+             636 LOAD_CONST           (0)
+             638 COMPARE_OP           (==)
+             642 POP_JUMP_IF_FALSE    (to 712)
+
+574:         646 LOAD_GLOBAL          (NULL + WriteLog)
+             656 LOAD_CONST           ("[")
+             658 LOAD_FAST            (self)
+             660 LOAD_ATTR            (userName)
+             680 FORMAT_SIMPLE
+             682 LOAD_CONST           ("] 任务已全部完成。")
+             684 BUILD_STRING         3
+             686 LOAD_CONST           ("info")
+             688 LOAD_CONST           (True)
+             690 CALL                 (3 positional)
+             698 POP_TOP
+
+575:         700 LOAD_GLOBAL          (SystemExit)
+             710 RAISE_VARARGS        (exception instance)
+
+573:     >>  712 RETURN_CONST         (None)
+             714 SWAP                 (TOS <-> TOS1)
+             716 POP_TOP
+
+551:         718 SWAP                 (TOS <-> TOS1)
+             720 STORE_FAST           (day)
+             722 RERAISE              0
+             724 PUSH_EXC_INFO
+
+576:         726 LOAD_GLOBAL          (Exception)
+             736 CHECK_EXC_MATCH
+             738 POP_JUMP_IF_FALSE    (to 822)
+             742 STORE_FAST           (err)
+
+577:         744 LOAD_GLOBAL          (NULL + WriteLog)
+             754 LOAD_CONST           ("[")
+             756 LOAD_FAST            (self)
+             758 LOAD_ATTR            (userName)
+             778 FORMAT_SIMPLE
+             780 LOAD_CONST           ("] 课程获取失败，请检查网络或重启程序。")
+             782 LOAD_FAST            (err)
+             784 FORMAT_SIMPLE
+             786 BUILD_STRING         4
+
+578:         788 LOAD_CONST           ("error")
+             790 LOAD_CONST           (True)
+
+577:         792 CALL                 (3 positional)
+             800 POP_TOP
+
+579:         802 LOAD_GLOBAL          (SystemExit)
+             812 RAISE_VARARGS        (exception instance)
+             814 LOAD_CONST           (None)
+             816 STORE_FAST           (err)
+             818 DELETE_FAST          (err)
+             820 RERAISE              1
+
+576:     >>  822 RERAISE              0
+             824 COPY                 3
+             826 POP_EXCEPT
+             828 RERAISE              1
+
+ExceptionTable:
+  58 to 186 -> 724 [0]
+  188 to 210 -> 714 [4]
+  220 to 230 -> 714 [4]
+  232 to 320 -> 724 [0]
+  330 to 342 -> 724 [0]
+  352 to 710 -> 724 [0]
+  714 to 722 -> 724 [0]
+  724 to 742 -> 824 [1] lasti
+  744 to 812 -> 814 [1] lasti
+  814 to 822 -> 824 [1] lasti
+
+# Method Name:       runLession
+# Filename:          Ewt.py
+# Argument count:    2
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  13
+# Stack size:        11
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        582
+# Constants:
+#    0: None
+#    1: 'contentId'
+#    2: 'parentContentId'
+#    3: 'duration'
+#    4: '['
+#    5: '] 课程任务已开始：'
+#    6: 'title'
+#    7: 'info'
+#    8: True
+#    9: 'contentType'
+#   10: 3
+#   11: 0
+#   12: 1000
+#   13: 0.8
+#   14: 'ratio'
+#   15: 5000
+#   16: '] 获取认证信息成功。'
+#   17: 'debug'
+#   18: False
+#   19: 1
+#   20: '] 初始进度上传成功。'
+#   21: 2
+#   22: '] 课程['
+#   23: ']还需'
+#   24: 's可完成。'
+#   25: 60000
+#   26: '课程运行异常，剩余时间<0：'
+#   27: 'error'
+#   28: ('cls',)
+#   29: '] 课程已完成：'
+#   30: '] 课程跳过失败：'
+# Names:
+#    0: WriteLog
+#    1: userName
+#    2: uploadFMProgress
+#    3: round
+#    4: speed
+#    5: getPlayerGlobalConf
+#    6: int
+#    7: uploadProgress
+#    8: getNowTimestamp
+#    9: SystemExit
+#   10: time
+#   11: sleep
+#   12: updateProgressAndOutputTime
+#   13: writeLessonDetails2Log
+#   14: isLessonCompleted
+# Varnames:
+#	self, cls, lessonId, courseId, lessonDuration, timeFinishedMs, residueTimeMs, secret, xBfeSessionId, beginTs, beginTime, segmentCount, duration
+# Positional arguments:
+#	self, cls
+# Local variables:
+#    2: lessonId
+#    3: courseId
+#    4: lessonDuration
+#    5: timeFinishedMs
+#    6: residueTimeMs
+#    7: secret
+#    8: xBfeSessionId
+#    9: beginTs
+#   10: beginTime
+#   11: segmentCount
+#   12: duration
+
+582:           0 RESUME               0
+
+583:           2 LOAD_FAST            (cls)
+               4 LOAD_CONST           ("contentId")
+               6 BINARY_SUBSCR
+              10 STORE_FAST           (lessonId)
+
+584:          12 LOAD_FAST            (cls)
+              14 LOAD_CONST           ("parentContentId")
+              16 BINARY_SUBSCR
+              20 STORE_FAST           (courseId)
+
+585:          22 LOAD_FAST            (cls)
+              24 LOAD_CONST           ("duration")
+              26 BINARY_SUBSCR
+              30 STORE_FAST           (lessonDuration)
+
+586:          32 LOAD_GLOBAL          (NULL + WriteLog)
+              42 LOAD_CONST           ("[")
+              44 LOAD_FAST            (self)
+              46 LOAD_ATTR            (userName)
+              66 FORMAT_SIMPLE
+              68 LOAD_CONST           ("] 课程任务已开始：")
+              70 LOAD_FAST            (cls)
+              72 LOAD_CONST           ("title")
+              74 BINARY_SUBSCR
+              78 FORMAT_SIMPLE
+              80 BUILD_STRING         4
+              82 LOAD_CONST           ("info")
+              84 LOAD_CONST           (True)
+              86 CALL                 (3 positional)
+              94 POP_TOP
+
+589:          96 LOAD_FAST            (cls)
+              98 LOAD_CONST           ("contentType")
+             100 BINARY_SUBSCR
+             104 LOAD_CONST           (3)
+             106 COMPARE_OP           (==)
+             110 POP_JUMP_IF_FALSE    (to 152)
+
+590:         114 LOAD_FAST            (self)
+             116 LOAD_ATTR            (NULL|self + uploadFMProgress)
+             136 LOAD_FAST            (cls)
+             138 CALL                 (1 positional)
+             146 POP_TOP
+             148 EXTENDED_ARG         (256)
+             150 JUMP_FORWARD         (to 988)
+
+593:     >>  152 LOAD_CONST           (0)
+             154 STORE_FAST           (timeFinishedMs)
+
+595:         156 LOAD_GLOBAL          (NULL + round)
+             166 LOAD_FAST            (lessonDuration)
+             168 LOAD_CONST           (1000)
+             170 BINARY_OP            (*)
+             174 LOAD_CONST           (0.8)
+             176 BINARY_OP            (*)
+
+596:         180 LOAD_FAST            (lessonDuration)
+             182 LOAD_CONST           (1000)
+             184 BINARY_OP            (*)
+             188 LOAD_FAST            (cls)
+             190 LOAD_CONST           ("ratio")
+             192 BINARY_SUBSCR
+             196 BINARY_OP            (*)
+
+595:         200 BINARY_OP            (-)
+
+596:         204 LOAD_CONST           (5000)
+
+595:         206 BINARY_OP            (+)
+
+596:         210 LOAD_FAST            (self)
+             212 LOAD_ATTR            (speed)
+
+595:         232 BINARY_OP            (/)
+             236 CALL                 (1 positional)
+             244 STORE_FAST           (residueTimeMs)
+
+599:         246 LOAD_FAST            (self)
+             248 LOAD_ATTR            (NULL|self + getPlayerGlobalConf)
+             268 CALL                 (0 positional)
+             276 UNPACK_SEQUENCE      3
+             280 STORE_FAST_STORE_FAST (secret, xBfeSessionId)
+             282 STORE_FAST           (beginTs)
+
+600:         284 LOAD_GLOBAL          (NULL + int)
+             294 LOAD_FAST            (beginTs)
+             296 CALL                 (1 positional)
+             304 STORE_FAST           (beginTime)
+
+601:         306 LOAD_GLOBAL          (NULL + WriteLog)
+             316 LOAD_CONST           ("[")
+             318 LOAD_FAST            (self)
+             320 LOAD_ATTR            (userName)
+             340 FORMAT_SIMPLE
+             342 LOAD_CONST           ("] 获取认证信息成功。")
+             344 BUILD_STRING         3
+             346 LOAD_CONST           ("debug")
+             348 LOAD_CONST           (False)
+             350 CALL                 (3 positional)
+             358 POP_TOP
+
+604:         360 LOAD_FAST            (self)
+             362 LOAD_ATTR            (NULL|self + uploadProgress)
+             382 LOAD_FAST_LOAD_FAST  (secret, xBfeSessionId)
+
+605:         384 LOAD_FAST_LOAD_FAST  (beginTime, self)
+             386 LOAD_ATTR            (NULL|self + getNowTimestamp)
+             406 CALL                 (0 positional)
+             414 LOAD_FAST_LOAD_FAST  (lessonId, courseId)
+             416 LOAD_CONST           (1)
+             418 LOAD_CONST           (1)
+             420 LOAD_CONST           (0)
+
+604:         422 CALL                 (9 positional)
+             430 POP_TOP
+
+606:         432 LOAD_GLOBAL          (NULL + WriteLog)
+             442 LOAD_CONST           ("[")
+             444 LOAD_FAST            (self)
+             446 LOAD_ATTR            (userName)
+             466 FORMAT_SIMPLE
+             468 LOAD_CONST           ("] 初始进度上传成功。")
+             470 BUILD_STRING         3
+             472 LOAD_CONST           ("debug")
+             474 LOAD_CONST           (False)
+             476 CALL                 (3 positional)
+             484 POP_TOP
+
+609:         486 LOAD_CONST           (2)
+             488 STORE_FAST           (segmentCount)
+
+610:         490 LOAD_FAST_LOAD_FAST  (timeFinishedMs, residueTimeMs)
+             492 COMPARE_OP           (<)
+             496 POP_JUMP_IF_FALSE    (to 916)
+
+611:         500 LOAD_GLOBAL          (NULL + WriteLog)
+             510 LOAD_CONST           ("[")
+             512 LOAD_FAST            (self)
+             514 LOAD_ATTR            (userName)
+             534 FORMAT_SIMPLE
+             536 LOAD_CONST           ("] 课程[")
+             538 LOAD_FAST            (cls)
+             540 LOAD_CONST           ("title")
+             542 BINARY_SUBSCR
+             546 FORMAT_SIMPLE
+             548 LOAD_CONST           ("]还需")
+             550 LOAD_FAST_LOAD_FAST  (residueTimeMs, timeFinishedMs)
+             552 BINARY_OP            (-)
+             556 LOAD_CONST           (1000)
+             558 BINARY_OP            (/)
+             562 FORMAT_SIMPLE
+             564 LOAD_CONST           ("s可完成。")
+             566 BUILD_STRING         7
+
+612:         568 LOAD_CONST           ("info")
+             570 LOAD_CONST           (True)
+
+611:         572 CALL                 (3 positional)
+             580 POP_TOP
+
+615:         582 LOAD_FAST_LOAD_FAST  (residueTimeMs, timeFinishedMs)
+             584 BINARY_OP            (-)
+             588 LOAD_CONST           (60000)
+             590 COMPARE_OP           (>=)
+             594 POP_JUMP_IF_FALSE    (to 604)
+
+616:         598 LOAD_CONST           (60000)
+             600 STORE_FAST           (duration)
+             602 JUMP_FORWARD         (to 698)
+
+618:     >>  604 LOAD_CONST           (0)
+             606 LOAD_FAST_LOAD_FAST  (residueTimeMs, timeFinishedMs)
+             608 BINARY_OP            (-)
+             612 SWAP                 (TOS <-> TOS1)
+             614 COPY                 2
+             616 COMPARE_OP           (<)
+             620 POP_JUMP_IF_FALSE    (to 636)
+             624 LOAD_CONST           (60000)
+             626 COMPARE_OP           (<)
+             630 POP_JUMP_IF_FALSE    (to 650)
+             634 JUMP_FORWARD         (to 640)
+         >>  636 POP_TOP
+             638 JUMP_FORWARD         (to 650)
+
+619:     >>  640 LOAD_FAST_LOAD_FAST  (residueTimeMs, timeFinishedMs)
+             642 BINARY_OP            (-)
+             646 STORE_FAST           (duration)
+             648 JUMP_FORWARD         (to 698)
+
+621:     >>  650 LOAD_GLOBAL          (NULL + WriteLog)
+
+622:         660 LOAD_CONST           ("课程运行异常，剩余时间<0：")
+             662 LOAD_FAST_LOAD_FAST  (residueTimeMs, timeFinishedMs)
+             664 BINARY_OP            (-)
+             668 FORMAT_SIMPLE
+             670 BUILD_STRING         2
+             672 LOAD_CONST           ("error")
+             674 LOAD_CONST           (True)
+
+621:         676 CALL                 (3 positional)
+             684 POP_TOP
+
+623:         686 LOAD_GLOBAL          (SystemExit)
+             696 RAISE_VARARGS        (exception instance)
+
+625:     >>  698 LOAD_GLOBAL          (time)
+             708 LOAD_ATTR            (sleep)
+             728 PUSH_NULL
+             730 LOAD_FAST            (duration)
+             732 LOAD_CONST           (1000)
+             734 BINARY_OP            (/)
+             738 CALL                 (1 positional)
+             746 POP_TOP
+
+626:         748 LOAD_FAST            (self)
+             750 LOAD_ATTR            (NULL|self + uploadProgress)
+             770 LOAD_FAST_LOAD_FAST  (secret, xBfeSessionId)
+             772 LOAD_FAST_LOAD_FAST  (beginTime, self)
+             774 LOAD_ATTR            (NULL|self + getNowTimestamp)
+             794 CALL                 (0 positional)
+
+627:         802 LOAD_FAST_LOAD_FAST  (lessonId, courseId)
+             804 LOAD_FAST            (segmentCount)
+             806 LOAD_CONST           (2)
+             808 LOAD_FAST            (duration)
+
+626:         810 CALL                 (9 positional)
+             818 POP_TOP
+
+628:         820 LOAD_FAST_LOAD_FAST  (timeFinishedMs, duration)
+             822 BINARY_OP            (+=)
+             826 STORE_FAST           (timeFinishedMs)
+
+629:         828 LOAD_FAST            (segmentCount)
+             830 LOAD_CONST           (1)
+             832 BINARY_OP            (+=)
+             836 STORE_FAST           (segmentCount)
+
+631:         838 LOAD_FAST            (self)
+             840 LOAD_ATTR            (NULL|self + updateProgressAndOutputTime)
+             860 LOAD_FAST            (cls)
+             862 CALL                 (1 positional)
+             870 POP_TOP
+
+632:         872 LOAD_FAST            (self)
+             874 LOAD_ATTR            (NULL|self + writeLessonDetails2Log)
+             894 LOAD_FAST            (cls)
+             896 LOAD_CONST           (('cls',))
+             898 CALL_KW              1
+             900 POP_TOP
+
+610:         902 LOAD_FAST_LOAD_FAST  (timeFinishedMs, residueTimeMs)
+             904 COMPARE_OP           (<)
+             908 POP_JUMP_IF_FALSE    (to 916)
+             912 JUMP_BACKWARD        (to 500)
+
+635:     >>  916 LOAD_FAST            (self)
+             918 LOAD_ATTR            (NULL|self + uploadProgress)
+             938 LOAD_FAST_LOAD_FAST  (secret, xBfeSessionId)
+             940 LOAD_FAST_LOAD_FAST  (beginTime, self)
+             942 LOAD_ATTR            (NULL|self + getNowTimestamp)
+             962 CALL                 (0 positional)
+
+636:         970 LOAD_FAST_LOAD_FAST  (lessonId, courseId)
+             972 LOAD_FAST            (segmentCount)
+             974 LOAD_CONST           (3)
+             976 LOAD_CONST           (0)
+
+635:         978 CALL                 (9 positional)
+             986 POP_TOP
+
+639:     >>  988 LOAD_FAST            (self)
+             990 LOAD_ATTR            (NULL|self + isLessonCompleted)
+            1010 LOAD_FAST            (cls)
+            1012 CALL                 (1 positional)
+            1020 TO_BOOL
+            1028 POP_JUMP_IF_FALSE    (to 1098)
+
+640:        1032 LOAD_GLOBAL          (NULL + WriteLog)
+            1042 LOAD_CONST           ("[")
+            1044 LOAD_FAST            (self)
+            1046 LOAD_ATTR            (userName)
+            1066 FORMAT_SIMPLE
+            1068 LOAD_CONST           ("] 课程已完成：")
+            1070 LOAD_FAST            (cls)
+            1072 LOAD_CONST           ("title")
+            1074 BINARY_SUBSCR
+            1078 FORMAT_SIMPLE
+            1080 BUILD_STRING         4
+            1082 LOAD_CONST           ("info")
+            1084 LOAD_CONST           (False)
+            1086 CALL                 (3 positional)
+            1094 POP_TOP
+            1096 RETURN_CONST         (None)
+
+642:     >> 1098 LOAD_GLOBAL          (NULL + WriteLog)
+            1108 LOAD_CONST           ("[")
+            1110 LOAD_FAST            (self)
+            1112 LOAD_ATTR            (userName)
+            1132 FORMAT_SIMPLE
+            1134 LOAD_CONST           ("] 课程跳过失败：")
+            1136 LOAD_FAST            (cls)
+            1138 LOAD_CONST           ("title")
+            1140 BINARY_SUBSCR
+            1144 FORMAT_SIMPLE
+            1146 BUILD_STRING         4
+            1148 LOAD_CONST           ("error")
+            1150 LOAD_CONST           (True)
+            1152 CALL                 (3 positional)
+            1160 POP_TOP
+            1162 RETURN_CONST         (None)
+
+
+# Method Name:       runAccount
+# Filename:          Ewt.py
+# Argument count:    1
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  3
+# Stack size:        14
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        645
+# Constants:
+#    0: None
+#    1: '['
+#    2: '] 账号：'
+#    3: ', 密码：'
+#    4: ', 速度：'
+#    5: ', 计划提前完成天数：'
+#    6: ', 科目过滤：'
+#    7: 'debug'
+#    8: False
+#    9: '] 登录成功。'
+#   10: 'info'
+#   11: '] 获取用户信息成功，课程扫描中...'
+#   12: '] 开始运行任务，总数：'
+#   13: '个'
+#   14: True
+#   15: 0
+#   16: '] 任务已全部完成。'
+#   17: '] 任务线程异常退出。'
+#   18: 'error'
+# Names:
+#    0: WriteLog
+#    1: userName
+#    2: account
+#    3: password
+#    4: speed
+#    5: taskAdvanceDay
+#    6: subjectFilter
+#    7: userLogin
+#    8: getUserInfo
+#    9: scanLessonsAndRunFilter
+#   10: len
+#   11: lessons
+#   12: updateProgressAndOutputTime
+#   13: writeLessonDetails2Log
+#   14: runLession
+#   15: Exception
+#   16: SystemExit
+# Varnames:
+#	self, lesson, err
+# Positional arguments:
+#	self
+# Local variables:
+#    1: lesson
+#    2: err
+
+645:           0 RESUME               0
+
+646:           2 NOP
+
+647:           4 LOAD_GLOBAL          (NULL + WriteLog)
+              14 LOAD_CONST           ("[")
+              16 LOAD_FAST            (self)
+              18 LOAD_ATTR            (userName)
+              38 FORMAT_SIMPLE
+              40 LOAD_CONST           ("] 账号：")
+              42 LOAD_FAST            (self)
+              44 LOAD_ATTR            (account)
+              64 FORMAT_SIMPLE
+              66 LOAD_CONST           (", 密码：")
+              68 LOAD_FAST            (self)
+              70 LOAD_ATTR            (password)
+              90 FORMAT_SIMPLE
+              92 LOAD_CONST           (", 速度：")
+              94 LOAD_FAST            (self)
+              96 LOAD_ATTR            (speed)
+             116 FORMAT_SIMPLE
+             118 LOAD_CONST           (", 计划提前完成天数：")
+             120 LOAD_FAST            (self)
+             122 LOAD_ATTR            (taskAdvanceDay)
+             142 FORMAT_SIMPLE
+             144 LOAD_CONST           (", 科目过滤：")
+             146 LOAD_FAST            (self)
+             148 LOAD_ATTR            (subjectFilter)
+             168 FORMAT_SIMPLE
+             170 BUILD_STRING         12
+
+648:         172 LOAD_CONST           ("debug")
+             174 LOAD_CONST           (False)
+
+647:         176 CALL                 (3 positional)
+             184 POP_TOP
+
+650:         186 LOAD_FAST            (self)
+             188 LOAD_ATTR            (NULL|self + userLogin)
+             208 CALL                 (0 positional)
+             216 POP_TOP
+
+651:         218 LOAD_GLOBAL          (NULL + WriteLog)
+             228 LOAD_CONST           ("[")
+             230 LOAD_FAST            (self)
+             232 LOAD_ATTR            (userName)
+             252 FORMAT_SIMPLE
+             254 LOAD_CONST           ("] 登录成功。")
+             256 BUILD_STRING         3
+             258 LOAD_CONST           ("info")
+             260 LOAD_CONST           (False)
+             262 CALL                 (3 positional)
+             270 POP_TOP
+
+652:         272 LOAD_FAST            (self)
+             274 LOAD_ATTR            (NULL|self + getUserInfo)
+             294 CALL                 (0 positional)
+             302 POP_TOP
+
+653:         304 LOAD_GLOBAL          (NULL + WriteLog)
+             314 LOAD_CONST           ("[")
+             316 LOAD_FAST            (self)
+             318 LOAD_ATTR            (userName)
+             338 FORMAT_SIMPLE
+             340 LOAD_CONST           ("] 获取用户信息成功，课程扫描中...")
+             342 BUILD_STRING         3
+             344 LOAD_CONST           ("info")
+             346 LOAD_CONST           (False)
+             348 CALL                 (3 positional)
+             356 POP_TOP
+
+654:         358 LOAD_FAST            (self)
+             360 LOAD_ATTR            (NULL|self + scanLessonsAndRunFilter)
+             380 CALL                 (0 positional)
+             388 POP_TOP
+
+656:         390 LOAD_GLOBAL          (NULL + WriteLog)
+
+657:         400 LOAD_CONST           ("[")
+             402 LOAD_FAST            (self)
+             404 LOAD_ATTR            (userName)
+             424 FORMAT_SIMPLE
+             426 LOAD_CONST           ("] 开始运行任务，总数：")
+             428 LOAD_GLOBAL          (NULL + len)
+             438 LOAD_FAST            (self)
+             440 LOAD_ATTR            (lessons)
+             460 CALL                 (1 positional)
+             468 FORMAT_SIMPLE
+             470 LOAD_CONST           ("个")
+             472 BUILD_STRING         5
+             474 LOAD_CONST           ("info")
+             476 LOAD_CONST           (True)
+
+656:         478 CALL                 (3 positional)
+             486 POP_TOP
+
+658:         488 LOAD_FAST            (self)
+             490 LOAD_ATTR            (NULL|self + updateProgressAndOutputTime)
+             510 LOAD_FAST            (self)
+             512 LOAD_ATTR            (lessons)
+             532 LOAD_CONST           (0)
+             534 BINARY_SUBSCR
+             538 CALL                 (1 positional)
+             546 POP_TOP
+
+659:         548 LOAD_FAST            (self)
+             550 LOAD_ATTR            (NULL|self + writeLessonDetails2Log)
+             570 CALL                 (0 positional)
+             578 POP_TOP
+
+661:         580 LOAD_FAST            (self)
+             582 LOAD_ATTR            (lessons)
+             602 GET_ITER
+             604 FOR_ITER             (to 648)
+             608 STORE_FAST           (lesson)
+
+662:         610 LOAD_FAST            (self)
+             612 LOAD_ATTR            (NULL|self + runLession)
+             632 LOAD_FAST            (lesson)
+             634 CALL                 (1 positional)
+             642 POP_TOP
+             644 JUMP_BACKWARD        (to 604)
+
+661:     >>  648 END_FOR
+             650 POP_TOP
+
+663:         652 LOAD_GLOBAL          (NULL + WriteLog)
+             662 LOAD_CONST           ("[")
+             664 LOAD_FAST            (self)
+             666 LOAD_ATTR            (userName)
+             686 FORMAT_SIMPLE
+             688 LOAD_CONST           ("] 任务已全部完成。")
+             690 BUILD_STRING         3
+         >>  692 LOAD_CONST           ("info")
+             694 LOAD_CONST           (True)
+             696 CALL                 (3 positional)
+             704 POP_TOP
+             706 RETURN_CONST         (None)
+             708 PUSH_EXC_INFO
+
+665:         710 LOAD_GLOBAL          (Exception)
+             720 CHECK_EXC_MATCH
+             722 POP_JUMP_IF_FALSE    (to 806)
+             726 STORE_FAST           (err)
+
+666:         728 LOAD_GLOBAL          (NULL + WriteLog)
+             738 LOAD_CONST           ("[")
+             740 LOAD_FAST            (self)
+             742 LOAD_ATTR            (userName)
+             762 FORMAT_SIMPLE
+             764 LOAD_CONST           ("] 任务线程异常退出。")
+             766 LOAD_FAST            (err)
+             768 FORMAT_SIMPLE
+             770 BUILD_STRING         4
+             772 LOAD_CONST           ("error")
+             774 LOAD_CONST           (True)
+             776 CALL                 (3 positional)
+             784 POP_TOP
+
+667:         786 LOAD_GLOBAL          (SystemExit)
+             796 RAISE_VARARGS        (exception instance)
+             798 LOAD_CONST           (None)
+             800 STORE_FAST           (err)
+             802 DELETE_FAST          (err)
+             804 RERAISE              1
+
+665:     >>  806 RERAISE              0
+             808 COPY                 3
+             810 POP_EXCEPT
+             812 RERAISE              1
+
+ExceptionTable:
+  4 to 704 -> 708 [0]
+  708 to 726 -> 808 [1] lasti
+  728 to 796 -> 798 [1] lasti
+  798 to 806 -> 808 [1] lasti
+
+# Method Name:       generateUuid
+# Filename:          Ewt.py
+# Argument count:    1
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  1
+# Stack size:        6
+# Flags:             0x00000013 (NESTED | NEWLOCALS | OPTIMIZED)
+# First Line:        360
+# Constants:
+#    0: None
+#    1: ''
+#    2: 8
+#    3: '_'
+# Names:
+#    0: join
+#    1: random
+#    2: sample
+#    3: string
+#    4: ascii_letters
+#    5: digits
+# Varnames:
+#	index
+# Positional arguments:
+#	index
+
+360:           0 RESUME               0
+
+361:           2 LOAD_CONST           ("")
+               4 LOAD_ATTR            (NULL|self + join)
+              24 LOAD_GLOBAL          (random)
+              34 LOAD_ATTR            (sample)
+              54 PUSH_NULL
+              56 LOAD_GLOBAL          (string)
+              66 LOAD_ATTR            (ascii_letters)
+              86 LOAD_GLOBAL          (string)
+              96 LOAD_ATTR            (digits)
+             116 BINARY_OP            (+)
+             120 LOAD_CONST           (8)
+             122 CALL                 (2 positional)
+             130 CALL                 (1 positional)
+             138 LOAD_CONST           ("_")
+             140 LOAD_FAST            (index)
+             142 FORMAT_SIMPLE
+             144 BUILD_STRING         2
+             146 BINARY_OP            (+)
+             150 RETURN_VALUE
+
+
+# Method Name:       generateSignature
+# Filename:          Ewt.py
+# Argument count:    5
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  6
+# Stack size:        9
+# Flags:             0x00000013 (NESTED | NEWLOCALS | OPTIMIZED)
+# First Line:        364
+# Constants:
+#    0: None
+#    1: 'action='
+#    2: '&duration='
+#    3: '&mstid='
+#    4: '&signatureMethod=HMAC-SHA1&signatureVersion=1.0&timestamp='
+#    5: '&version=2022-08-02'
+#    6: 'utf-8'
+#    7: ('encoding',)
+# Names:
+#    0: hmac
+#    1: new
+#    2: bytes
+#    3: encode
+#    4: hashlib
+#    5: sha1
+#    6: hexdigest
+# Varnames:
+#	secret, action, duration, report_time, token, signature_str
+# Positional arguments:
+#	secret, action, duration, report_time, token
+# Local variables:
+#    5: signature_str
+
+364:           0 RESUME               0
+
+365:           2 LOAD_CONST           ("action=")
+               4 LOAD_FAST            (action)
+               6 FORMAT_SIMPLE
+               8 LOAD_CONST           ("&duration=")
+              10 LOAD_FAST            (duration)
+              12 FORMAT_SIMPLE
+              14 LOAD_CONST           ("&mstid=")
+              16 LOAD_FAST            (token)
+              18 FORMAT_SIMPLE
+
+366:          20 LOAD_CONST           ("&signatureMethod=HMAC-SHA1&signatureVersion=1.0&timestamp=")
+              22 LOAD_FAST            (report_time)
+              24 FORMAT_SIMPLE
+              26 LOAD_CONST           ("&version=2022-08-02")
+
+365:          28 BUILD_STRING         9
+              30 STORE_FAST           (signature_str)
+
+367:          32 LOAD_GLOBAL          (hmac)
+              42 LOAD_ATTR            (new)
+              62 PUSH_NULL
+              64 LOAD_GLOBAL          (NULL + bytes)
+              74 LOAD_FAST            (secret)
+              76 LOAD_CONST           ("utf-8")
+              78 LOAD_CONST           (('encoding',))
+              80 CALL_KW              2
+
+368:          82 LOAD_FAST            (signature_str)
+              84 LOAD_ATTR            (NULL|self + encode)
+             104 LOAD_CONST           ("utf-8")
+             106 CALL                 (1 positional)
+             114 LOAD_GLOBAL          (hashlib)
+             124 LOAD_ATTR            (sha1)
+
+367:         144 CALL                 (3 positional)
+
+368:         152 LOAD_ATTR            (NULL|self + hexdigest)
+             172 CALL                 (0 positional)
+
+367:         180 RETURN_VALUE
+
+
+# Method Name:       updateLocalData
+# Filename:          Ewt.py
+# Argument count:    2
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  3
+# Stack size:        7
+# Flags:             0x00000013 (NESTED | NEWLOCALS | OPTIMIZED)
+# First Line:        480
+# Constants:
+#    0: None
+#    1: 0
+#    2: 'contentId'
+#    3: 'parentContentId'
+#    4: 'day'
+#    5: 'ratio'
+#    6: 1
+#    7: 'contentType'
+#    8: 3
+#    9: 0.8
+#   10: 'duration'
+#   11: 5
+#   12: 60
+#   13: 2
+#   14: '['
+#   15: '] 总剩余时间: '
+#   16: ' Min'
+#   17: 'info'
+#   18: True
+# Names:
+#    0: remainingTime
+#    1: lessons
+#    2: speed
+#    3: round
+#    4: WriteLog
+#    5: userName
+# Varnames:
+#	ratio, cls, lesson
+# Positional arguments:
+#	ratio, cls
+# Local variables:
+#    2: lesson
+# Free variables:
+#    0: item
+#    1: self
+               0 COPY_FREE_VARS       2
+
+480:           2 RESUME               0
+
+481:           4 LOAD_CONST           (0)
+               6 LOAD_DEREF           (self)
+               8 STORE_ATTR           (remainingTime)
+
+483:          18 LOAD_DEREF           (self)
+              20 LOAD_ATTR            (lessons)
+              40 GET_ITER
+              42 FOR_ITER             (to 274)
+              46 STORE_FAST           (lesson)
+
+484:          48 LOAD_FAST            (lesson)
+              50 LOAD_CONST           ("contentId")
+              52 BINARY_SUBSCR
+              56 LOAD_DEREF           (item)
+              58 LOAD_CONST           ("contentId")
+              60 BINARY_SUBSCR
+              64 COMPARE_OP           (==)
+              68 POP_JUMP_IF_FALSE    (to 128)
+
+485:          72 LOAD_FAST            (lesson)
+              74 LOAD_CONST           ("parentContentId")
+              76 BINARY_SUBSCR
+              80 LOAD_DEREF           (item)
+              82 LOAD_CONST           ("parentContentId")
+              84 BINARY_SUBSCR
+              88 COMPARE_OP           (==)
+              92 POP_JUMP_IF_FALSE    (to 128)
+
+486:          96 LOAD_FAST            (lesson)
+              98 LOAD_CONST           ("day")
+             100 BINARY_SUBSCR
+             104 LOAD_DEREF           (item)
+             106 LOAD_CONST           ("day")
+             108 BINARY_SUBSCR
+             112 COMPARE_OP           (==)
+             116 POP_JUMP_IF_FALSE    (to 128)
+
+488:         120 LOAD_FAST_LOAD_FAST  (ratio, lesson)
+             122 LOAD_CONST           ("ratio")
+             124 STORE_SUBSCR
+
+490:     >>  128 LOAD_DEREF           (item)
+             130 LOAD_CONST           ("ratio")
+             132 BINARY_SUBSCR
+             136 LOAD_CONST           (1)
+             138 COMPARE_OP           (<)
+             142 POP_JUMP_IF_TRUE     (to 150)
+             146 JUMP_BACKWARD        (to 42)
+         >>  150 LOAD_DEREF           (item)
+             152 LOAD_CONST           ("contentType")
+             154 BINARY_SUBSCR
+             158 LOAD_CONST           (3)
+             160 COMPARE_OP           (!=)
+             164 POP_JUMP_IF_TRUE     (to 172)
+             168 JUMP_BACKWARD        (to 42)
+
+491:     >>  172 LOAD_DEREF           (self)
+             174 COPY                 1
+             176 LOAD_ATTR            (remainingTime)
+             196 LOAD_CONST           (0.8)
+             198 LOAD_DEREF           (item)
+             200 LOAD_CONST           ("ratio")
+             202 BINARY_SUBSCR
+             206 BINARY_OP            (-)
+
+492:         210 LOAD_DEREF           (item)
+             212 LOAD_CONST           ("duration")
+             214 BINARY_SUBSCR
+
+491:         218 BINARY_OP            (*)
+
+492:         222 LOAD_DEREF           (self)
+             224 LOAD_ATTR            (speed)
+
+491:         244 BINARY_OP            (/)
+
+492:         248 LOAD_CONST           (5)
+
+491:         250 BINARY_OP            (+)
+             254 BINARY_OP            (+=)
+         >>  258 SWAP                 (TOS <-> TOS1)
+             260 STORE_ATTR           (remainingTime)
+             270 JUMP_BACKWARD        (to 42)
+
+483:     >>  274 END_FOR
+             276 POP_TOP
+
+493:         278 LOAD_GLOBAL          (NULL + round)
+             288 LOAD_DEREF           (self)
+             290 LOAD_ATTR            (remainingTime)
+             310 LOAD_CONST           (60)
+             312 BINARY_OP            (/)
+             316 LOAD_CONST           (2)
+             318 CALL                 (2 positional)
+             326 LOAD_DEREF           (self)
+             328 STORE_ATTR           (remainingTime)
+
+494:         338 LOAD_GLOBAL          (NULL + WriteLog)
+
+495:         348 LOAD_CONST           ("[")
+             350 LOAD_DEREF           (self)
+             352 LOAD_ATTR            (userName)
+             372 FORMAT_SIMPLE
+             374 LOAD_CONST           ("] 总剩余时间: ")
+             376 LOAD_DEREF           (self)
+             378 LOAD_ATTR            (remainingTime)
+             398 FORMAT_SIMPLE
+             400 LOAD_CONST           (" Min")
+             402 BUILD_STRING         5
+             404 LOAD_CONST           ("info")
+             406 LOAD_CONST           (True)
+
+494:         408 CALL                 (3 positional)
+             416 POP_TOP
+             418 RETURN_CONST         (None)
+
+
+# Method Name:       getDisplayWidth
+# Filename:          Ewt.py
+# Argument count:    1
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  1
+# Stack size:        4
+# Flags:             0x00000013 (NESTED | NEWLOCALS | OPTIMIZED)
+# First Line:        511
+# Constants:
+#    0: None
+#    1: <Code311 code object <genexpr> at 0x1e43a1e2090, file Ewt.py>, line 512
+# Names:
+#    0: sum
+# Varnames:
+#	text
+# Positional arguments:
+#	text
+
+511:           0 RESUME               0
+
+512:           2 LOAD_GLOBAL          (NULL + sum)
+              12 LOAD_CONST           (<Code311 code object <genexpr> at 0x1e43a1e2090, file Ewt.py>, line 512)
+              14 MAKE_FUNCTION
+              16 LOAD_FAST            (text)
+              18 GET_ITER
+              20 CALL                 (0 positional)
+              28 CALL                 (1 positional)
+              36 RETURN_VALUE
+
+
+# Method Name:       padText
+# Filename:          Ewt.py
+# Argument count:    2
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  3
+# Stack size:        6
+# Flags:             0x00000013 (NESTED | NEWLOCALS | OPTIMIZED)
+# First Line:        514
+# Constants:
+#    0: None
+#    1: ' '
+#    2: 0
+# Names:
+#    0: max
+# Varnames:
+#	text, totalWidth, padding
+# Positional arguments:
+#	text, totalWidth
+# Local variables:
+#    2: padding
+# Free variables:
+#    0: getDisplayWidth
+               0 COPY_FREE_VARS       1
+
+514:           2 RESUME               0
+
+515:           4 LOAD_FAST            (totalWidth)
+               6 LOAD_DEREF           (getDisplayWidth)
+               8 PUSH_NULL
+              10 LOAD_FAST            (text)
+              12 CALL                 (1 positional)
+              20 BINARY_OP            (-)
+              24 STORE_FAST           (padding)
+
+516:          26 LOAD_FAST            (text)
+              28 LOAD_CONST           (" ")
+              30 LOAD_GLOBAL          (NULL + max)
+              40 LOAD_FAST            (padding)
+              42 LOAD_CONST           (0)
+              44 CALL                 (2 positional)
+              52 BINARY_OP            (*)
+              56 BINARY_OP            (+)
+              60 RETURN_VALUE
+
+
+# Method Name:       formatLessonDetails
+# Filename:          Ewt.py
+# Argument count:    5
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  9
+# Stack size:        7
+# Flags:             0x00000013 (NESTED | NEWLOCALS | OPTIMIZED)
+# First Line:        519
+# Constants:
+#    0: None
+#    1: 'dayShow'
+#    2: 'subjectName'
+#    3: 'title'
+#    4: 'ratio'
+#    5: 100
+#    6: 0.8
+#    7: 2
+#    8: '%'
+#    9: ' '
+# Names:
+#    0: round
+# Varnames:
+#	lesson, dayShowWidth, subjectNameWidth, titleWidth, ratioWidth, dayShow, subjectName, title, ratio
+# Positional arguments:
+#	lesson, dayShowWidth, subjectNameWidth, titleWidth, ratioWidth
+# Local variables:
+#    5: dayShow
+#    6: subjectName
+#    7: title
+#    8: ratio
+# Free variables:
+#    0: padText
+               0 COPY_FREE_VARS       1
+
+519:           2 RESUME               0
+
+521:           4 LOAD_DEREF           (padText)
+               6 PUSH_NULL
+               8 LOAD_FAST            (lesson)
+              10 LOAD_CONST           ("dayShow")
+              12 BINARY_SUBSCR
+              16 LOAD_FAST            (dayShowWidth)
+              18 CALL                 (2 positional)
+              26 STORE_FAST           (dayShow)
+
+522:          28 LOAD_DEREF           (padText)
+              30 PUSH_NULL
+              32 LOAD_FAST            (lesson)
+              34 LOAD_CONST           ("subjectName")
+              36 BINARY_SUBSCR
+              40 LOAD_FAST            (subjectNameWidth)
+              42 CALL                 (2 positional)
+              50 STORE_FAST           (subjectName)
+
+523:          52 LOAD_DEREF           (padText)
+              54 PUSH_NULL
+              56 LOAD_FAST            (lesson)
+              58 LOAD_CONST           ("title")
+              60 BINARY_SUBSCR
+              64 LOAD_FAST            (titleWidth)
+              66 CALL                 (2 positional)
+              74 STORE_FAST           (title)
+
+524:          76 LOAD_DEREF           (padText)
+              78 PUSH_NULL
+
+525:          80 LOAD_GLOBAL          (NULL + round)
+              90 LOAD_FAST            (lesson)
+              92 LOAD_CONST           ("ratio")
+              94 BINARY_SUBSCR
+              98 LOAD_CONST           (100)
+             100 BINARY_OP            (*)
+             104 LOAD_CONST           (0.8)
+             106 BINARY_OP            (/)
+             110 LOAD_CONST           (2)
+             112 CALL                 (2 positional)
+             120 FORMAT_SIMPLE
+             122 LOAD_CONST           ("%")
+             124 BUILD_STRING         2
+             126 LOAD_FAST            (ratioWidth)
+
+524:         128 CALL                 (2 positional)
+             136 STORE_FAST           (ratio)
+
+526:         138 LOAD_FAST            (dayShow)
+             140 FORMAT_SIMPLE
+             142 LOAD_CONST           (" ")
+             144 LOAD_FAST            (subjectName)
+             146 FORMAT_SIMPLE
+             148 LOAD_CONST           (" ")
+             150 LOAD_FAST            (title)
+             152 FORMAT_SIMPLE
+             154 LOAD_CONST           (" ")
+             156 LOAD_FAST            (ratio)
+             158 FORMAT_SIMPLE
+             160 BUILD_STRING         7
+             162 RETURN_VALUE
+
+
+# Method Name:       <genexpr>
+# Filename:          Ewt.py
+# Argument count:    1
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  2
+# Stack size:        4
+# Flags:             0x00000033 (GENERATOR | NESTED | NEWLOCALS | OPTIMIZED)
+# First Line:        512
+# Constants:
+#    0: ('F', 'W')
+#    1: 2
+#    2: 1
+#    3: None
+# Names:
+#    0: unicodedata
+#    1: east_asian_width
+# Varnames:
+#	.0, char
+# Positional arguments:
+#	.0
+# Local variables:
+#    1: char
+
+512:           0 RETURN_GENERATOR
+               2 POP_TOP
+               4 RESUME               0
+               6 LOAD_FAST            (.0)
+               8 GET_ITER
+              10 FOR_ITER             (to 84)
+              14 STORE_FAST           (char)
+              16 LOAD_GLOBAL          (unicodedata)
+              26 LOAD_ATTR            (east_asian_width)
+              46 PUSH_NULL
+              48 LOAD_FAST            (char)
+              50 CALL                 (1 positional)
+              58 LOAD_CONST           (('F', 'W'))
+              60 CONTAINS_OP          (in)
+              64 POP_JUMP_IF_FALSE    (to 72)
+              68 LOAD_CONST           (2)
+              70 JUMP_FORWARD         (to 74)
+         >>   72 LOAD_CONST           (1)
+         >>   74 YIELD_VALUE          0
+              76 RESUME               5
+              78 POP_TOP
+              80 JUMP_BACKWARD        (to 10)
+         >>   84 END_FOR
+              86 POP_TOP
+              88 RETURN_CONST         (None)
+              90 CALL_INTRINSIC_1     (INTRINSIC_STOPITERATION_ERROR)
+              92 RERAISE              1
+
+ExceptionTable:
+  4 to 88 -> 90 [0] lasti
