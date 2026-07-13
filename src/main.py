@@ -22,9 +22,9 @@ logger = LoggerManager()
 
 
 class AESCipher:
-    def __init__(self, encryptionKey: bytes, initializationVector: bytes):
-        self.encryption_key = encryptionKey
-        self.initialization_vector = initializationVector
+    def __init__(self, encryption_key: bytes, initialization_vector: bytes):
+        self.encryption_key = encryption_key
+        self.initialization_vector = initialization_vector
 
     def pad_text(self, text_bytes: bytes):
         """PKCS#7 填充"""
@@ -32,12 +32,12 @@ class AESCipher:
         return text_bytes + bytes([padLength] * padLength)
 
     def encrypt_text(self, plain_text: str):
-        textBytes = plain_text.encode('utf-8')
-        paddedText = self.pad_text(textBytes)
+        text_bytes = plain_text.encode('utf-8')
+        padded_text = self.pad_text(text_bytes)
         aes = pyaes.AESModeOfOperationCBC(
             key=self.encryption_key, iv=self.initialization_vector)
-        cipherText = aes.encrypt(paddedText)
-        return binascii.b2a_hex(cipherText).decode('utf-8').upper()
+        cipher_text = aes.encrypt(padded_text)
+        return binascii.b2a_hex(cipher_text).decode('utf-8').upper()
 
 
 class Account:
@@ -220,21 +220,21 @@ class Account:
             logger.error(e_msg)
             raise Exception(e_msg)
 
-    def get_day_list(self, homeworkId: int, sceneId: int):
+    def get_day_list(self, homework_id: int, scene_id: int):
         """获取天数表"""
         try:
             res = requests.post(
                 url=(
                     'https://gateway.ewt360.com/api/homeworkprod/homework/student/holiday/'
-                    f'getHomeworkDistribution?sceneId={sceneId}'
+                    f'getHomeworkDistribution?sceneId={scene_id}'
                 ),
                 data=json.dumps({
-                    'homeworkIds': [homeworkId],
+                    'homeworkIds': [homework_id],
                     'type': 2,
                     'isSelfTask': 'false',
                     'userOptionTaskId': 'null',
                     'schoolId': self.school_id,
-                    'sceneId': sceneId
+                    'sceneId': scene_id
                 }),
                 headers=self.common_header_json
             )
@@ -252,26 +252,26 @@ class Account:
             logger.error(e_msg)
             raise Exception(e_msg)
 
-    def get_homework_list(self, homeworkId: int, day: list, sceneId: int):
+    def get_homework_list(self, homework_id: int, day: list, scene_id: int):
         """获取作业列表"""
         try:
             res = requests.post(
                 url=(
                     'https://gateway.ewt360.com/api/homeworkprod/homework/student/holiday/'
-                    f'pageHomeworkTasks?sceneId={sceneId}'
+                    f'pageHomeworkTasks?sceneId={scene_id}'
                 ),
                 data=json.dumps({
-                    'dayId': day['dayId'][0],
+                    'dayId': day['dayId'],
                     'day': day['day'][0],
                     'status': 0,
-                    'homeworkIds': [homeworkId],
+                    'homeworkIds': [homework_id],
                     'isSelfTask': 'false',
                     'userOptionTaskId': 'null',
                     'pageIndex': 1,
                     'pageSize': 30,
                     'missionType': 0,
                     'schoolId': self.school_id,
-                    'sceneId': sceneId
+                    'sceneId': scene_id
                 }),
                 headers=self.common_header_json
             )
@@ -476,8 +476,8 @@ class Account:
             """获取显示宽度"""
             return sum(2 if unicodedata.east_asian_width(char) in ('F', 'W') else 1 for char in text)
 
-        def pad_text(text, totalWidth):
-            padding = totalWidth - get_display_width(text)
+        def pad_text(text, total_width):
+            padding = total_width - get_display_width(text)
             return text + ' ' * max(padding, 0)
 
         def format_lesson_details(lesson, day_show_width: int = 15, subject_name_width: int = 15, title_width: int = 50, ratio_width: int = 10):
